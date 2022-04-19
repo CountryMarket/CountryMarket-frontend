@@ -2,10 +2,5 @@
   "component": true,
   "usingComponents": {
     "searchbar": "../../components/parts/searchBar/searchBar"
-  },
-  "windows": {
-    "enablePullDownRefresh": "true",
-    "backgroundColor": "#efefef",
-    "backgroundTextStyle": "dark"
   }
 }

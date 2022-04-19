@@ -5,11 +5,16 @@
     "components/parts/searchBar/searchBar"
   ],
   "window": {
-    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "乡村产品出售平台",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#efefef",
+    "backgroundTextStyle": "dark"
   },
+  
+    
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
