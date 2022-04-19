@@ -1,0 +1,33 @@
+/* components/searchBar.wxss */
+.searchbar {
+  height: 60rpx;
+  padding: 20rpx 30rpx;
+  display: flex;
+}
+.content {
+  height: 60rpx;
+  padding: 0 18rpx;
+  background: rgba(255,255,255,1);
+  border-radius: 16rpx;
+  border: 2rpx solid rgba(220,222,226,1);
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.search-icon {
+  width: 34rpx;
+  height: 34rpx;
+  margin-bottom: 20rpx;
+}
+.input-box {
+  flex: 1;
+  margin: 0 20rpx;
+  text-align: left;
+}
+.cancel-btn {
+  margin-left: 24rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 32rpx;
+  color: rgb(21, 95, 212);
+}

@@ -1,15 +1,20 @@
 /**index.wxss**/  
 .swiper-tab {  
   width: 100%;  
-  border-top: 2rpx solid #777777;  
+  border-top: 2rpx solid #363636;  
   text-align: center;  
-  line-height: 80rpx;
 }  
 .swiper-tab-list {  
-  font-size: 30rpx;  
   display: inline-block;  
   width: 25%;  
-  color: #777777;  
+  color: #363636;  
+}  
+.swiper-tab-list .tab-text {  
+  font-size: 22rpx;   
+  margin-top: -7rpx;
+}  
+.swiper-tab-list fa {  
+  font-size: 1.5em;  
 }  
 .on { 
   color: #0037cf;  

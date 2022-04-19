@@ -49,7 +49,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.19.4",
   "appid": "wx232066661d9d3e7c",
-  "projectname": "test",
+  "projectname": "CountryMarket",
   "debugOptions": {
     "hidedInDevtools": []
   },

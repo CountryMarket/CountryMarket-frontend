@@ -1,11 +1,13 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/home/home",
+    "components/parts/searchBar/searchBar"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "乡村招聘",
+    "navigationBarTitleText": "乡村产品出售平台",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",

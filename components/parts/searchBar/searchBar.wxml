@@ -1,0 +1,16 @@
+<!--components/searchBar.wxml-->
+<view class="searchbar">
+  <view class="content">
+    <fa icon="fa fa-search text-secondary" class="search-icon" aria-hidden="true"></fa>
+    <input 
+      bindinput="handleInput"
+      bindconfirm="handleConfirm"
+      type="text"
+      value="{{inputValue}}" 
+      placeholder="{{placeholder}}" 
+      class="input-box"
+      confirm-type="search"
+    ></input>
+  </view>
+  <view wx:if="{{inputValue}}" bindtap="handleTextbtnClick" class="cancel-btn">取消</view>
+</view>

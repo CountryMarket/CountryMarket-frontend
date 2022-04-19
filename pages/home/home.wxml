@@ -1,0 +1,4 @@
+<!--pages/home/home.wxml-->
+<view>
+  <searchbar placeholder="查找你想要的商品" bind:handleSearch="handleSearch"></searchbar>
+</view>
