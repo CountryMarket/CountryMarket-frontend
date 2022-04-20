@@ -1,3 +1,4 @@
+<!-- FontAwesome, 使用组件导入 -->
 <i class="{{icon}}">
   <slot></slot>
 </i>

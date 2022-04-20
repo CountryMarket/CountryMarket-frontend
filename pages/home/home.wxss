@@ -1,1 +1,23 @@
 /* pages/home/home.wxss */
+.swiper-container {
+  height: 140px;
+}
+.swiper-container .item {
+  height: 100%;
+  background-color: rgb(33, 119, 248);
+}
+
+.items-container {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+}
+
+.items-container .item {
+  box-sizing: border-box;
+  background-color: white;
+  flex: 0 0 50%;
+  height: 250px;
+  border: 1px solid red;
+}

@@ -1,0 +1,15 @@
+<!--components/parts/categoryList/categoryList.wxml-->
+<view class="categorylist-container">
+  <view class="item">
+    特产
+  </view>
+  <view class="item">
+    水果
+  </view>
+  <view class="item">
+    蔬菜
+  </view>
+  <view class="item">
+    农牧
+  </view>
+</view>

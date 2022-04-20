@@ -1,0 +1,9 @@
+/* components/parts/categoryList/categoryList.wxss */
+.categorylist-container {
+  display: flex;
+  width: 100%;
+}
+.categorylist-container .item {
+  font-size: 30px;
+  flex: 1;
+}

@@ -1,7 +1,9 @@
 <!--components/searchBar.wxml-->
 <view class="searchbar">
   <view class="content">
+    <!-- 搜索图标 -->
     <fa icon="fa fa-search text-secondary" class="search-icon" aria-hidden="true"></fa>
+    <!-- 输入框 -->
     <input 
       bindinput="handleInput"
       bindconfirm="handleConfirm"
@@ -12,5 +14,6 @@
       confirm-type="search"
     ></input>
   </view>
+  <!-- 取消键 -->
   <view wx:if="{{inputValue}}" bindtap="handleTextbtnClick" class="cancel-btn">取消</view>
 </view>

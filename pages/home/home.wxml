@@ -1,4 +1,39 @@
 <!--pages/home/home.wxml-->
 <view>
+  <!-- 顶部搜索框 -->
   <searchbar placeholder="查找你想要的商品" bind:handleSearch="handleSearch"></searchbar>
+  
+  <!-- 滑动框 -->
+  <scroll-view scroll-y="true" style="height:{{ winHeight - 100 }}px" enhanced="true" show-scrollbar="false" fast-deceleration="true">
+
+    <!-- 滑动广告栏 -->
+    <swiper class="swiper-container" indicator-dots autoplay="true" interval="4000">
+      <swiper-item>
+        <view class="item">A</view>
+      </swiper-item>
+      <swiper-item>
+        <view class="item">B</view>
+      </swiper-item>
+      <swiper-item>
+        <view class="item">C</view>
+      </swiper-item>
+    </swiper>
+
+    <!-- 分类栏 -->
+    <categoryList></categoryList>
+
+    <!-- 商品栏 -->
+    <view class="items-container">
+      <view class="item">1</view>
+      <view class="item">2</view>
+      <view class="item">3</view>
+      <view class="item">4</view>
+      <view class="item">5</view>
+      <view class="item">6</view>
+      <view class="item">7</view>
+      <view class="item">8</view>
+      <view class="item">9</view>
+    </view>
+
+  </scroll-view>
 </view>

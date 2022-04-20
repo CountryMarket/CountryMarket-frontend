@@ -29,3 +29,7 @@
 .swiper-box view {  
   text-align: center;  
 }  
+
+home {
+  height: 100%;
+}

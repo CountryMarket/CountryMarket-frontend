@@ -1,5 +1,4 @@
 // index.js
-// 获取应用实例
 const app = getApp();
 
 Page({
@@ -10,7 +9,7 @@ Page({
   },
   
   onLoad() {
-    // swich tab
+    // Tab 初始化
     let that = this;  
     wx.getSystemInfo( {  
       success: res => {  
@@ -22,17 +21,17 @@ Page({
     });  
   },
 
-  // swich tab
+  // Tab 事件
   bindChange(e) {  
     let that = this;  
     that.setData({ currentTab: e.detail.current });  
   },  
-  swichNav(e) {  
+  switchNav(e) {  
     let that = this;  
-    if(this.data.currentTab === e.target.dataset.current) {  
+    if(this.data.currentTab === e.currentTarget.dataset.current) {  
       return false;  
     } else {  
-      that.setData({ currentTab: e.target.dataset.current });
+      that.setData({ currentTab: e.currentTarget.dataset.current });
     }  
   }  
 })
