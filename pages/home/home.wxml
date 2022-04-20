@@ -1,7 +1,7 @@
 <!--pages/home/home.wxml-->
 <view>
   <!-- 顶部搜索框 -->
-  <searchbar placeholder="查找你想要的商品" bind:handleSearch="handleSearch"></searchbar>
+  <search-bar placeholder="查找你想要的商品" bind:handleSearch="handleSearch"></search-bar>
   
   <!-- 滑动框 -->
   <scroll-view scroll-y="true" style="height:{{ winHeight - 100 }}px" enhanced="true" show-scrollbar="false" fast-deceleration="true">
@@ -20,7 +20,7 @@
     </swiper>
 
     <!-- 分类栏 -->
-    <categoryList></categoryList>
+    <category-list></category-list>
 
     <!-- 商品栏 -->
     <view class="items-container">

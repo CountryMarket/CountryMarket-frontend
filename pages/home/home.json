@@ -1,7 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "searchbar": "../../components/parts/searchBar/searchBar",
-    "categoryList": "../../components/parts/categoryList/categoryList"
+    "search-bar": "../../components/parts/searchBar/searchBar",
+    "category-list": "../../components/parts/categoryList/categoryList"
   }
 }
