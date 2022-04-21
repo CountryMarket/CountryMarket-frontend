@@ -17,8 +17,8 @@
   font-size: 1.5em;  
 }  
 .on { 
-  color: #0037cf;  
-  border-top: 5rpx solid #0037cf;
+  color: #007e4e;  
+  border-top: 5rpx solid #007e4e;
 }  
 .swiper-box { 
   display: block; 

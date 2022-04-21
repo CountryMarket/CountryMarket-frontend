@@ -2,5 +2,6 @@
   "usingComponents": {
     "home": "../home/home",
     "fa": "../../components/includes/fa/index"
-  }
+  },
+  "enablePullDownRefresh": true
 }

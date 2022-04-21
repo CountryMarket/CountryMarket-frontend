@@ -7,6 +7,10 @@ Page({
     winHeight: 0,
     currentTab: 0,
   },
+
+  onPullDownRefresh() {
+    wx.stopPullDownRefresh();
+  },
   
   onLoad() {
     // Tab 初始化

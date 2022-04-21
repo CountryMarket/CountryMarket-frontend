@@ -3,6 +3,7 @@
   height: 60rpx;
   padding: 20rpx 30rpx;
   display: flex;
+  background: #007e4e;
 }
 .content {
   height: 60rpx;
@@ -29,5 +30,5 @@
   height: 60rpx;
   line-height: 60rpx;
   font-size: 32rpx;
-  color: rgb(21, 95, 212);
+  color: #fff;
 }

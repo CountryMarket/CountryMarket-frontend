@@ -1,13 +1,18 @@
 <!--pages/home/home.wxml-->
-<view>
+<view class="home">
   <!-- 顶部搜索框 -->
   <search-bar placeholder="查找你想要的商品" bind:handleSearch="handleSearch"></search-bar>
   
   <!-- 滑动框 -->
-  <scroll-view scroll-y="true" style="height:{{ winHeight - 100 }}px" enhanced="true" show-scrollbar="false" fast-deceleration="true">
+  <scroll-view scroll-y="true" 
+               style="height:{{ winHeight - 93 }}px" 
+               enhanced="true" 
+               show-scrollbar="false" 
+               fast-deceleration="true"
+               refresher-enabled="true" >
 
     <!-- 滑动广告栏 -->
-    <swiper class="swiper-container" indicator-dots autoplay="true" interval="4000">
+    <swiper class="swiper-container" indicator-dots autoplay="true" interval="4000" circular="true">
       <swiper-item>
         <view class="item">A</view>
       </swiper-item>

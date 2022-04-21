@@ -1,10 +1,14 @@
 /* pages/home/home.wxss */
+.home {
+  background-color: #f5f5f5;
+}
+
 .swiper-container {
   height: 140px;
 }
 .swiper-container .item {
   height: 100%;
-  background-color: rgb(33, 119, 248);
+  background-color: #c2c2c2;
 }
 
 .items-container {
@@ -16,8 +20,7 @@
 
 .items-container .item {
   box-sizing: border-box;
-  background-color: white;
   flex: 0 0 50%;
   height: 250px;
-  border: 1px solid red;
+  border: 1px solid #007e4e;
 }
