@@ -8,6 +8,7 @@
   display: inline-block;  
   width: 25%;  
   color: #363636;  
+  height: 50px;
 }  
 .swiper-tab-list .tab-text {  
   font-size: 22rpx;   

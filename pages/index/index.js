@@ -21,6 +21,7 @@ Page({
           winWidth: res.windowWidth,  
           winHeight: res.windowHeight  
         });  
+        // console.log(res.windowHeight)
       }  
     });  
   },

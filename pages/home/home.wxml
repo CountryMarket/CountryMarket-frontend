@@ -5,7 +5,7 @@
   
   <!-- 滑动框 -->
   <scroll-view scroll-y="true" 
-               style="height:{{ winHeight - 93 }}px" 
+               style="height:{{ winHeight - 90 }}px" 
                enhanced="true" 
                show-scrollbar="false" 
                fast-deceleration="true"
@@ -29,15 +29,13 @@
 
     <!-- 商品栏 -->
     <view class="items-container">
-      <view class="item">1</view>
-      <view class="item">2</view>
-      <view class="item">3</view>
-      <view class="item">4</view>
-      <view class="item">5</view>
-      <view class="item">6</view>
-      <view class="item">7</view>
-      <view class="item">8</view>
-      <view class="item">9</view>
+      <view wx:for="{{ [0, 1, 2, 3, 4, 5, 6] }}" class="item-wrapper">
+      <view class="item">
+        <view class="content">
+          <image src="https://blog.lyffly.com/static/images/avatar.jpg" />
+        </view>
+      </view>
+      </view>
     </view>
 
   </scroll-view>

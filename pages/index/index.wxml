@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <!-- 主页面 -->
-<swiper current="{{ currentTab }}" class="swiper-box" duration="300" style="height:{{ winHeight - 52 }}px" bindchange="bindChange">  
+<swiper current="{{ currentTab }}" class="swiper-box" duration="300" style="height:{{ winHeight - 50 }}px" bindchange="bindChange">  
   <swiper-item>
     <!-- 首页, home 组件 -->
     <home winHeight="{{ winHeight }}"></home>
