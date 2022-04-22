@@ -11,35 +11,67 @@
   background-color: #c2c2c2;
 }
 
-.items-container {
-  /*margin: 0 0 0 5px;
-  display: flex;
-  flex-flow: row wrap;
-  align-content: flex-start;*/
-  margin: 5px 0 5px 5px;
+.box-container {
+  margin: 5px 0 10px 5px;
 }
 
-.items-container .item-wrapper {
-  /*box-sizing: border-box;
-  flex: 0 0 50%;*/
+.box-container .box-left {
   display: inline-block;
-  width: 50%;
-  height: 500rpx;
+  width: 48%;
+  margin: 5rpx 10rpx 5rpx 5rpx;
+  vertical-align: top;
 }
 
-.items-container .item-wrapper .item {
+.box-container .box-right {
+  display: inline-block;
+  width: 48%;
+  margin: 5rpx 5rpx 5rpx 0;
+  vertical-align: top;
+}
+
+.box-container .item-container {
   background-color: white;
-  height: 98%;
-  width: 97%;
+  margin-bottom: 5px;
   border-radius: 5px;
 }
 
-.items-container .item-wrapper .item .content {
+.box-container .item-container .item {
   padding: 5px 5px 5px 5px;
 }
 
-.items-container .item-wrapper .item image {
+.box-container image {
   width: 335rpx;
-  height: 350rpx;
   border-radius: 3px;
+}
+
+.box-container .title {
+  text-align: left;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.box-container .description {
+  text-align: left;
+  font-size: 10px;
+  color: #6c757d;
+  margin-top: 3px;
+}
+
+.box-container .price-container {
+  text-align: left;
+  margin-top: 5px;
+  color: #f32b2f;
+}
+.box-container .price-icon {
+  display: inline-block;
+  font-size: 12px;
+}
+.box-container .price {
+  display: inline-block;
+  font-size: 17px;
+}
+.box-container .price-per {
+  display: inline-block;
+  font-size: 12px;
+  color: #6c757d;
 }
