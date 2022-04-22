@@ -1,0 +1,61 @@
+<!--pages/my/my.wxml-->
+<view class="my">
+  <!-- 顶部背景 -->
+  <view class="topback"></view>
+  <view class="container">
+    <!-- 头像栏 -->
+    <view class="header">
+      <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>
+      <view class="username">FlyInTheSky</view>
+    </view>
+    <!-- 第一框 -->
+    <view class="first-block">
+      <view class="item">
+        <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>
+        <view class="item-text">全部订单</view>
+      </view>
+      <view class="item">
+        <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>
+        <view class="item-text">待支付</view>
+      </view>
+      <view class="item">
+        <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>
+        <view class="item-text">待收货</view>
+      </view>
+      <view class="item">
+        <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>
+        <view class="item-text">待评价</view>
+      </view>
+      <view class="item">
+        <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>
+        <view class="item-text">售后/退款</view>
+      </view>
+    </view>
+    <!-- 第二框 -->
+    <view class="second-block">
+      <view class="item" wx:for="{{ [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] }}">
+        <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>
+        <view class="item-text">{{ item }}</view>
+      </view>
+    </view>
+    <!-- 第三框: 店家后台管理 -->
+    <view class="third-block" wx:if="{{ !shopAdmin }}">
+      <view class="item">
+        <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>
+        <view class="item-text">信息管理</view>
+      </view>
+      <view class="item">
+        <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>
+        <view class="item-text">商品管理</view>
+      </view>
+      <view class="item">
+        <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>
+        <view class="item-text">订单管理</view>
+      </view>
+      <view class="item">
+        <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>
+        <view class="item-text">统计</view>
+      </view>
+    </view>
+  </view>
+</view>

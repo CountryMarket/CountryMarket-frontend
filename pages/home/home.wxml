@@ -29,13 +29,6 @@
 
     <!-- 商品栏 -->
     <view class="box-container">
-      <!--<view wx:for="{{ [0, 1, 2, 3, 4, 5, 6] }}" class="item-wrapper">
-      <view class="item">
-        <view class="content">
-          <image src="https://blog.lyffly.com/static/images/avatar.jpg" />
-        </view>
-      </view>
-      </view>-->
       <view class="box-left">
         <view wx:for="{{ [0, 2, 4, 6] }}" class="item-container">
           <view class="item">

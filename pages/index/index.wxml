@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <!-- 主页面 -->
-<swiper current="{{ currentTab }}" class="swiper-box" duration="300" style="height:{{ winHeight - 50 }}px" bindchange="bindChange">  
+<swiper current="{{ currentTab }}" class="swiper-box" duration="300" style="height:{{ winHeight - 51 }}px" bindchange="bindChange">  
   <swiper-item>
     <!-- 首页, home 组件 -->
     <home winHeight="{{ winHeight }}"></home>
@@ -12,7 +12,8 @@
     <view>购物车</view>  
   </swiper-item>  
   <swiper-item>
-    <view>我的</view>  
+    <!-- 我的, my 组件 -->
+    <my winHeight="{{ winHeight }}"></my>
   </swiper-item>  
 </swiper>  
 <!-- 下部分滑块 -->
