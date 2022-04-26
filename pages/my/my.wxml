@@ -4,9 +4,9 @@
   <view class="topback"></view>
   <view class="container">
     <!-- 头像栏 -->
-    <view class="header">
-      <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>
-      <view class="username">FlyInTheSky</view>
+    <view class="header" bindtap="userLogin">
+      <image src="{{ avatarUrl }}"></image>
+      <view class="username">{{ nickName }}</view>
     </view>
     <!-- 第一框 -->
     <view class="first-block">
