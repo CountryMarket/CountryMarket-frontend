@@ -3,7 +3,7 @@
 <swiper current="{{ currentTab }}" class="swiper-box" duration="300" style="height:{{ winHeight - 51 }}px" bindchange="bindChange">  
   <swiper-item>
     <!-- 首页, home 组件 -->
-    <home winHeight="{{ winHeight }}"></home>
+    <home id="home" winHeight="{{ winHeight }}" bind:registerTabCallback="registerTabCallback"></home>
   </swiper-item>  
   <swiper-item>
     <view>商品</view>  
@@ -13,7 +13,7 @@
   </swiper-item>  
   <swiper-item>
     <!-- 我的, my 组件 -->
-    <my winHeight="{{ winHeight }}"></my>
+    <my id="my" winHeight="{{ winHeight }}" bind:registerTabCallback="registerTabCallback"></my>
   </swiper-item>  
 </swiper>  
 <!-- 下部分滑块 -->
