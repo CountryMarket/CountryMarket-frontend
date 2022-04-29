@@ -1,6 +1,6 @@
 // pages/my/my.js
 import { wxLogin } from "../../utils/wxLogin"
-import { wxRequest, isTokenEmpty, validateToken } from "../../utils/wxRequest"
+import { wxRequest, isTokenEmpty, validateToken, showTokenInvalidModal } from "../../utils/wxRequest"
 
 Component({
   /**
@@ -48,14 +48,12 @@ Component({
         this.refresh();
       } else { // 非第一次进入，判断 token 是否发生变化
         const { globalData } = getApp();
-        validateToken().then(() => {
+        validateToken().then(() => { // 检验 Token 合法性, 仅 my 页
           if (globalData.token != this.data.localToken) {
+            showTokenInvalidModal();
             this.refresh();
           }
-        }); // 检验 Token 合法性, 仅 my 页
-        if (globalData.token != this.data.localToken) {
-          this.refresh();
-        }
+        }); 
       }
     },
     userLogin: async function() { // 用户登录，此处 global token 会改变
@@ -112,6 +110,8 @@ Component({
           }
           globalData.token = res.data.data.token;
           wx.setStorageSync("token", globalData.token); // 两处 token 一起修改
+          this.data.localToken = globalData.token; // 本地同步
+
           wx.setStorageSync("nickName", nickNameTmp);
           wx.setStorageSync("avatarUrl", avatarUrlTmp);
 

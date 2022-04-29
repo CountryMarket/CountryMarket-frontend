@@ -103,8 +103,8 @@ refresh: function() {
 
 ### 自动验证 token
 
-使用 wxRequest 时自带的验证，会弹窗修改 token
+使用 wxRequest 时自带的验证，**如果 token 失效则静默修改 token**
 
 ### 手动验证 token
 
-使用 `validateToken()` ，静默修改 token
+使用 `validateToken()` ，**如果 token 失效则静默修改 token**

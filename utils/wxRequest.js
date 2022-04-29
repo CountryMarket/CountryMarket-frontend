@@ -17,12 +17,6 @@ const wxRequest = async function(method, path, data) {
   if (isResTokenInvalid(res)) {
     globalData.token = undefined;
     wx.setStorageSync("token", undefined); // 两处 token 一起修改
-    wx.showModal({
-      title: "提示",
-      content: "登录状态失效，请重新登录",
-      showCancel: false,
-      confirmText: "知道了"
-    });
   }
   return res;
 }
@@ -32,7 +26,7 @@ const validateToken = async function() { // 检验 token 合法性，如果不�
     "config": {
       "env": "prod-0guks42iab6ab66f"
     },
-    "path": "/api/v1/user/test",
+    "path": "/api/v1/user/validate",
     "header": {
       "X-WX-SERVICE": "golang-487g",
       "content-type": "application/json",
@@ -52,9 +46,18 @@ const isTokenEmpty = function(t) { // 检验给定的 token 是否为空
 const isResTokenInvalid = function(res) {
   return !res.data.success && (res.data.info == "invalid token" || res.data.info == "auth error");
 }
+const showTokenInvalidModal = function() { // 弹窗显示登录态失效提醒
+  wx.showModal({
+    title: "提示",
+    content: "登录状态失效，请重新登录",
+    showCancel: false,
+    confirmText: "知道了"
+  });
+}
 module.exports = {
   wxRequest,
   validateToken,
   isTokenEmpty,
-  isResTokenInvalid
+  isResTokenInvalid,
+  showTokenInvalidModal
 }
