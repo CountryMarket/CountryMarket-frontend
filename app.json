@@ -1,12 +1,36 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/home/home",
+    "pages/cart/cart",
+    "pages/products/products",
+    "pages/my/my"
   ],
   "window": {
     "navigationBarBackgroundColor": "#007e4e",
     "navigationBarTitleText": "乡村产品出售平台",
     "navigationBarTextStyle": "white",
-    "backgroundTextStyle": "dark"
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#efefef"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/products/products",
+        "text": "商品"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

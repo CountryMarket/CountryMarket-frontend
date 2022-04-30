@@ -2,7 +2,7 @@
 <view class="my">
   <!-- 顶部背景 -->
   <view class="topback"></view>
-  <view class="container">
+  <view class="my-container">
     <!-- 头像栏 -->
     <view class="header" bindtap="userLogin">
       <image src="{{ avatarUrl }}"></image>

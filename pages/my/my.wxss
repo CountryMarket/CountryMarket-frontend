@@ -1,7 +1,4 @@
 /* pages/my/my.wxss */
-.my {
-  height: 100%;
-}
 
 .topback {
   position: absolute;
@@ -13,7 +10,7 @@
   z-index: -1;
 }
 
-.container {
+.my-container {
   margin: 0 15px;
 }
 
@@ -41,18 +38,21 @@
   border-radius: 5px;
   display: flex;
   padding: 0 20rpx;
+  align-items: center;
 }
 .first-block .item, .third-block .item {
   flex: 1;
   padding: 20rpx 0 20rpx 0;
 }
-.first-block .item image, .third-block .item image {
+.first-block .item image {
   width: 70rpx;
   height: 70rpx;
+  margin-left: 32rpx;
 }
-.first-block .item .item-text, .third-block .item .item-text {
+.first-block .item .item-text {
   font-size: 11px;
   margin-top: -7rpx;
+  text-align: center;
 }
 
 .second-block {
@@ -69,10 +69,12 @@
 .second-block .item image {
   width: 80rpx;
   height: 80rpx;
+  margin-left: 45rpx;
 }
 .second-block .item .item-text {
   font-size: 11px;
   margin-top: -7rpx;
+  text-align: center;
 }
 
 .third-block {
@@ -81,4 +83,17 @@
   height: 145rpx;
   border-radius: 5px;
   display: flex;
+  text-align: center;
+}
+
+.third-block .item image {
+  width: 70rpx;
+  height: 70rpx;
+  margin-left: 4rpx;
+}
+
+.third-block .item .item-text {
+  font-size: 11px;
+  margin-top: -7rpx;
+  text-align: center;
 }

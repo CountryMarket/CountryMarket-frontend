@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "home": "../home/home",
-    "my": "../my/my",
-    "fa": "../../components/includes/fa/index"
-  },
-  "enablePullDownRefresh": true
-}

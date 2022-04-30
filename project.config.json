@@ -10,7 +10,7 @@
     "include": []
   },
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": true,
     "enhance": true,
     "postcss": true,
@@ -52,9 +52,9 @@
   "libVersion": "2.19.4",
   "appid": "wx5ac67b20653abbb0",
   "projectname": "CountryMarket-frontend",
-  "condition": {},
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
-  }
+  },
+  "condition": {}
 }
