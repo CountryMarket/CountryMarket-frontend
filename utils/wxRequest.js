@@ -13,7 +13,7 @@ const wxRequest = async function(method, path, data) {
     "method": method,
     "data": data
   });
-  // 如果 token 出错或失效，清理当前的 token (此处 global token 会改变)
+  // 如果 token 失效，清理当前的 token (此处 global token 会改变)
   if (isResTokenInvalid(res)) {
     globalData.token = undefined;
     wx.setStorageSync("token", undefined); // 两处 token 一起修改

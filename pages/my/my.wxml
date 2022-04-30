@@ -39,7 +39,7 @@
       </view>
     </view>
     <!-- 第三框: 店家后台管理 -->
-    <view class="third-block" wx:if="{{ !shopAdmin }}">
+    <view class="third-block" wx:if="{{ permission & 2 }}">
       <view class="item">
         <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>
         <view class="item-text">信息管理</view>

@@ -19,6 +19,7 @@ Component({
     isLogging: false,
     localToken: undefined, // 本地 token，用于和 global 的比较是否有出入
     isEnter: false,
+    permission: 1,
   },
 
   /**
@@ -30,15 +31,19 @@ Component({
       this.setData({localToken: globalData.token});
       // 如果有登录态，获取头像
       if (!isTokenEmpty(globalData.token)) {
-        this.setData({
-          nickName: wx.getStorageSync("nickName"),
-          avatarUrl: wx.getStorageSync("avatarUrl")
+         wxRequest("GET", "user/profile").then(res => {
+          let porfile = res.data.data;
+          this.setData({
+            nickName: porfile.nickName,
+            avatarUrl: porfile.avatarUrl
+          });
         });
       } else { // 无登录态
         // 初始化数据，显示要求登录页面
         this.setData({
           nickName: "你好，请登录",
           avatarUrl: "https://blog.lyffly.com/static/images/avatar.jpg",
+          permission: 1
         });
       }
     },
@@ -94,7 +99,9 @@ Component({
           // console.log(globalData.code)
           // 将 code 发送到云服务器，获取 token
           let res = await wxRequest("GET", "user/code", {
-            code: globalData.code
+            code: globalData.code,
+            nickName: nickNameTmp,
+            avatarUrl: avatarUrlTmp
           });
           console.log(res)
           // 失败
@@ -112,13 +119,19 @@ Component({
           wx.setStorageSync("token", globalData.token); // 两处 token 一起修改
           this.data.localToken = globalData.token; // 本地同步
 
-          wx.setStorageSync("nickName", nickNameTmp);
-          wx.setStorageSync("avatarUrl", avatarUrlTmp);
+          // 获取头像
+          res = await wxRequest("GET", "user/profile");
+          let profile = res.data.data;
+          if (!res.data.success) { // 获取不到暂时用当前的
+            profile.nickName = nickNameTmp;
+            profile.avatarUrl = avatarUrlTmp;
+          }
 
           // 更新昵称头像
           this.setData({
-            nickName: nickNameTmp,
-            avatarUrl: avatarUrlTmp
+            nickName: profile.nickName,
+            avatarUrl: profile.avatarUrl,
+            permission: profile.permission,
           });
         } catch(err) {
           wx.showModal({
