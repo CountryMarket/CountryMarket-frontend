@@ -75,7 +75,7 @@
   margin-top: 5rpx;
   font-size: 12px;
   height: 117rpx;
-  width: 474rpx;
+  width: 450rpx;
 }
 .shop-image image{
   width: 200rpx;
@@ -123,10 +123,15 @@
   font-size: 14px;
   text-align: center;
   height: 40rpx;
-  width: 40rpx;
+  width: 80rpx;
   display: inline-block;
-  margin: 0 40rpx;
+  margin: 0 20rpx;
   z-index: 0;
+}
+.number_input_text {
+  text-align: center;
+  font-size: 20px;
+  color: #33CC99;
 }
 .change_tab {
   width: 40rpx;
@@ -179,11 +184,17 @@
   height: 23px;
   margin-right: 6rpx;
 }
-.heji{
+.heji-1 {
   padding-right: 20rpx;
+  font-size: 12px;
+  display: flex;
+}
+.heji-2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: red;
 }
 .jiesuan{
-  width: 175rpx;
   background: #33CC99;
   color: #fff;
   padding-right: 10rpx;

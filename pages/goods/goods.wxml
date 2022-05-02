@@ -1,0 +1,32 @@
+
+<wxs src="../../module/change_string_length.wxs" module="stringUtils"></wxs>
+
+<!-- 轮播图 -->
+<swiper class="swiper-container" indicator-dots autoplay="true" interval="1000" circular="true">
+    <swiper-item>
+      <image class="item" src="/image/mario.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <view class="item">B</view>
+    </swiper-item>
+    <swiper-item>
+      <view class="item">C</view>
+    </swiper-item>
+  </swiper>
+
+
+
+
+
+
+
+
+<view class="goods-bottom">
+    <view class="keep">
+      <image src="{{is_kept_path}}" class="keep_image" bindtap="change_keep"></image>
+      <view style="font-size: 10px;">收藏</view>
+    </view>
+    
+    <icon></icon>
+    <button class="add_button" bindtap="add_into_cart">{{if_in_cart}}</button>
+</view>

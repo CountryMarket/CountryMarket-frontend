@@ -3,7 +3,8 @@
     "pages/home/home",
     "pages/cart/cart",
     "pages/products/products",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/goods/goods"
   ],
   "window": {
     "navigationBarBackgroundColor": "#33CC99",
@@ -16,11 +17,15 @@
     "list": [
       {
         "pagePath": "pages/home/home",
-        "text": "首页"
+        "text": "首页",
+        "iconPath": "/image/home.png",
+        "selectedIconPath": "/image/home_active.png"
       },
       {
         "pagePath": "pages/products/products",
-        "text": "商品"
+        "text": "商品",
+        "iconPath": "/image/shop.png",
+        "selectedIconPath": "/image/shop_active.png"
       },
       {
         "pagePath": "pages/cart/cart",
@@ -30,7 +35,9 @@
       },
       {
         "pagePath": "pages/my/my",
-        "text": "我的"
+        "text": "我的",
+        "iconPath": "/image/my.png",
+        "selectedIconPath": "/image/my_active.png"
       }
     ]
   },
