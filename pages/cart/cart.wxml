@@ -4,7 +4,7 @@
     <view class="address_block1">
       <view class="address_people">收货人：{{name}}</view>
       <view>电话：{{tel}}</view>
-      <image src="/image/箭头 右.png"></image>
+      <image src="/image/arrow_right.png"></image>
     </view>
     <view class="address_block2">收货地址：{{address}}</view>
 </view>
@@ -12,7 +12,7 @@
 <!-- 购物车商品列表的标题区域 -->
 <view class="cart-title">
   <!-- 左侧的图标 -->
-  <image src="/image/购物车标题.png" class="gwc-icon"></image>
+  <image src="/image/cart_title.png" class="gwc-icon"></image>
   <!-- 描述文本 -->
   <text class="gwc-text">购物车</text>
 </view>
@@ -43,11 +43,15 @@
                   <view class="price-icon">￥</view>
                   <view class="price">{{item.Price}}</view>
           </view>
-
+          
           <view class="number_control">
-              <view class="change_tab" data-value="{{index}}" bindtap="minus">-</view>
+              <view class="change_tab" data-value="{{index}}" bindtap="minus">
+              <view class="text">-</view>
+              </view>
               <input class="number_input" data-value="{{index}}" value="{{shopList[index].Count}}" bindinput="inputHandler"> </input>
-              <view class="change_tab" data-value="{{index}}" bindtap="add">+</view>
+              <view class="change_tab" data-value="{{index}}" bindtap="add">
+              <view class="text">+</view>
+              </view>
           </view>
       </view>
       </view>

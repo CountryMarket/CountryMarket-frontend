@@ -25,8 +25,8 @@
       {
         "pagePath": "pages/cart/cart",
         "text": "购物车",
-        "iconPath": "/image/购物车.png",
-        "selectedIconPath": "/image/购物车选中.png"
+        "iconPath": "/image/cart.png",
+        "selectedIconPath": "/image/cart_active.png"
       },
       {
         "pagePath": "pages/my/my",
