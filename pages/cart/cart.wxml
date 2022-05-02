@@ -1,2 +1,69 @@
-<!--pages/cart/cart.wxml-->
-<text>pages/cart/cart.wxml</text>
+<!-- 信息 要限定长度-->
+<view class="address">
+      <view class="address_title">收货信息：</view>
+    <view class="address_block1">
+      <view class="address_people">收货人：{{name}}</view>
+      <view>电话：{{tel}}</view>
+      <image src="/image/箭头 右.png"></image>
+    </view>
+    <view class="address_block2">收货地址：{{address}}</view>
+</view>
+
+<!-- 购物车商品列表的标题区域 -->
+<view class="cart-title">
+  <!-- 左侧的图标 -->
+  <image src="/image/购物车标题.png" class="gwc-icon"></image>
+  <!-- 描述文本 -->
+  <text class="gwc-text">购物车</text>
+</view>
+
+<!-- 商品信息 -->
+<block wx:for="{{shopList}}"  wx:key="id">
+  <view class="shop-item"> 
+      <view class="circle" data-value="{{index}}" bindtap="change_isSelected">
+            <icon type="success" wx:if="{{isSelected[index]}}"></icon>
+            <icon type="circle" color="#999" wx:else></icon>
+      </view>
+
+      <view class="shop-image">
+          <image src="/image/mario.jpg"></image>
+      </view>
+      <!-- 这里待添加处理过长商品信息文本的模块 -->
+      
+      <view style="display:grid">
+          <view class="shop-title">
+              <text>{{item.Title}}</text>
+          </view>
+          <view class="shop-description">
+              <text>{{item.Description}}</text>
+          </view>
+
+      <view class="price_and_input">
+          <view class="price-container">
+                  <view class="price-icon">￥</view>
+                  <view class="price">{{item.Price}}</view>
+          </view>
+
+          <view class="number_control">
+              <view class="change_tab" data-value="{{index}}" bindtap="minus">-</view>
+              <input class="number_input" data-value="{{index}}" value="{{shopList[index].Count}}" bindinput="inputHandler"> </input>
+              <view class="change_tab" data-value="{{index}}" bindtap="add">+</view>
+          </view>
+      </view>
+      </view>
+      <view class="delete">删除</view>
+  </view>
+</block>
+
+<view class="liu"></view>
+<!-- 全选布局 -->
+<view class='myCart-bottom'>
+      <view class="selectedAll" bindtap="change_all_selected">
+            <icon wx:if='{{is_all_Selected}}' type='success'></icon>
+            <icon wx:else type='circle' color="#999"></icon>
+            <text>全选</text>
+      </view>
+
+      <view class='heji'>合计: {{money_sum}}</view>
+      <view class='jiesuan'>结算: {{total_money}}</view>
+</view>

@@ -6,7 +6,7 @@
     "pages/my/my"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#007e4e",
+    "navigationBarBackgroundColor": "#33CC99",
     "navigationBarTitleText": "乡村产品出售平台",
     "navigationBarTextStyle": "white",
     "backgroundTextStyle": "dark",
@@ -24,7 +24,9 @@
       },
       {
         "pagePath": "pages/cart/cart",
-        "text": "购物车"
+        "text": "购物车",
+        "iconPath": "/image/购物车.png",
+        "selectedIconPath": "/image/购物车选中.png"
       },
       {
         "pagePath": "pages/my/my",

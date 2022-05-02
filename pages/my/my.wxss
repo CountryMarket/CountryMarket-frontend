@@ -6,7 +6,7 @@
   left: 0;
   width: 100%;
   height: 270rpx;
-  background-color: #007e4e;
+  background-color: #33CC99;
   z-index: -1;
 }
 

@@ -3,7 +3,7 @@
   height: 60rpx;
   padding: 20rpx 30rpx;
   display: flex;
-  background: #007e4e;
+  background: #33CC99;
 }
 .content {
   height: 60rpx;
