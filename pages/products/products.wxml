@@ -1,1 +1,16 @@
 
+
+<scroll-view scroll-y="true" style="width:140rpx; height: 1200rpx;" class="-webkit-scrollbar"> 
+    <view>
+        <block wx:for="{{tabList}}" wx:key="Id" >
+              <view style="height: 70rpx; width:140rpx; display: flex; justify-content: center; padding-top: 23rpx;" 
+              class="{{index == currentTab ? 'font-color2' : 'font-color1' }}" data-value="{{index}}" bindtap="change_currentTab">{{item.Name}}{{}}</view>
+        </block>
+    </view>
+</scroll-view>
+
+<view>
+  
+
+
+</view>

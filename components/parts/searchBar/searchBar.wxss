@@ -1,15 +1,21 @@
 /* components/searchBar.wxss */
 .searchbar {
   height: 60rpx;
-  padding: 20rpx 30rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-bottom: 15rpx;
   display: flex;
   background: #33CC99;
+  position: fixed;
+  z-index: 1;
+  width: 345px;
 }
 .content {
   height: 60rpx;
   padding: 0 18rpx;
+  margin-top: 0px;
   background: rgba(255,255,255,1);
-  border-radius: 16rpx;
+  border-radius: 30rpx;
   border: 2rpx solid rgba(220,222,226,1);
   flex: 1;
   display: flex;
@@ -30,5 +36,6 @@
   height: 60rpx;
   line-height: 60rpx;
   font-size: 32rpx;
+  font-weight: 600;
   color: #fff;
 }

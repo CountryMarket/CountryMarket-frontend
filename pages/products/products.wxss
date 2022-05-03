@@ -1,1 +1,19 @@
 /* pages/products/products.wxss */
+.font-color1 {
+  color: black;
+  font-size: 30rpx;
+  font-weight: 550;
+  background-color: #efefef;
+}
+.font-color2 {
+  color: white; 
+  font-size: 30rpx;
+  font-weight: 550;
+  background-color: #33cc99;
+}
+::-webkit-scrollbar {
+  display:none;
+  width:0;
+  height:0;
+  color:transparent;
+}
