@@ -1,7 +1,7 @@
 // pages/cart/cart.js
 
 import { wxLogin } from "../../utils/wxLogin"
-import { wxRequest, isTokenEmpty, validateToken, showTokenInvalidModal } from "../../utils/wxRequest"
+import { wxRequest, isTokenEmpty, validateToken, showTokenInvalidModal ,isResTokenInvalid } from "../../utils/wxRequest"
 
 Page({
 
@@ -9,13 +9,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name: '李家炫',//收货人姓名
-    tel: '15975539500',//电话
-    address: '广东省深圳市南山区学府路深圳大学',//收货地址
 
     shopList: [],
     page_from: 0,
     page_length: 50,
+
+    address_message: [],
 
     now_change_number: 1,//弹出输入框
     input_num_Hidden: true,
@@ -44,6 +43,7 @@ Page({
       title: '购物车'
     })
     this.getShopList() //获取购物车数据
+    this.getAddressList() //获取地址信息列表
   },
 
   // 跳转到商品页
@@ -55,28 +55,59 @@ Page({
   },
 
   //获取商品列表信息-----------------------------------------------------
-  getShopList() {
-      wx.showLoading({
-          title: '数据加载中'
-      })
-      wxRequest("GET","cart/userProducts",{from: this.data.page_from, length: this.data.page_length}).then(res => {
-            console.log(res)
-            if(res.data.data.Products==null) {
-              wx.showToast({
-                title: '购物车已经到底了喔~',
-                icon: 'none'
-              })
-            } else {
-              this.setData({
-                shopList: [...this.data.shopList,...res.data.data.Products],
-                page_from: this.data.page_from + this.data.page_length
-              })
-            }
-      })
-      console.log(this.data.shopList)
-      wx.hideLoading()
-      this.countAll()
-},
+  getShopList() {
+          wx.showLoading({
+              title: '数据加载中'
+          })
+          if (isTokenEmpty(getApp().globalData.token)) {
+            showTokenInvalidModal();
+            wx.hideLoading();
+            return ;
+          }
+          wxRequest("GET","cart/userProducts",{from: this.data.page_from, length: this.data.page_length}).then(res => {
+                console.log(res)
+                if (isResTokenInvalid(res)) {
+                  showTokenInvalidModal();
+                  getShopList();
+                  return ;
+                }
+                if(res.data.data.Products==null) {
+                  wx.showToast({
+                    title: '购物车已经到底了喔~',
+                    icon: 'none'
+                  })
+                } else {
+                  this.setData({
+                    shopList: [...this.data.shopList,...res.data.data.Products],
+                    page_from: this.data.page_from + this.data.page_length
+                  })
+                }
+          })
+          console.log(this.data.shopList)
+          wx.hideLoading()
+          this.countAll()
+    },
+
+    //获取收货信息列表
+    getAddressList() {
+      if (isTokenEmpty(getApp().globalData.token)) {
+                showTokenInvalidModal();
+                return ;
+       }
+      wxRequest("GET","address/address").then(res => {
+        console.log(res)
+                    if (isResTokenInvalid(res)) {
+                      showTokenInvalidModal();
+                      getAddressList();
+                      return ;
+                    }
+                    this.setData({
+                      address_message: res.data.data.Address
+                    })
+                    console.log(this.data.address_message)
+              })
+    },
+
 
     //单量改变-------------------------
     add(e) {

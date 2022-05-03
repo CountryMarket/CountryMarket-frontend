@@ -1,0 +1,11 @@
+/* pages/addresses/addresses.wxss */
+.address_block {
+  padding: 20rpx;
+  margin-top: 15rpx;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  border: 1rpx solid #33cc99;
+  background-color: white;
+  border-radius: 8rpx;
+  font-size: 14px;
+}

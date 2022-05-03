@@ -4,18 +4,54 @@ search-bar {
   width: 100%;
 }
 
-.swiper-container {
-  height: 300rpx;
+.swiper-picture-item {
+  margin-top: 20rpx;
+  margin-left: 25rpx;
+  border-radius: 40rpx;
+  width: 350px;
+  height: 130px;
+  background-color: #33cc99;
 }
-.swiper-container .item {
-  height: 100%;
-  background-color: #c2c2c2;
-}
-
 .box-container {
   margin: 5px 0 10px 5px;
 }
-
+.fenlei {
+  height: 150rpx;
+  width: 150rpx;
+  border-radius: 65rpx;
+  background-color: white;
+  margin: 20rpx;
+}
+/*轮播图指示点*/
+.lunbo .wx-swiper-dots.wx-swiper-dots-horizontal{
+  margin-bottom: 0rpx;
+}
+.lunbo .wx-swiper-dot{
+ width:50rpx;/*点的长*/
+ display: inline-flex;
+ height: 10rpx; /*点的高*/
+ margin-left: 5rpx;  /*两个点的距离*/
+ justify-content:space-between;
+}
+.lunbo .wx-swiper-dot::before{
+ content: '';
+ flex-grow: 1; 
+ background : gray; /*点的未选中颜色*/
+ border-radius: 2px;
+}
+.lunbo .wx-swiper-dot-active::before{
+ background:#33cc99;   /*点的选中颜色*/
+ border-radius: 5px;
+}
+ 
+.lunbo .wx-swiper-dot.wx-swiper-dot{ /*点的未选中样式*/
+  width: 10rpx;
+}
+.lunbo .wx-swiper-dot.wx-swiper-dot-active{/*点的选中样式*/
+  width: 40rpx;
+  height: 10rpx;
+}
+/* ------------------------------------------------------ */
 .box-container .box-left {
   display: inline-block;
   width: 48%;

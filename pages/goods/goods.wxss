@@ -28,12 +28,21 @@
 .keep_image {
   width: 50rpx;
   height: 50rpx;
+  margin-bottom: -35rpx;
 }
 .keep {
-
   padding-left: 20rpx;
   display: block;
 }
-.keep-text {
+
+/* 商品信息 */
+.good_block {
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  width: 710rpx;
+  height: 300rpx;
+  border: 1rpx solid red;
+  border-radius: 8rpx;
+  box-shadow: 1rpx 1rpx 15rpx red;
 
 }

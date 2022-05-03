@@ -1,0 +1,12 @@
+
+<view wx:for="{{address_message}}" wx:key="index" class="address_block"> 
+      <view class="address_title">收货信息：</view>
+        <view class="address_block1">
+          <view class="address_people">收货人：{{address_message[index].Name}}</view>
+          <view>电话：{{address_message[index].PhoneNumber}}</view>
+        </view>
+        <view class="address_block2">收货地址：{{address_message[index].Address}}</view>
+</view>
+
+
+<button style="background-color: #33cc99;color: white;margin-top: 40rpx;margin-bottom: 60rpx;" bindtap="goto_address_edit">添加新地址信息</button>

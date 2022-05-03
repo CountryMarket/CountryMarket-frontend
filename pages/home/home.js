@@ -8,6 +8,15 @@ Page({
 
     },
 
+    
+    // 跳转到商品页
+    goto_goods(e) {
+      console.log(e)
+        wx.navigateTo({
+          url: `/pages/goods/goods?id=${e.currentTarget.dataset.value}`
+        })
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */

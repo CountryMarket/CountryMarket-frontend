@@ -2,26 +2,48 @@
 <view class="home">
   <!-- 顶部搜索框 -->
   <search-bar placeholder="查找你想要的商品" bind:handleSearch="handleSearch"></search-bar>
+  <!-- <view style="height: 60px; display: fiex;"></view> -->
   <!-- 滑动广告栏 -->
-  <swiper class="swiper-container" indicator-dots autoplay="true" interval="4000" circular="true">
-    <swiper-item>
-      <view class="item">A</view>
+  <swiper class="lunbo" indicator-dots autoplay="true" interval="4000" circular="true"  style="height: 165px;">
+    <swiper-item> 
+      <view class="swiper-picture-item">A</view>
     </swiper-item>
     <swiper-item>
-      <view class="item">B</view>
+      <view class="swiper-picture-item">B</view>
     </swiper-item>
     <swiper-item>
-      <view class="item">C</view>
+      <view class="swiper-picture-item">C</view>
     </swiper-item>
   </swiper>
 
   <!-- 分类栏 -->
-  <category-list></category-list>
+  <view style="display: flex;">
+        <view class="fenlei">
+            <image src="/image/gift.png" style="display: flex; height: 90rpx; width: 90rpx; margin-left: 30rpx;"></image>
+            <text style="justify-content: center; display: flex;">特产</text>
+        </view>
+
+        <view class="fenlei">
+            <image src="/image/vegetable.png" style="display: flex; height: 90rpx; width: 90rpx; margin-left: 30rpx;"></image>
+            <text style="justify-content: center; display: flex;">蔬菜</text>
+        </view>
+
+        <view class="fenlei">
+            <image src="/image/apple.png" style="display: flex; height: 90rpx; width: 90rpx; margin-left: 30rpx;"></image>
+            <text style="justify-content: center; display: flex;">水果</text>
+        </view>
+
+        <view class="fenlei">
+            <image src="/image/sheep.png" style="display: flex; height: 90rpx; width: 90rpx; margin-left: 30rpx;"></image>
+            <text style="justify-content: center; display: flex;">农牧</text>
+        </view>
+  </view>
+  
 
   <!-- 商品栏 -->
   <view class="box-container">
     <view class="box-left">
-      <view wx:for="{{ [0, 2, 4, 6] }}" class="item-container">
+      <view wx:for="{{ [0, 2, 4, 6] }}" bindtap="goto_goods" class="item-container">
         <view class="item">
           <image src="https://blog.lyffly.com/static/images/avatar.jpg" style="height: 330rpx;"></image>
           <view class="title">新鲜猪小排（肉质弹嫩）约400g</view>
@@ -35,7 +57,7 @@
       </view>
     </view>
     <view class="box-right">
-      <view wx:for="{{ [1, 3, 5, 7] }}" class="item-container">
+      <view wx:for="{{ [1, 3, 5, 7] }}" bindtap="goto_goods" class="item-container">
         <view class="item">
           <image src="https://blog.lyffly.com/static/images/avatar.jpg" style="height: 350rpx;"></image>
           <view class="title">过期猪小排100g</view>

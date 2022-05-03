@@ -4,11 +4,13 @@
     "pages/cart/cart",
     "pages/products/products",
     "pages/my/my",
-    "pages/goods/goods"
+    "pages/goods/goods",
+    "pages/addresses/addresses",
+    "pages/address_edit/address_edit"
   ],
   "window": {
     "navigationBarBackgroundColor": "#33CC99",
-    "navigationBarTitleText": "乡村产品出售平台",
+    "navigationBarTitleText": "阳曲县产品出售平台",
     "navigationBarTextStyle": "white",
     "backgroundTextStyle": "dark",
     "backgroundColor": "#efefef"

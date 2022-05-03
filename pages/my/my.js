@@ -89,9 +89,9 @@ Page({
          wxRequest("GET", "user/profile").then(res => {
           let porfile = res.data.data;
           this.setData({
-            nickName: porfile.nickName,
-            avatarUrl: porfile.avatarUrl,
-            permission: porfile.permission
+            nickName: porfile.NickName,
+            avatarUrl: porfile.AvatarUrl,
+            permission: porfile.Permission
           });
         });
       } else { // 无登录态

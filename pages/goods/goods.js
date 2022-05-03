@@ -53,9 +53,19 @@ Page({
       this.setData({
         is_kept_path : '/image/keep_active.png'
       })
+      wx.showToast({
+        title: '宝贝收藏成功~',
+        duration: 1000,
+        icon: 'none'
+      })
     } else {
       this.setData({
         is_kept_path : '/image/keep.png'
+      })
+      wx.showToast({
+        title: '取消收藏咯~',
+        duration: 1000,
+        icon: 'none'
       })
     }
   },

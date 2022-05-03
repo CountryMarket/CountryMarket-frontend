@@ -1,0 +1,8 @@
+/* pages/address_edit/address_edit.wxss */
+.input_block {
+  border: 1rpx solid #33cc99;
+  border-radius: 8rpx;
+  width: 550rpx;
+  height: 70rpx;
+  background-color: white;
+}

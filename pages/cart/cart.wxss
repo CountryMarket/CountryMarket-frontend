@@ -10,6 +10,7 @@
   box-shadow: 11px 1px 15px #efefef;
   font-size: 14px;
   text-shadow: 1px 1px 1px #ededed;
+  background-color: white;
 }
 .address_title {
   margin-bottom: 10rpx;
@@ -59,6 +60,8 @@
     border: 1rpx solid #efefef;
     border-radius: 8rpx;
     box-shadow: 1rpx 1rpx 15rpx #efefef;
+    background-color: white;
+    margin-bottom: 5rpx;
 }
 .shop-title {
   display: flex;
@@ -168,8 +171,8 @@
   background: #fff;
   display: flex;
   width: 100%;
-  height: 80rpx;
-  line-height: 80rpx;
+  height: 90rpx;
+  line-height: 90rpx;
   align-items: center;
 }
 .selectedAll{
@@ -204,7 +207,7 @@
   align-items: center;
 }
 .liu {
-  height: 80rpx;
+  height: 85rpx;
 }
 
 /* .price-per {

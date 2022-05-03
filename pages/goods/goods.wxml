@@ -14,7 +14,21 @@
     </swiper-item>
   </swiper>
 
+<!-- 商品信息 -->
+<view class="good_block">
+    <view style="display: flex;padding-left: 20rpx;">
+          <view style="color: red;padding-bottom: 0rpx;">￥</view>
+          <view style="color: red;font-size: 30px;font-weight: 800;">{{good_info.Price}}</view>
+    </view>
+    <!-- 限制文本长度 -->
+    <view style="padding-left: 20rpx;">
+        <view style="font-weight: 600;font-size: 20px;">{{good_info.Title}}</view>
+        <view style="color: #b0b0b0;font-weight: 500;">{{good_info.Description}}</view>
+    </view>
 
+
+
+</view>
 
 
 
@@ -22,11 +36,17 @@
 
 
 <view class="goods-bottom">
-    <view class="keep">
+    <view class="keep" style="margin-left: 20rpx;">
       <image src="{{is_kept_path}}" class="keep_image" bindtap="change_keep"></image>
-      <view style="font-size: 10px;">收藏</view>
+      <view style="font-size: 10px; margin-top: -13rpx;text-align: center; font-weight: 500; color: #a8a8a8;" wx:if="{{is_kept_path == '/image/keep.png'}}">收藏</view>
+      <view style="font-size: 10px; margin-top: -13rpx;text-align: center; font-weight: 500; color: #33CC99;" wx:else>收藏</view>
     </view>
     
+    <view class="keep" style="margin-left: 20rpx;">
+      <image src="/image/kefu2.png" class="keep_image" bindtap="change_keep"></image>
+      <view style="font-size: 10px; margin-top: -13rpx;text-align: center; font-weight: 500; color: #33CC99;">客服</view>
+    </view>
+
     <icon></icon>
     <button class="add_button" bindtap="add_into_cart">{{if_in_cart}}</button>
 </view>
