@@ -1,1 +1,4 @@
 /* pages/orders/orders.wxss */
+search-bar {
+  width: 100%;
+}

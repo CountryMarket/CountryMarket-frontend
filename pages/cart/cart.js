@@ -64,7 +64,7 @@ Page({
             wx.hideLoading();
             return ;
           }
-          wxRequest("GET","cart/userProducts",{from: this.data.page_from, length: this.data.page_length}).then(res => {
+          wxRequest("GET","cart/userProducts",{from: 0, length: this.data.page_length}).then(res => {
                 console.log(res)
                 if (isResTokenInvalid(res)) {
                   showTokenInvalidModal();
@@ -78,14 +78,16 @@ Page({
                   })
                 } else {
                   this.setData({
-                    shopList: [...this.data.shopList,...res.data.data.Products],
+    //                 shopList: [...this.data.shopList,...res.data.data.Products],
+                    shopList: res.data.data.Products,
                     page_from: this.data.page_from + this.data.page_length
                   })
                 }
-          })
+          }).then(()=> {
           console.log(this.data.shopList)
           wx.hideLoading()
           this.countAll()
+        })
     },
 
     //获取收货信息列表
@@ -119,17 +121,16 @@ Page({
             icon: 'none'
           })
         } else {
-          this.setData({
-            [`shopList[${e.currentTarget.dataset.value}].Count`]: this.data.shopList[e.currentTarget.dataset.value].Count + 1
-          }) 
-          this.countAll()
+          this.add_into_cart(this.data.shopList[e.currentTarget.dataset.value].Id).then(() => {
+            this.getShopList()
+          })
         }
     },
     minus(e) {
         if(this.data.shopList[e.currentTarget.dataset.value].Count > 1) {
-          this.setData({
-            [`shopList[${e.currentTarget.dataset.value}].Count`]: this.data.shopList[e.currentTarget.dataset.value].Count - 1
-          }) 
+          this.reduce_from_cart(this.data.shopList[e.currentTarget.dataset.value].Id).then(() => {
+            this.getShopList()
+          })
         } else {
           wx.showToast({
             title: '该宝贝不能减少了哟~',
@@ -137,7 +138,6 @@ Page({
             icon: 'none'
           })
         }
-        this.countAll()
     },
   // 处理输入数量-------------------
   inputHandler(e) {
@@ -147,15 +147,6 @@ Page({
       now_change_number: this.data.shopList[e.currentTarget.dataset.value].Count
     })
     console.log(e)
-    // if(e.detail.value == "") {
-    //   this.setData({
-    //     [`shopList[${e.currentTarget.dataset.value}].Count`]: 0
-    //   })
-    // } else {
-    //   this.setData({
-    //     [`shopList[${e.currentTarget.dataset.value}].Count`]: Number(e.detail.value)
-    //   })
-    // }
   },
 
   input_number_Handler(e) {
@@ -163,6 +154,66 @@ Page({
         now_change_number: e.detail.value
       })
   },
+
+  async add_into_cart(idex) {
+    let res=await wxRequest("POST","cart/addProduct",{productId: idex});
+    console.log(res)
+    if(res.data.success) {
+      wx.showToast({
+        title: '商品+1',
+        duration: 500,
+        icon: 'none'
+      })
+    } else {
+      wx.showToast({
+        title: '商品修改失败，请重试~',
+        duration: 1000,
+        icon: 'none'
+      })
+    }
+  },
+
+  input_number_Handler(e) {
+    this.setData({
+      now_change_number: e.detail.value
+    })
+},
+
+async reduce_from_cart(idex) {
+  let res=await wxRequest("POST","cart/reduceProduct",{productId: idex});
+  console.log(res)
+  if(res.data.success) {
+    wx.showToast({
+      title: '商品-1',
+      duration: 500,
+      icon: 'none'
+    })
+  } else {
+    wx.showToast({
+      title: '商品修改失败，请重试~',
+      duration: 1000,
+      icon: 'none'
+    })
+  }
+},
+
+async modifyProduct_cart(p) {
+  let res=await wxRequest("POST","cart/modifyProduct",{productId: p.idex,modifyCount: p.number});
+  console.log(res)
+  if(res.data.success) {
+    wx.showToast({
+      title: '商品数量修改成功',
+      duration: 500,
+      icon: 'none'
+    })
+  } else {
+    wx.showToast({
+      title: '商品修改失败，请重试~',
+      duration: 1000,
+      icon: 'none'
+    })
+  }
+},
 
   changeModel() {
       if(this.data.now_change_number == '' || this.data.now_change_number == undefined) {
@@ -194,11 +245,9 @@ Page({
               icon: 'none'
             })
           } else {
-            this.setData({
-              [`shopList[${this.data.nowChange_index}].Count`]: Number(this.data.now_change_number)
+            this.modifyProduct_cart({idex: this.data.shopList[this.data.nowChange_index].Id, number: this.data.now_change_number}).then(()=> {
+              this.modelCancel()
             })
-            this.countAll()
-            this.modelCancel()
           }
         }
       }
@@ -316,6 +365,13 @@ Page({
       })
       console.log(this.data.show_money_sum)
   },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
+      this.getAddressList()
+      this.getShopList()
+  },
 
 
 
@@ -336,12 +392,6 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
 
   /**
    * 生命周期函数--监听页面隐藏

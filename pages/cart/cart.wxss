@@ -15,7 +15,6 @@
 .address_title {
   margin-bottom: 10rpx;
   display: flex;
-  font-size: 30rpx;
   font-weight: 800;
   color: #33CC99;
 }
@@ -27,7 +26,6 @@
 .address_block1 {
   margin-bottom: 10rpx;
   display: flex;
-  font-size: 30rpx;
 }
 .address_block2 {
   display: flex;

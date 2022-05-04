@@ -1,2 +1,12 @@
 <!--pages/orders/orders.wxml-->
-<text>pages/orders/orders.wxml</text>
+<view>
+  <search-bar placeholder="输入订单商品名称/订单编号" bind:handleSearch="handleSearch"></search-bar>
+    <view style="padding: 70rpx; height: 200rpx; display: flex; background-color: #33cc99;">
+        <view>全部</view>
+        <view>待支付</view>
+        <view>待收货</view>
+        <view>待评价</view>
+    </view>
+
+
+</view>

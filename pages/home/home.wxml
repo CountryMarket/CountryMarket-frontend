@@ -2,7 +2,7 @@
 <view class="home">
   <!-- 顶部搜索框 -->
   <search-bar placeholder="查找你想要的商品" bind:handleSearch="handleSearch"></search-bar>
-  <view style="height: 70rpx; display: fiex;"></view>
+  <view style="height: 70rpx; display: flex;"></view>
   <!-- 滑动广告栏 -->
   <swiper class="lunbo" indicator-dots autoplay="true" interval="4000" circular="true"  style="height: 330rpx;">
     <swiper-item> 

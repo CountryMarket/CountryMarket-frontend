@@ -3,14 +3,17 @@
 
 <!-- 信息 要限定长度-->
 <navigator url="/pages/addresses/addresses" hover-class="navigator-hover"> 
-    <view class="address">
-          <view class="address_title">收货信息：</view>
+    <view class="address" style="font-size: 25rpx;">
+          <view class="address_title" style="font-size: 30rpx;">收货信息：</view>
         <view class="address_block1">
           <view class="address_people">收货人：{{address_message[0].Name}}</view>
           <view style="width: 310rpx;">电话：{{address_message[0].PhoneNumber}}</view>
           <image src="/image/arrow_right.png"></image>
         </view>
-        <view class="address_block2">收货地址：{{address_message[0].Address}}</view>
+        <view class="address_block2">
+            <view>收货地址：</view>
+            <view style="width: 500rpx;">{{address_message[0].Address}}</view>
+        </view>
     </view>
 </navigator>
 <!-- 购物车商品列表的标题区域 -->

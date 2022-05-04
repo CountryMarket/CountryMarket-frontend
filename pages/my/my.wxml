@@ -10,8 +10,8 @@
     </view>
     <!-- 第一框 -->
     <view class="first-block">
-      <view class="item">
-        <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>
+      <view class="item" bindtap="goto_orders">
+        <image src="/image/orders.png"></image>
         <view class="item-text">全部订单</view>
       </view>
       <view class="item">

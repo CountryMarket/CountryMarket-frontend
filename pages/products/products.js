@@ -83,7 +83,24 @@ Page({
                       console.log(this.data.products)
                 })
       },
-
+    async add_into_cart(e) {
+      console.log(e)
+      let res=await wxRequest("POST","cart/addProduct",{productId: this.data.products[e.currentTarget.dataset.value].Id});
+      console.log(res)
+      if(res.data.success) {
+        wx.showToast({
+          title: '商品添加成功！',
+          duration: 500,
+          icon: 'none'
+        })
+      } else {
+        wx.showToast({
+          title: '商品添加失败，请重试~',
+          duration: 1000,
+          icon: 'none'
+        })
+      }
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

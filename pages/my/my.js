@@ -26,6 +26,8 @@ Page({
         this.refresh();
     },
 
+ 
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -45,6 +47,12 @@ Page({
           }
       }); 
     },
+       
+  goto_orders() {
+    wx.navigateTo({
+      url: '/pages/orders/orders'
+    })
+  },
 
     /**
      * 生命周期函数--监听页面隐藏
