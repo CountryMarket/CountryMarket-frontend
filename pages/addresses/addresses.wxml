@@ -1,12 +1,20 @@
 
-<view wx:for="{{address_message}}" wx:key="index" class="address_block"> 
-      <view class="address_title">收货信息：</view>
-        <view class="address_block1">
-          <view class="address_people">收货人：{{address_message[index].Name}}</view>
+<view wx:for="{{address_message}}" wx:key="index" class="{{index == 0 ? 'address_block1': 'address_block2'}}"> 
+      <view>
+        <view style="font-size: 30rpx; font-weight: 600;">收货信息：</view>
+        <view>
+          <view>收货人：{{address_message[index].Name}}</view>
           <view>电话：{{address_message[index].PhoneNumber}}</view>
         </view>
-        <view class="address_block2">收货地址：{{address_message[index].Address}}</view>
+        <view style="display: flex;">
+              <view>收货地址：</view>
+              <view style="width: 500rpx;">{{address_message[index].Address}}</view>
+        </view>
+      </view>
+      <view  data-value="{{index}}" bindtap="goto_change_address">
+          <image src="/image/modify.png" style="width: 40rpx; height: 40rpx; margin-top: 57rpx;" ></image>
+      </view>
 </view>
 
 
-<button style="background-color: #33cc99;color: white;margin-top: 40rpx;margin-bottom: 60rpx;" bindtap="goto_address_edit">添加新地址信息</button>
+<button style="background-color: #33cc99;color: white;margin-top: 40rpx;margin-bottom: 60rpx; border-radius: 50rpx;" bindtap="goto_address_edit">添加新地址信息</button>

@@ -7,7 +7,9 @@
     "pages/goods/goods",
     "pages/addresses/addresses",
     "pages/address_edit/address_edit",
-    "pages/keep/keep"
+    "pages/keep/keep",
+    "pages/orders/orders",
+    "pages/change_address/change_address"
   ],
   "window": {
     "navigationBarBackgroundColor": "#33CC99",

@@ -51,9 +51,9 @@ Page({
       console.log(this.data.info)
       console.log(res)
       if(res.data.success) {
-         wx.navigateTo({
-            url: "/pages/addresses/addresses"
-         })
+        wx.navigateBack({
+          delta: 0
+        })
       } else {
         wx.showToast({
           title: '信息保存失败',

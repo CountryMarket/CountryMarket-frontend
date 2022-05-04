@@ -17,6 +17,7 @@
   display: flex;
   font-size: 30rpx;
   font-weight: 800;
+  color: #33CC99;
 }
 .address image {
   padding: 5rpx;
@@ -26,6 +27,7 @@
 .address_block1 {
   margin-bottom: 10rpx;
   display: flex;
+  font-size: 30rpx;
 }
 .address_block2 {
   display: flex;
@@ -127,9 +129,9 @@
   font-size: 14px;
   text-align: center;
   height: 40rpx;
-  width: 80rpx;
+  width: 40%;
   display: inline-block;
-  margin: 0 20rpx;
+  margin: 0 10%;
   z-index: 0;
 }
 .number_input_text {
@@ -138,7 +140,7 @@
   color: #33CC99;
 }
 .change_tab {
-  width: 40rpx;
+  width: 20%;
   height: 40rpx;
   background-color: #33CC99;
   font-weight: 800;

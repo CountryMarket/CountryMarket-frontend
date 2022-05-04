@@ -1,11 +1,27 @@
 /* pages/addresses/addresses.wxss */
-.address_block {
-  padding: 20rpx;
+.address_block1 {
+  padding-left: 20rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
   margin-top: 15rpx;
   margin-left: 15rpx;
   margin-right: 15rpx;
   border: 1rpx solid #33cc99;
   background-color: white;
   border-radius: 8rpx;
-  font-size: 14px;
+  font-size: 28rpx;
+  display: flex;
+}
+.address_block2 {
+  padding-left: 20rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  margin-top: 15rpx;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  border: 1rpx solid white;
+  background-color: white;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  display: flex;
 }

@@ -2,7 +2,7 @@
 <wxs src="../../module/change_string_length.wxs" module="stringUtils"></wxs>
 
 <view style="display: flex;">
-  <scroll-view scroll-y="true" style="width:140rpx; height: 1200rpx; display: fixed;" class="-webkit-scrollbar"> 
+  <scroll-view scroll-y="true" style="width:140rpx; height: 1200rpx;" class="-webkit-scrollbar"> 
     <view>
         <block wx:for="{{tabList}}" wx:key="Id" >
               <view style="height: 68rpx; width:140rpx; display: flex; justify-content: center; padding-top: 23rpx;" 

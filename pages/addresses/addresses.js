@@ -58,6 +58,12 @@ Page({
     })
   },
 
+  goto_change_address(e) {
+      wx.navigateTo({
+        url: `/pages/change_address/change_address?id=${e.currentTarget.dataset.value}`
+      })
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */
