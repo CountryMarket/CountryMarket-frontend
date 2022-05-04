@@ -8,7 +8,7 @@
   background: #33CC99;
   position: fixed;
   z-index: 1;
-  width: 345px;
+  width: 690rpx;
 }
 .content {
   height: 60rpx;

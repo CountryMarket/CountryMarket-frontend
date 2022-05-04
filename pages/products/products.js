@@ -23,7 +23,9 @@ Page({
         wx.setNavigationBarTitle({
           title: '商品分类'
         })
-        this.getTabList()
+        this.getTabList().then(() => {
+          this.gettabProducts()
+        })
     },
 
     change_currentTab(e) {
@@ -36,7 +38,7 @@ Page({
     },
 
     //获取Tab List
-    getTabList() {
+    async getTabList() {
             wx.showLoading({
                 title: '数据加载中'
             })
@@ -45,7 +47,7 @@ Page({
               wx.hideLoading();
               return ;
             }
-            wxRequest("GET","product/tabList").then(res => {
+            let res= await wxRequest("GET","product/tabList")
                   console.log(res)
                   if (isResTokenInvalid(res)) {
                     showTokenInvalidModal();
@@ -58,8 +60,6 @@ Page({
                   this.setData({
                     currentId: this.data.tabList[0].Id
                   })
-            })
-            this.gettabProducts()
             wx.hideLoading()
       },
 
@@ -80,8 +80,8 @@ Page({
                       this.setData({
                           products: res.data.data.Products
                       })
+                      console.log(this.data.products)
                 })
-                console.log(this.data.products)
       },
 
     /**

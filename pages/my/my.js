@@ -117,8 +117,8 @@ Page({
           wx.getUserProfile({
             desc: '获取你的昵称、头像、地区及性别',
             success: res => {
-              nickNameTmp = res.userInfo.nickName;
-              avatarUrlTmp = res.userInfo.avatarUrl;
+              nickNameTmp = res.userInfo.NickName;
+              avatarUrlTmp = res.userInfo.AvatarUrl;
               console.log(res.userInfo);
               resolve();
             },
@@ -144,7 +144,7 @@ Page({
         // 将 code 发送到云服务器，获取 token
         let res = await wxRequest("GET", "user/code", {
           code: globalData.code,
-          nickName: nickNameTmp + "是大十多个使得",
+          nickName: nickNameTmp,
           avatarUrl: avatarUrlTmp
         });
         console.log(res)
@@ -167,15 +167,15 @@ Page({
         res = await wxRequest("GET", "user/profile");
         let profile = res.data.data;
         if (!res.data.success) { // 获取不到暂时用当前的
-          profile.nickName = nickNameTmp;
-          profile.avatarUrl = avatarUrlTmp;
+          profile.NickName = nickNameTmp;
+          profile.AvatarUrl = avatarUrlTmp;
         }
 
         // 更新昵称头像
         this.setData({
-          nickName: profile.nickName,
-          avatarUrl: profile.avatarUrl,
-          permission: profile.permission,
+          nickName: profile.NickName,
+          avatarUrl: profile.AvatarUrl,
+          permission: profile.Permission,
         });
       } catch(err) {
         wx.showModal({

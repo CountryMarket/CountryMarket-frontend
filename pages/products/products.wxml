@@ -1,16 +1,32 @@
 
+<wxs src="../../module/change_string_length.wxs" module="stringUtils"></wxs>
 
-<scroll-view scroll-y="true" style="width:140rpx; height: 1200rpx;" class="-webkit-scrollbar"> 
+<view style="display: flex;">
+  <scroll-view scroll-y="true" style="width:140rpx; height: 1200rpx; display: fixed;" class="-webkit-scrollbar"> 
     <view>
         <block wx:for="{{tabList}}" wx:key="Id" >
-              <view style="height: 70rpx; width:140rpx; display: flex; justify-content: center; padding-top: 23rpx;" 
+              <view style="height: 68rpx; width:140rpx; display: flex; justify-content: center; padding-top: 23rpx;" 
               class="{{index == currentTab ? 'font-color2' : 'font-color1' }}" data-value="{{index}}" bindtap="change_currentTab">{{item.Name}}{{}}</view>
         </block>
     </view>
 </scroll-view>
-
-<view>
-  
-
-
+    <view>
+          <view wx:for="{{products}}" class="goods_container" style="display: flex">
+            <image src="/image/mario.jpg" style="width: 230rpx; height: 230rpx; margin: 10rpx; border-radius: 5rpx;"></image>
+            <view style="width: 360rpx;">
+              <view style="margin-top: 10rpx; font-weight: 600; font-size: 36rpx;color: #33cc99;">{{stringUtils.subString(item.Title,0,9)}}</view>
+              <view style="font-size: 24rpx; font-weight: 550; height: 120rpx;">{{stringUtils.subString(item.Description,0,42)}}</view>
+              <view style="display: flex; color: red; font-weight: 700;">
+                  <view style="display: flex;  width: 260rpx;  margin-top: 15rpx;"> <!-- 价格 -->
+                    <view style="font-size: 30rpx; margin-top: 8rpx;">￥</view>
+                    <view style="font-size: 40rpx;">{{item.Price}}</view>
+                    <view style="color: #b9b9b9; font-weight: 500; font-size: 30rpx; margin-top: 8rpx">/份</view>
+                  </view>
+                        <view style="background-color: #33cc99; border-radius: 25rpx; margin-top: 5rpx; height: 60rpx; width: 60rpx">
+                          <image src="/image/add_cart2.png" style="width: 40rpx; height: 40rpx;display: flex; align-content: center; justify-content: center; background-color: #33cc99; margin: 10rpx;"></image>
+                        </view>
+              </view>
+            </view>
+          </view>
+    </view>
 </view>

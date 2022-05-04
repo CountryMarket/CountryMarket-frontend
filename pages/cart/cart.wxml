@@ -7,7 +7,7 @@
           <view class="address_title">收货信息：</view>
         <view class="address_block1">
           <view class="address_people">收货人：{{address_message[0].Name}}</view>
-          <view>电话：{{address_message[0].PhoneNumber}}</view>
+          <view style="width: 310rpx;">电话：{{address_message[0].PhoneNumber}}</view>
           <image src="/image/arrow_right.png"></image>
         </view>
         <view class="address_block2">收货地址：{{address_message[0].Address}}</view>

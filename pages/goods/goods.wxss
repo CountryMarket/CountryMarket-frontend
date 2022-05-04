@@ -1,13 +1,3 @@
-/* pages/goods/goods.wxss */
-
-.swiper-container {
-  height: 300rpx;
-}
-.swiper-container .item {
-  height: 100%;
-  background-color: #c2c2c2;
-}
-
 
 /* 固定栏目 */
 .goods-bottom{
@@ -22,8 +12,11 @@
 }
 .add_button {
   color: white;
-  font-size: 15px;
+  font-size: 30rpx;
+  width: 500rpx;
   background-color: #33CC99;
+  border-radius: 50rpx;
+  margin-left: 5rpx;
 }
 .keep_image {
   width: 50rpx;
@@ -37,12 +30,38 @@
 
 /* 商品信息 */
 .good_block {
-  margin-top: 20rpx;
-  margin-left: 20rpx;
-  width: 710rpx;
-  height: 300rpx;
-  border: 1rpx solid red;
-  border-radius: 8rpx;
-  box-shadow: 1rpx 1rpx 15rpx red;
-
+  width: 750rpx;
+  padding-bottom: 20rpx;
+  background-color: white;
 }
+
+/*轮播图指示点*/
+.lunbo .wx-swiper-dots.wx-swiper-dots-horizontal{
+  margin-bottom: 0rpx;
+}
+.lunbo .wx-swiper-dot{
+ width:50rpx;/*点的长*/
+ display: inline-flex;
+ height: 10rpx; /*点的高*/
+ margin-left: 5rpx;  /*两个点的距离*/
+ justify-content:space-between;
+}
+.lunbo .wx-swiper-dot::before{
+ content: '';
+ flex-grow: 1; 
+ background : gray; /*点的未选中颜色*/
+ border-radius: 4rpx;
+}
+.lunbo .wx-swiper-dot-active::before{
+ background:#33cc99;   /*点的选中颜色*/
+ border-radius: 10rpx;
+}
+ 
+.lunbo .wx-swiper-dot.wx-swiper-dot{ /*点的未选中样式*/
+  width: 10rpx;
+}
+.lunbo .wx-swiper-dot.wx-swiper-dot-active{/*点的选中样式*/
+  width: 40rpx;
+  height: 10rpx;
+}
+/* ------------------------------------------------------ */

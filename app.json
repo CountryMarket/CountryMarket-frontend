@@ -6,7 +6,8 @@
     "pages/my/my",
     "pages/goods/goods",
     "pages/addresses/addresses",
-    "pages/address_edit/address_edit"
+    "pages/address_edit/address_edit",
+    "pages/keep/keep"
   ],
   "window": {
     "navigationBarBackgroundColor": "#33CC99",

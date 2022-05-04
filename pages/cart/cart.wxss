@@ -7,9 +7,9 @@
   margin-right: 15rpx;
   border: 1rpx solid #efefef;
   border-radius: 8rpx;
-  box-shadow: 11px 1px 15px #efefef;
-  font-size: 14px;
-  text-shadow: 1px 1px 1px #ededed;
+  box-shadow: 22rpx 2rpx 30rpx #efefef;
+  font-size: 28rx;
+  text-shadow: 2rpx 2rpx 2rpx #ededed;
   background-color: white;
 }
 .address_title {
@@ -31,17 +31,17 @@
   display: flex;
 }
 .address_people {
-  width: 350rpx;
+  width: 360rpx;
 }
 /*  */
 .cart-title {
-    height: 40px;
+    height: 80rpx;
     display: flex;
     align-items: center;
-    font-size: 14px;
+    font-size: 28rpx;
     font-weight: 800;
-    padding-left: 5px;
-    border-bottom: 1px solid #efefef;
+    padding-left: 10rpx;
+    border-bottom: 2rpx solid #efefef;
 }
 /* 购物车小图标+文本*/
 .gwc-icon {
@@ -50,8 +50,8 @@
   height: 40rpx;
 }
 .gwc-text {
-    margin-left: 10px;
-    font-size: 20px;
+    margin-left: 20rpx;
+    font-size: 40rpx;
 }
 /* 购物车块样式 */
 .shop-item {
@@ -103,12 +103,12 @@
 }
 .price-icon {
   display: inline-block;
-  font-size: 12px;
-  margin-top: 5px;
+  font-size: 24rpx;
+  margin-top: 10rpx;
 }
 .price {
   display: inline-block;
-  font-size: 17px;
+  font-size: 34rpx;
 }
 .price_and_input {
   display: flex;
@@ -121,6 +121,7 @@
   width: 200rpx;
   height: 40rpx;
   display: flex;
+  border-radius: 8rpx;
 }
 .number_input {
   font-size: 14px;
@@ -133,7 +134,7 @@
 }
 .number_input_text {
   text-align: center;
-  font-size: 20px;
+  font-size: 40rpx;
   color: #33CC99;
 }
 .change_tab {
@@ -183,17 +184,17 @@
   padding-left: 10rpx;
 }
 .selectedAll icon{
-  width: 23px;
-  height: 23px;
+  width: 46rpx;
+  height: 46rpx;
   margin-right: 6rpx;
 }
 .heji-1 {
   padding-right: 20rpx;
-  font-size: 12px;
+  font-size: 24rpx;
   display: flex;
 }
 .heji-2 {
-  font-size: 18px;
+  font-size: 36rpx;
   font-weight: 700;
   color: red;
 }
@@ -203,6 +204,7 @@
   padding-right: 10rpx;
   padding-left: 10rpx;
   display: flex;
+  font-weight: 600;
   justify-content: center;
   align-items: center;
 }

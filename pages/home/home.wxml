@@ -4,7 +4,7 @@
   <search-bar placeholder="查找你想要的商品" bind:handleSearch="handleSearch"></search-bar>
   <view style="height: 70rpx; display: fiex;"></view>
   <!-- 滑动广告栏 -->
-  <swiper class="lunbo" indicator-dots autoplay="true" interval="4000" circular="true"  style="height: 165px;">
+  <swiper class="lunbo" indicator-dots autoplay="true" interval="4000" circular="true"  style="height: 330rpx;">
     <swiper-item> 
       <view class="swiper-picture-item">A</view>
     </swiper-item>
