@@ -1,5 +1,5 @@
 
-<view wx:for="{{address_message}}" wx:key="index" class="{{index == 0 ? 'address_block1': 'address_block2'}}"> 
+<view wx:for="{{address_message}}" wx:key="index" class="{{index == 0 ? 'address_block1': 'address_block2'}}" data-value="{{index}}" bindtap="change_first_address"> 
       <view>
         <view style="font-size: 30rpx; font-weight: 600;">收货信息：</view>
         <view>
@@ -11,7 +11,7 @@
               <view style="width: 500rpx;">{{address_message[index].Address}}</view>
         </view>
       </view>
-      <view  data-value="{{index}}" bindtap="goto_change_address">
+      <view  data-value="{{index}}"  catchtap="goto_change_address">
           <image src="/image/modify.png" style="width: 40rpx; height: 40rpx; margin-top: 57rpx;" ></image>
       </view>
 </view>

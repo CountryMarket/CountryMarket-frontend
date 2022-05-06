@@ -48,9 +48,9 @@ Page({
       }); 
     },
        
-  goto_orders() {
+  goto_orders(e) {
     wx.navigateTo({
-      url: '/pages/orders/orders'
+      url: `/pages/orders/orders?id=${e.currentTarget.dataset.value}`
     })
   },
 

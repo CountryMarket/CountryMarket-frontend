@@ -2,3 +2,19 @@
 search-bar {
   width: 100%;
 }
+.order_blocks {
+  color: white;
+  width: 136rpx;
+  display: flex; 
+  align-content: center; 
+  justify-content: center;
+}
+.order_blocks_active {
+  color: white;
+  width: 136rpx;
+  display: flex; 
+  align-content: center; 
+  justify-content: center;
+  font-size: larger;
+  font-weight: 600;
+}

@@ -64,10 +64,46 @@ Page({
       })
   },
 
+  change_first_address(e) {
+      console.log(e)
+      this.change_address_info(e.currentTarget.dataset.value)
+  },
+
+  async change_address_info(now_id) {
+    let first = this.data.address_message[0]
+    let second = this.data.address_message[now_id]
+    let temp = second.AddressId
+    second.AddressId = first.AddressId
+    first.AddressId = temp
+    console.log(first)
+    console.log(second)
+    let res=await wxRequest("POST","address/modifyAddress",second);
+    console.log(res)
+    if(!res.data.success) {
+      wx.showToast({
+        title: '信息修改失败',
+        duration: 1000,
+        icon: 'none'
+      })
+    }
+    res=await wxRequest("POST","address/modifyAddress",first);
+    console.log(res)
+    if(!res.data.success) {
+      wx.showToast({
+        title: '信息修改失败',
+        duration: 1000,
+        icon: 'none'
+      })
+    }
+      console.log(this.data.address_message)
+      this.getAddressList()
+},
+
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
+
   },
 
   /**

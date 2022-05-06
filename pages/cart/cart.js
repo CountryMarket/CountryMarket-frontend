@@ -259,6 +259,7 @@ async modifyProduct_cart(p) {
         nowChange_index: 0,
         now_change_number: ""
       })
+      this.getShopList()
   },
 
 
