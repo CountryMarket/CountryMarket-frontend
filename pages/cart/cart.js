@@ -3,6 +3,10 @@
 import { wxLogin } from "../../utils/wxLogin"
 import { wxRequest, isTokenEmpty, validateToken, showTokenInvalidModal ,isResTokenInvalid } from "../../utils/wxRequest"
 
+let lastPos = [];
+let startTrans = [];
+let rightWidth = 0;
+
 Page({
 
   /**
@@ -31,7 +35,9 @@ Page({
     is_all_Selected: false,
 
     startX: '', //开始位置空
-    active: false  //左滑删除是否工作,默认false
+    active: false,  //左滑删除是否工作,默认false
+
+    translateX: []
 
   },
 
@@ -87,6 +93,10 @@ Page({
           console.log(this.data.shopList)
           wx.hideLoading()
           this.countAll()
+        }).then(() => {
+          wx.createSelectorQuery().in(this).selectAll(".delete").boundingClientRect(res => {
+            rightWidth = res[0].width;
+          }).exec();
         })
     },
 
@@ -270,8 +280,10 @@ async modifyProduct_cart(p) {
     this.setData({
       shopList: [],
       isSelected: [],
-      page_from: 0
+      page_from: 0,
+      translateX: []
     })
+    console.log(this.data.translateX)
     this.getShopList(()=> {
       wx.stopPullDownRefresh()
     })
@@ -366,6 +378,81 @@ async modifyProduct_cart(p) {
       })
       console.log(this.data.show_money_sum)
   },
+
+  // 左滑删除
+  onItemTouchstart(e) {
+    let index = e.currentTarget.dataset.value;
+    lastPos[index] = e.changedTouches[0].pageX;
+    startTrans[index] = this.data.translateX[index];
+    if (!this.data.translateX[index]) {
+      this.setData({
+        [`translateX[${index}]`]: 0
+      })
+    }
+  },
+  onItemTouchmove(e) {
+    let index = e.currentTarget.dataset.value;
+    let delta = e.changedTouches[0].pageX - lastPos[index];
+    if (this.data.translateX[index] + delta < -rightWidth) {
+      delta = -rightWidth - this.data.translateX[index]
+    }
+    if (this.data.translateX[index] + delta > 0) {
+      delta = 0 - this.data.translateX[index]
+    }
+    if (this.data.translateX[index] < 0) { // 当前已左移
+      if (this.data.translateX[index] < -rightWidth) {
+        this.setData({
+          [`translateX[${index}]`]: -rightWidth
+        })
+      } else if (this.data.translateX[index] == -rightWidth) {
+        if (delta >= 0) { // 右移
+          this.setData({
+            [`translateX[${index}]`]: this.data.translateX[index] + delta
+          })
+        }
+      } else {
+        this.setData({
+          [`translateX[${index}]`]: this.data.translateX[index] + delta
+        })
+      }
+    } else if (this.data.translateX[index] == 0) { // 当前在原位
+      if (this.data.translateX[index] + delta <= 0) { // 左移
+        this.setData({
+          [`translateX[${index}]`]: this.data.translateX[index] + delta
+        })
+      }
+    } else { // 将要右移
+      this.setData({
+        [`translateX[${index}]`]: 0
+      })
+    }
+
+    // 更新 lastPos
+    lastPos[index] = e.changedTouches[0].pageX;
+  },
+  onItemTouchend(e) {
+    // console.log(e)
+    let index = e.currentTarget.dataset.value;
+    if (this.data.translateX[index] >= -(rightWidth - 10) && startTrans[index] == -rightWidth) {
+      this.setData({
+        [`translateX[${index}]`]: 0
+      })
+    } else if (this.data.translateX[index] <= -10) {
+      this.setData({
+        [`translateX[${index}]`]: -rightWidth
+      })
+    } else {
+      this.setData({
+        [`translateX[${index}]`]: 0
+      })
+    }
+  },
+  onTapOnItem() {
+    this.setData({
+      translateX: []
+    })
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */
