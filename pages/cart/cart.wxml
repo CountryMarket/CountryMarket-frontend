@@ -29,14 +29,16 @@
 <!-- 商品信息 -->
 <view wx:for="{{ shopList }}"  
       wx:key="{{ index }}" 
-      style="transform: translate3d({{ translateX[index] }}px, 0, 0); transition: all 0.3s ease-out;"
+      style="transform: translate3d({{ translateX[index] }}px, 0, 0); transition: all 0.3s ease-out;margin-bottom: 5rpx;"
       data-value="{{ index }}"
       bindtouchstart="onItemTouchstart"
       bindtouchmove="onItemTouchmove"
       bindtouchend="onItemTouchend"
 >
 <!-- <navigator url="/pages/goods/goods" hover-class="navigator-hover"> -->
-  <view class="delete">删除</view>
+  <view data-value="{{index}}" class="delete" catchtap="delete_cart">
+      <view style="margin:auto">删除</view>
+  </view>
   <view class="shop-item" bindtap="goto_goods" data-value="{{shopList[index].Id}}"> 
       <view class="circle" data-value="{{index}}" catchtap="change_isSelected">
             <icon type="success" wx:if="{{isSelected[index]}}"></icon>

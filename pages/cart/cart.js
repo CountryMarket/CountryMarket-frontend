@@ -293,7 +293,11 @@ async modifyProduct_cart(p) {
 
   //触底事件-----------------------------------------
   onReachBottom() {
-    this.getShopList()
+    wx.showToast({
+      title: '亲已经到底了哦~',
+      duration: 750,
+      icon: 'none'
+    })
   },
 
   // 滑动出现删除-----------------------------------
@@ -446,6 +450,14 @@ async modifyProduct_cart(p) {
         [`translateX[${index}]`]: 0
       })
     }
+  },
+
+  async delete_cart(e) {
+    console.log(e)
+    console.log(this.data.shopList)
+    let res=await wxRequest("POST","cart/modifyProduct",{productId: this.data.shopList[e.currentTarget.dataset.value].Id, modifyCount: 0});
+    console.log(res)
+    this.getShopList()
   },
   onTapOnItem() {
     this.setData({
