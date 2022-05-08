@@ -24,5 +24,4 @@ search-bar {
   margin: 10rpx;
   padding: 5rpx;
   border-radius: 10rpx;
-  height: 300rpx;
 }
