@@ -44,9 +44,10 @@ Page({
 
   // 保存信息
   async keep_address() {
-      let address_string = this.data.region[0] + this.data.region[1] + this.data.region[2] 
+      let address_string = this.data.region[0] + ' ' + this.data.region[1] + ' ' + this.data.region[2] + ' '
       address_string = address_string + this.data.info.address
       console.log(address_string)
+      console.log(this.data.info.address)
       let res=await wxRequest("POST","address/addAddress",{name: this.data.info.name,phoneNumber: this.data.info.phoneNumber, address: address_string});
       console.log(this.data.info)
       console.log(res)

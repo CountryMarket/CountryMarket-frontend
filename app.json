@@ -9,7 +9,8 @@
     "pages/address_edit/address_edit",
     "pages/keep/keep",
     "pages/orders/orders",
-    "pages/change_address/change_address"
+    "pages/change_address/change_address",
+    "pages/xiadan/xiadan"
   ],
   "window": {
     "navigationBarBackgroundColor": "#33CC99",

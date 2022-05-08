@@ -50,7 +50,7 @@ Page({
 
   // 保存信息
   async keep_address() {
-      let address_string = this.data.region[0] + this.data.region[1] + this.data.region[2] 
+      let address_string = this.data.region[0] + ' ' + this.data.region[1] + ' ' + this.data.region[2] + ' '
       this.setData({
         [`info.Address`]: address_string + this.data.info.Address
       })
@@ -104,6 +104,12 @@ Page({
                     info: this.data.address_message[this.data.id]
                   })
                   console.log(this.data.info)
+                  let arr = this.data.info.Address.split(" ")
+                  console.log(arr)
+                  this.setData({
+                    [`info.Address`]: arr[3],
+                    region: [arr[0],arr[1],arr[2]]
+                  })
             })
   },
 

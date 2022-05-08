@@ -18,3 +18,11 @@ search-bar {
   font-size: larger;
   font-weight: 600;
 }
+.goods_container {
+  background-color: white;
+  border: 1rpx solid #efefef;
+  margin: 10rpx;
+  padding: 5rpx;
+  border-radius: 10rpx;
+  height: 300rpx;
+}

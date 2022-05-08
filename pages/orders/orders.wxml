@@ -2,40 +2,44 @@
 <!-- <search-bar placeholder="输入订单商品名称/订单编号" bind:handleSearch="handleSearch"></search-bar>
 <view style="height: 70rpx; background-color: #33cc99;"></view> -->
 <!-- 这里打算做上移搜索框 -->
+
+<wxs src="../../module/change_string_length.wxs" module="stringUtils"></wxs>
+
+
 <view>
     <view style="padding-left: 35rpx; padding-right: 35rpx; padding-bottom: 10rpx; padding-top: 20rpx; height: 60rpx; display: flex; background-color: #33cc99; position: fixed; width: 100%;">
-        <view class="{{now_page == 1 ? 'order_blocks_active' : 'order_blocks'}}" data-value="1" bindtap="change_page">
+        <view class="{{now_page == 0 ? 'order_blocks_active' : 'order_blocks'}}" data-value="0" bindtap="change_page">
             <view style="display: block;">
               <view>全部</view>
             </view>
         </view>
-        <view class="{{now_page == 2 ? 'order_blocks_active' : 'order_blocks'}}" data-value="2" bindtap="change_page">
+        <view class="{{now_page == 1 ? 'order_blocks_active' : 'order_blocks'}}" data-value="1" bindtap="change_page">
             <view style="display: block;">
               <view>待支付</view>
             </view>
         </view>
-        <view class="{{now_page == 3 ? 'order_blocks_active' : 'order_blocks'}}" data-value="3" bindtap="change_page">
+        <view class="{{now_page == 2 ? 'order_blocks_active' : 'order_blocks'}}" data-value="2" bindtap="change_page">
             <view style="display: block;">
               <view>待评价</view>
             </view>
         </view>
-        <view class="{{now_page == 4 ? 'order_blocks_active' : 'order_blocks'}}" data-value="4" bindtap="change_page">
+        <view class="{{now_page == 3 ? 'order_blocks_active' : 'order_blocks'}}" data-value="3" bindtap="change_page">
             <view style="display: block;">
               <view>待收货</view>
             </view>
         </view>
-        <view class="{{now_page == 5 ? 'order_blocks_active' : 'order_blocks'}}" data-value="5" bindtap="change_page">
+        <view class="{{now_page == 4 ? 'order_blocks_active' : 'order_blocks'}}" data-value="4" bindtap="change_page">
             <view style="display: block;">
               <view>售后</view>
             </view>
         </view>
     </view>
-<!-- 订单列表 -->
-    <view>
-      
-    
-    
-    </view>
-
-
 </view>
+<view style="height: 90rpx; background-color: #33cc99; width: 100%;"></view>
+<view wx:for="{{orders}}" class="goods_container" wx:for-item="first" wx:for-index="i">
+       <view wx:for="{{products[i]}}" style="margin: 5rpx" wx:for-item="second" wx:for-index="j">
+          <image src="/image/mario.jpg" style="width: 50rpx; height: 50rpx; border-radius: 8rpx;"></image>
+          <view>{{second.Title}}</view>
+       
+       </view>
+    </view>

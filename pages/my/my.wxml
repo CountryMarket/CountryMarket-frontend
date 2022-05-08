@@ -10,23 +10,23 @@
     </view>
     <!-- 第一框 -->
     <view class="first-block">
-      <view class="item" data-value="1" bindtap="goto_orders">
+      <view class="item" data-value="0" bindtap="goto_orders">
         <image src="/image/orders.png"></image>
         <view class="item-text">全部订单</view>
       </view>
-      <view class="item" data-value="2" bindtap="goto_orders">
+      <view class="item" data-value="1" bindtap="goto_orders">
         <image src="/image/paying.png"></image>
         <view class="item-text">待支付</view>
       </view>
-      <view class="item" data-value="3" bindtap="goto_orders">
+      <view class="item" data-value="2" bindtap="goto_orders">
         <image src="/image/trans.png"></image>
         <view class="item-text">待收货</view>
       </view>
-      <view class="item" data-value="4" bindtap="goto_orders">
+      <view class="item" data-value="3" bindtap="goto_orders">
         <image src="/image/assess.png"></image>
         <view class="item-text">待评价</view>
       </view>
-      <view class="item" data-value="5" bindtap="goto_orders">
+      <view class="item" data-value="4" bindtap="goto_orders">
         <image src="/image/shouhou4.png"></image>
         <view class="item-text">售后/退款</view>
       </view>
