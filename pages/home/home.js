@@ -1,11 +1,14 @@
 // pages/home/home.js
+import { wxRequest, isTokenEmpty, validateToken, showTokenInvalidModal ,isResTokenInvalid } from "../../utils/wxRequest"
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+      productsLeft: [],
+      productsRight: []
     },
 
     
@@ -21,7 +24,50 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+      wx.showLoading({
+          title: '数据加载中'
+      })
+      wxRequest("GET", "product/homeTab").then(async res => {
+        if (isResTokenInvalid(res)) {
+          showTokenInvalidModal();
+          wx.hideLoading();
+          return ;
+        }
+        let ids = res.data.data.ids;
+        let idsLeft = [], idsRight = [];
+        for (let i = 0; i < ids.length; ++i) {
+          if (i % 2 == 0) {
+            idsLeft = [...idsLeft, ids[i]]
+          } else {
+            idsRight = [...idsRight, ids[i]]
+          }
+        }
+        let tmpLeft = [], tmpRight = [];
+        for (let i = 0; i < idsLeft.length; ++i) {
+          let res = await wxRequest("GET", "shop/product", {id: idsLeft[i]});
+          if (isResTokenInvalid(res)) {
+            showTokenInvalidModal();
+            wx.hideLoading();
+            return ;
+          }
+          tmpLeft =  [...tmpLeft, res.data.data]
+        }
+        for (let i = 0; i < idsRight.length; ++i) {
+          let res = await wxRequest("GET", "shop/product", {id: idsRight[i]});
+          if (isResTokenInvalid(res)) {
+            showTokenInvalidModal();
+            wx.hideLoading();
+            return ;
+          }
+          tmpRight =  [...tmpRight, res.data.data]
+        }
+        console.log(tmpLeft)
+        this.setData({
+          productsLeft: tmpLeft,
+          productsRight: tmpRight, 
+        })
+        wx.hideLoading();
+      })
     },
 
     /**

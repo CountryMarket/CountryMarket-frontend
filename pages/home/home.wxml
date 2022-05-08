@@ -1,4 +1,6 @@
 <!--pages/home/home.wxml-->
+<wxs src="../../module/change_string_length.wxs" module="stringUtils"></wxs>
+
 <view class="home">
   <!-- 顶部搜索框 -->
   <search-bar placeholder="查找你想要的商品" bind:handleSearch="handleSearch"></search-bar>
@@ -43,28 +45,28 @@
   <!-- 商品栏 -->
   <view class="box-container">
     <view class="box-left">
-      <view wx:for="{{ [0, 2, 4, 6] }}" bindtap="goto_goods" class="item-container">
+      <view wx:for="{{ productsLeft }}" wx:key="index" bindtap="goto_goods" class="item-container">
         <view class="item">
           <image src="https://blog.lyffly.com/static/images/avatar.jpg" style="height: 330rpx;"></image>
-          <view class="title">新鲜猪小排（肉质弹嫩）约400g</view>
-          <view class="description">新鲜的猪小排，400g仅20元，新猪新鲜切制。</view>
+          <view class="title">{{ stringUtils.subString(item.Title,0,23) }}</view>
+          <view class="description">{{ stringUtils.subString(item.Description,0,32) }}</view>
           <view class="price-container">
             <view class="price-icon">￥</view>
-            <view class="price">29.5</view>
+            <view class="price">{{ item.Price }}</view>
             <view class="price-per">/份</view>
           </view>
         </view>
       </view>
     </view>
     <view class="box-right">
-      <view wx:for="{{ [1, 3, 5, 7] }}" bindtap="goto_goods" class="item-container">
+      <view wx:for="{{ productsRight }}" wx:key="index" bindtap="goto_goods" class="item-container">
         <view class="item">
-          <image src="https://blog.lyffly.com/static/images/avatar.jpg" style="height: 350rpx;"></image>
-          <view class="title">过期猪小排100g</view>
-          <view class="description">过期的猪小排。</view>
+          <image src="https://blog.lyffly.com/static/images/avatar.jpg" style="height: 330rpx;"></image>
+          <view class="title">{{ stringUtils.subString(item.Title,0,23) }}</view>
+          <view class="description">{{ stringUtils.subString(item.Description,0,32) }}</view>
           <view class="price-container">
             <view class="price-icon">￥</view>
-            <view class="price">233.5</view>
+            <view class="price">{{ item.Price }}</view>
             <view class="price-per">/份</view>
           </view>
         </view>
