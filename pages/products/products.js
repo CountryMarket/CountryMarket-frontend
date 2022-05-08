@@ -101,6 +101,13 @@ Page({
         })
       }
     },
+    goto_goods(e) {
+      console.log(e)
+        wx.navigateTo({
+          url: `/pages/goods/goods?id=${this.data.products[e.currentTarget.dataset.value].Id}`
+        })
+    },
+    
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
