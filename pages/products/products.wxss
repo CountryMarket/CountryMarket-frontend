@@ -25,3 +25,28 @@
     border-radius: 10rpx;
     height: 250rpx;
 }
+
+.custom-bar__wrapper {
+  left: 24rpx;
+  padding: 0 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-group {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background:#ffffff ;
+  border-radius: 100rpx;
+  padding: 0 15rpx;
+}
+.search-group > input {
+  font-size: 25rpx;
+  left: 14px;
+}
+.search-icon {
+  margin: 0 8rpx 0 5rpx;
+}

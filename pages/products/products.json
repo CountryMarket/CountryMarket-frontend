@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "fa": "../../components/includes/fa/index"
+  },
+  "navigationStyle": "custom"
 }
