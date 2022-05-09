@@ -90,7 +90,7 @@
           <text decode="{{true}}">合计:&nbsp;</text>
           <view class='heji-2'>{{show_money_sum}}</view>
       </view>
-      <view class='jiesuan'>结算: {{total_money}}</view>
+      <view class="jiesuan" catchtap="goto_xiadan">结算: {{total_money}}</view>
 </view>
 
 <view>

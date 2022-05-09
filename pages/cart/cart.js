@@ -60,6 +60,12 @@ Page({
       })
   },
 
+  goto_xiadan() {
+      wx.navigateTo({
+        url: '/pages/xiadan/xiadan',
+      })
+  },
+
   //获取商品列表信息-----------------------------------------------------
   getShopList() {
           wx.showLoading({

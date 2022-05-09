@@ -26,11 +26,13 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+      console.log(options)
       let systeminfo=wx.getSystemInfoSync()
       //console.log(systeminfo.windowHeight)
       this.setData({
         movehight:systeminfo.windowHeight,
-        movehight2:systeminfo.windowHeight-100
+        movehight2:systeminfo.windowHeight-100,
+        currentTab: getApp().globalData.goto_tab
       })
   
       this.setData({
@@ -149,7 +151,9 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+      this.setData({
+        currentTab: getApp().globalData.goto_tab
+      })
     },
 
     /**

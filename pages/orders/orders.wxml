@@ -37,14 +37,14 @@
 </view>
 <view style="height: 90rpx; background-color: #33cc99; width: 100%;"></view>
 <view wx:for="{{orders}}" class="goods_container" wx:for-item="first" wx:for-index="i">
-       <view style="display: flex; margin: 10rpx; color: #33cc99; font-weight: 700;">
+       <view style="display: flex; margin: 10rpx; margin-left: 20rpx;color: #33cc99; font-weight: 700;">
               <view wx:if="{{first.now_status==1}}">待支付</view>
               <view wx:if="{{first.now_status==2}}">待收货</view>
               <view wx:if="{{first.now_status==3}}">待评价</view>
               <view wx:if="{{first.now_status==4}}">已完成</view>
        </view>
-       <view wx:for="{{products[i]}}" style="margin: 10rpx; display: flex; border: 1rpx solid red; height: 200rpx;" wx:for-item="second" wx:for-index="j">
-          <image src="/image/mario.jpg" style="height: 200rpx; width: 200rpx; border-radius: 20rpx;"></image>
+       <view wx:for="{{products[i]}}" style="margin: 10rpx; display: flex;height: 200rpx;" wx:for-item="second" wx:for-index="j">
+          <image src="/image/mario.jpg" style="height: 200rpx; width: 200rpx; border-radius: 30rpx;"></image>
           <view style="width: 480rpx; margin-left: 10rpx; margin-right: 10rpx; margin-top: 5rpx; margin-bottom: 5rpx;">
             <view style="font-weight: 600; font-size: 30rpx;">{{stringUtils.subString(second.Title,0,16)}}</view>
             <view style="font-size: 25rpx; font-weight: 600; color: #a3a3a3; height: 100rpx;">{{stringUtils.subString(second.Description,0,38)}}</view>
@@ -54,7 +54,7 @@
             </view>
           </view>
        </view>
-       <view style="font-weight: 700; margin: 10rpx;">
+       <view style="font-size: 35rpx;font-weight: 700; margin: 10rpx;">
            <view style="justify-content: flex-end;display: flex;">
             <view>实付款</view>
             <view style="font-size: 25rpx;">￥</view>
@@ -62,9 +62,34 @@
            </view>
        </view>
        <!-- 分类 -->
-      <view style="display: flex;">
-        <view style="width: 200rpx; height: 70rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 500; background-color: red; display: flex; justify-content: cen ter; padding-top: 20rpx; padding-bottom: 20rpx;">加入购物车</view>
-        <view style="width: 200rpx; height: 50rpx; border-radius:50rpx; font-size: 25rpx; font-weight: 500; background-color: red; display: flex; justify-content: center; align-content: center;">加入查看物流</view>
-        <view style="width: 200rpx; height: 50rpx; border-radius:50rpx; font-size: 25rpx; font-weight: 500; background-color: red; display: flex; justify-content: center; align-content: center;">确认收货</view>
-       </view>
+       <!-- 支付 -->
+       <view wx:if="{{first.now_status==1}}">
+          <view style="display: flex; justify-content: flex-end;">
+            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #33cc99; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx; color: #33cc99;">完成支付</view>
+          </view>
+      </view>
+      <!-- 收货 -->
+      <view wx:if="{{first.now_status==2}}">
+            <view style="display: flex; justify-content: flex-end;">
+            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #a3a3a3; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx;">追加评价</view>
+            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #a3a3a3; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx;">查看物流</view>
+            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #33cc99; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx; color: #33cc99;">确认收货</view>
+          </view>
+      </view>
+      <!-- 评价 -->
+      <view wx:if="{{first.now_status==3}}">
+            <view style="display: flex; justify-content: flex-end;">
+            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #a3a3a3; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx;">追加评价</view>
+            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #a3a3a3; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx;">查看物流</view>
+          </view>
+      </view>
+      
+       <!-- 完成 -->
+       <view wx:if="{{first.now_status==4}}">
+            <view style="display: flex; justify-content: flex-end;">
+            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #a3a3a3; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx;">追加评价</view>
+            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #a3a3a3; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx;">查看物流</view>
+            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #a3a3a3; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx;">申请售后</view>
+          </view>
+      </view>
     </view>

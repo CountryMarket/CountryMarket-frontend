@@ -13,8 +13,6 @@ Page({
   data: {
       is_kept_path: '/image/keep.png',
       if_in_cart: '加入购物车',
-
-
       id: 0,
       good_info: {}
 
@@ -31,14 +29,31 @@ Page({
     this.setData({
       id: Number(options.id)
     })
-    this.getGoodList()
+    this.getGoodList().then( () => {
+        this.check_cart()
+    })
   },
 
-  getGoodList() {
+  check_cart() {
+      wxRequest("GET","cart/inCart",{productId: this.data.id}).then(res => {
+        console.log(res)
+        if(res.data.data.Count != 0) {
+          this.setData({
+              if_in_cart: '已加入购物车'
+          })
+        } else {
+          this.setData({
+            if_in_cart: '加入购物车'
+          })
+        }
+      })
+  },
+
+  async getGoodList() {
           wx.showLoading({
             title: '数据加载中'
         })
-        wxRequest("GET","shop/product",{id: this.data.id}).then(res => {
+        await wxRequest("GET","shop/product",{id: this.data.id}).then(res => {
               this.setData({
                 good_info: res.data.data
               })
@@ -71,16 +86,44 @@ Page({
   },
 
   // 加入购物车
-  add_into_cart() {
-    console.log('加入购物车')
+  async add_into_cart() {
     if(this.data.if_in_cart == '加入购物车') {
-          this.setData({
-            if_in_cart: '已加入购物车'
-          })
-    } else {  
-            this.setData({
-              if_in_cart: '加入购物车'
+          let res=await wxRequest("POST","cart/addProduct",{productId: this.data.id});
+          console.log(res)
+          if(res.data.success) {
+            wx.showToast({
+              title: '商品添加成功！',
+              duration: 500,
+              icon: 'none'
             })
+            this.setData({
+              if_in_cart: '已加入购物车'
+            })
+          } else {
+            wx.showToast({
+              title: '商品添加失败，请重试~',
+              duration: 1000,
+              icon: 'none'
+            })
+          }
+    } else {  
+            let res=await wxRequest("POST","cart/modifyProduct",{productId: this.data.id, modifyCount: 0});
+            if(res.data.success) {
+              wx.showToast({
+                title: '商品移除成功！',
+                duration: 500,
+                icon: 'none'
+              })
+              this.setData({
+                if_in_cart: '加入购物车'
+              })
+            } else {
+              wx.showToast({
+                title: '商品移除失败，请重试~',
+                duration: 1000,
+                icon: 'none'
+              })
+            }
     }
   },
 

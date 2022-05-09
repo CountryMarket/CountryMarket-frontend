@@ -11,7 +11,6 @@ Page({
       productsRight: []
     },
 
-    
     // 跳转到商品页
     goto_goods(e) {
       console.log(e)
@@ -70,6 +69,13 @@ Page({
       })
     },
 
+    goto_tab(e) {
+        console.log(e)
+        getApp().globalData.goto_tab=e.currentTarget.dataset.value
+        wx.switchTab({
+          url: `/pages/products/products`
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

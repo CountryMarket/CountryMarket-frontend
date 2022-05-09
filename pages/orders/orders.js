@@ -34,7 +34,7 @@ Page({
   onLoad(options) {
     console.log(options)
       wx.setNavigationBarTitle({
-        title: '全部订单'
+        title: '订单'
       })
       this.setData({
         now_page: options.id,

@@ -10,7 +10,41 @@ Page({
    * 页面的初始数据
    */
   data: {
-      address_message: []
+      address_message: [],
+      statue: '管理'
+  },
+
+  change_statue() {
+      if(this.data.statue == '管理') {
+        this.setData({
+          statue: '完成'
+        })
+      } else {
+        this.setData({
+          statue: '管理'
+        })
+      }
+  },
+
+  async delete_address(e) {
+      console.log(e)
+      console.log(this.data.address_message[e.currentTarget.dataset.value].AddressId)
+      let res=await wxRequest("POST","address/deleteAddress",{addressId: this.data.address_message[e.currentTarget.dataset.value].AddressId});
+      console.log(res)
+      if(!res.data.success) {
+          wx.showToast({
+            title: '删除地址失败~',    
+            duration: 1000,
+            icon: 'none'
+          })
+      } else {
+        wx.showToast({
+          title: '删除地址成功~',    
+          duration: 500,
+          icon: 'none'
+        })
+        this.getAddressList()
+      }
   },
 
   /**
@@ -126,7 +160,11 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
-
+    this.setData({
+      address_message: []
+    })
+    this.getAddressList()
+    wx.stopPullDownRefresh()
   },
 
   /**
