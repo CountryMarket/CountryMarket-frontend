@@ -34,6 +34,12 @@ Page({
     })
   },
 
+  goto_kefu() {
+    wx.navigateTo({
+      url: '/pages/kefu/kefu'
+    })
+  },
+
   check_cart() {
       wxRequest("GET","cart/inCart",{productId: this.data.id}).then(res => {
         console.log(res)

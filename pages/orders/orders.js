@@ -80,6 +80,12 @@ Page({
           })
     },
 
+    goto_comment() {
+      wx.navigateTo({
+        url: '/pages/comment/comment',
+      })
+    },
+
     get_products() {
         for(let i=0;i<this.data.orders.length;i++) {
           this.setData({

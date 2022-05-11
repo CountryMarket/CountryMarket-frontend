@@ -112,6 +112,13 @@ Page({
       }
   },
 
+  goto_guanli() {
+    console.log('跳转到管理')
+      wx.navigateTo({
+        url: '/pages/guanli/guanli'
+      })
+  },
+
   // 用户登录，此处 global token 会改变
   userLogin: async function() {
     const { globalData } = getApp();

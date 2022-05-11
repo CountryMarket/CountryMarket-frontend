@@ -48,9 +48,9 @@
         <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>
         <view class="item-text">商品管理</view>
       </view>
-      <view class="item">
+      <view class="item" bindtap="goto_guanli">
         <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>
-        <view class="item-text">订单管理</view>
+        <view class="item-text" >订单管理</view>
       </view>
       <view class="item">
         <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>

@@ -10,7 +10,10 @@
     "pages/keep/keep",
     "pages/orders/orders",
     "pages/change_address/change_address",
-    "pages/xiadan/xiadan"
+    "pages/xiadan/xiadan",
+    "pages/kefu/kefu",
+    "pages/guanli/guanli",
+    "pages/comment/comment"
   ],
   "window": {
     "navigationBarBackgroundColor": "#33CC99",

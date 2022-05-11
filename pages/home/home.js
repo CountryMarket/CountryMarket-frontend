@@ -32,35 +32,15 @@ Page({
           wx.hideLoading();
           return ;
         }
-        let ids = res.data.data.ids;
-        let idsLeft = [], idsRight = [];
-        for (let i = 0; i < ids.length; ++i) {
-          if (i % 2 == 0) {
-            idsLeft = [...idsLeft, ids[i]]
-          } else {
-            idsRight = [...idsRight, ids[i]]
-          }
-        }
+        let products = res.data.data.products;
         let tmpLeft = [], tmpRight = [];
-        for (let i = 0; i < idsLeft.length; ++i) {
-          let res = await wxRequest("GET", "shop/product", {id: idsLeft[i]});
-          if (isResTokenInvalid(res)) {
-            showTokenInvalidModal();
-            wx.hideLoading();
-            return ;
+        for (let i = 0; i < products.length; ++i) {
+          if (i % 2 == 0) {
+            tmpLeft = [...tmpLeft, products[i]]
+          } else {
+            tmpRight = [...tmpRight, products[i]]
           }
-          tmpLeft =  [...tmpLeft, res.data.data]
         }
-        for (let i = 0; i < idsRight.length; ++i) {
-          let res = await wxRequest("GET", "shop/product", {id: idsRight[i]});
-          if (isResTokenInvalid(res)) {
-            showTokenInvalidModal();
-            wx.hideLoading();
-            return ;
-          }
-          tmpRight =  [...tmpRight, res.data.data]
-        }
-        console.log(tmpLeft)
         this.setData({
           productsLeft: tmpLeft,
           productsRight: tmpRight, 

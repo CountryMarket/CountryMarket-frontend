@@ -1,0 +1,5 @@
+
+<view style="margin-top: 20rpx;margin-left: 20rpx; margin-right: 20rpx; height: 800rpx; border: 1rpx solid #33cc99; background-color: white; border-radius: 20rpx;">
+      <textarea style="margin: 20rpx;"></textarea>
+</view>
+<button style="margin-top: 20rpx; background-color: #33cc99; color: white; border-radius: 50rpx;" bindtap="submit_comment">提交评论</button>
