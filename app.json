@@ -13,7 +13,9 @@
     "pages/xiadan/xiadan",
     "pages/kefu/kefu",
     "pages/guanli/guanli",
-    "pages/comment/comment"
+    "pages/comment/comment",
+    "pages/cropper/cropper",
+    "pages/addproduct/addproduct"
   ],
   "window": {
     "navigationBarBackgroundColor": "#33CC99",

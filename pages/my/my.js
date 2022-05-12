@@ -112,6 +112,12 @@ Page({
       }
   },
 
+  goto_product() {
+    wx.navigateTo({
+      url: '/pages/addproduct/addproduct'
+    })
+  },
+
   goto_guanli() {
     console.log('跳转到管理')
       wx.navigateTo({

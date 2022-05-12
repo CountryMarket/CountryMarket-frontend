@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "图片截取",
+    "disableScroll": true,
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#292929",
+    "usingComponents": {
+        "image-cropper": "../../components/includes/image-cropper/image-cropper"
+    }
+}
