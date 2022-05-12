@@ -443,11 +443,11 @@ async modifyProduct_cart(p) {
   onItemTouchend(e) {
     // console.log(e)
     let index = e.currentTarget.dataset.value;
-    if (this.data.translateX[index] >= -(rightWidth - 10) && startTrans[index] == -rightWidth) {
+    if (this.data.translateX[index] >= -(rightWidth - 30) && startTrans[index] == -rightWidth) {
       this.setData({
         [`translateX[${index}]`]: 0
       })
-    } else if (this.data.translateX[index] <= -10) {
+    } else if (this.data.translateX[index] <= -30) {
       this.setData({
         [`translateX[${index}]`]: -rightWidth
       })
