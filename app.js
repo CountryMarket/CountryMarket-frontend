@@ -24,6 +24,7 @@ App({
     userInfo: null,
     code: "",
     token: undefined, // 全局 token, 用于登录凭证, 请求时要在头部携带
-    goto_tab: 0
+    goto_tab: 0,
+    imgPPTSrc: []
   }
 })

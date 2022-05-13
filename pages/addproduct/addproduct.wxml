@@ -2,15 +2,15 @@
 <view class="block-container">
   <view class="segment">
     <view class="text">商品标题</view>
-    <input type="text" class="input_block" value="{{ info.title }}" bindinput="inputHandler_title" placeholder="显示的"></input>
+    <input type="text" class="input_block" value="{{ info.title }}" bindinput="inputHandler_title" placeholder="显示的标题文字"></input>
   </view>
   <view class="segment">
     <view class="text">商品描述</view>
-    <input type="text" class="input_block" value="{{ info.description }}" bindinput="inputHandler_description" placeholder="显示的"></input>
+    <input type="text" class="input_block" value="{{ info.description }}" bindinput="inputHandler_description" placeholder="显示的描述文字"></input>
   </view>
   <view class="segment">
     <view class="text">价格</view>
-    <input type="number" class="input_block" bindinput="inputHandler_price" placeholder="显示的"></input>
+    <input type="number" class="input_block" bindinput="inputHandler_price" placeholder="商品单价"></input>
   </view>
   <view class="segment-upload">
     <view class="text">商品图片</view>
@@ -20,7 +20,13 @@
     </view>
   </view>
   <view class="segment-ppt">
-    <view class="text">商品幻灯片</view>
+    <view class="text" style="width: 500rpx;">商品幻灯片 (长按图片删除)</view>
+      <image wx:for="{{ imgPPTSrc }}" src="{{ item }}" 
+             class="image-block" bindtap="modifyPPTPictrue" data-value="{{index}}"
+             bindlongtap="PPTlongTap"
+             bindtouchstart="mytouchstart"
+             bindtouchend="mytouchend"></image>
+      <image class="upload" src="../../image/addimage.png" bindtap="choosePPTPictrue"></image>
   </view>
 </view>
 <button style="margin-top: 50rpx;background-color: #33cc99; color: white; border-radius: 60rpx;" bindtap="uploadProduct">新增商品</button>

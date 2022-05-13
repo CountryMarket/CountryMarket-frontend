@@ -48,3 +48,18 @@
   margin-left: 15rpx;
   margin-top: 10rpx;
 }
+.segment-ppt .upload {
+  display: inline-block;
+  margin-top: 15rpx;
+  margin-right: 10rpx;
+  width: 200rpx;
+  height: 200rpx;
+}
+.image-block {
+  display: inline-block;
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+  width: 200rpx;
+  height: 200rpx;
+  background-color: rgb(228, 228, 228);
+}

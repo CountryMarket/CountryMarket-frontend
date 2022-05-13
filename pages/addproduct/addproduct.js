@@ -13,7 +13,10 @@ Page({
       price: 0.0,
       pictureNumber: 0
     },
-    imgSrc: ""
+    imgSrc: "",
+    imgPPTSrc: [],
+    start: 0,
+    end: 0,
   },
 
   inputHandler_title(e) {
@@ -34,6 +37,58 @@ Page({
   choosePictrue() {
     wx.navigateTo({
       url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&pos=-1`
+    })
+  },
+  choosePPTPictrue() {
+    if (!this.data.imgPPTSrc) {
+      wx.navigateTo({
+        url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&pos=0`
+      })
+    } else {
+      wx.navigateTo({
+        url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&pos=${this.data.imgPPTSrc.length}`
+      })
+    }
+  },
+  modifyPPTPictrue(e) {
+    if (this.data.end - this.data.start > 350) return ;
+    wx.navigateTo({
+      url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&pos=${e.currentTarget.dataset.value}`
+    })
+  },
+  mytouchstart: function (e) { 
+    this.setData({start: e.timeStamp })
+  },
+  mytouchend: function (e) {  
+    this.setData({end: e.timeStamp })
+  }, 
+  PPTlongTap(e) {
+    // console.log(e)
+    let that = this;
+    wx.showModal({
+      title: "提示",
+      content: "删除该图片",
+      success(res) {
+        if (res.confirm) {
+          let tmp = JSON.stringify(that.data.imgPPTSrc)
+          let imgPPTSrcTmp = JSON.parse(tmp)
+          let id = e.currentTarget.dataset.value
+
+          tmp = imgPPTSrcTmp[imgPPTSrcTmp.length - 1];
+          imgPPTSrcTmp[imgPPTSrcTmp.length - 1] = imgPPTSrcTmp[id];
+          imgPPTSrcTmp[id] = tmp;
+          imgPPTSrcTmp.length--
+
+          tmp = getApp().globalData.imgPPTSrc[getApp().globalData.imgPPTSrc.length - 1];
+          getApp().globalData.imgPPTSrc[ getApp().globalData.imgPPTSrc.length - 1] =  getApp().globalData.imgPPTSrc[id];
+          getApp().globalData.imgPPTSrc[id] = tmp;
+          getApp().globalData.imgPPTSrc.length--
+
+          that.setData({
+            imgPPTSrc: imgPPTSrcTmp
+          })
+        }
+      }
     })
   },
   async uploadProduct() {
@@ -72,6 +127,9 @@ Page({
     wx.showLoading({
       title: '正在提交商品...',
     })
+    this.setData({
+      [`info.pictureNumber`]: this.data.imgPPTSrc.length
+    })
     let res = await wxRequest("POST", "shop/addProduct", this.data.info)
     if (isResTokenInvalid(res)) {
       wx.hideLoading()
@@ -105,6 +163,26 @@ Page({
         console.error(err)
       }
     })
+    for (let i = 0; i < this.data.imgPPTSrc.length; ++i) {
+      let gg = i;
+      await wx.cloud.uploadFile({
+        cloudPath: 'assert/image/product/' + id + `/carousel${gg}.png`, 
+        filePath: this.data.imgPPTSrc[gg], 
+        config: {
+          env: 'prod-0guks42iab6ab66f' 
+        },
+        success: res => {
+          console.log(res.fileID)
+        },
+        fail: err => {
+          wx.showModal({
+            title: '提示',
+            content: `幻灯图第${gg + 1}张上传发生错误，请进入修改页面重新上传图片`,
+          })
+          console.error(err)
+        }
+      })
+    }
     wx.showModal({
       title: '提示',
       content: '新增成功！',
@@ -117,7 +195,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    getApp().globalData.imgSrc = ""
+    getApp().globalData.imgPPTSrc = []
   },
 
   /**
@@ -132,7 +211,8 @@ Page({
    */
   onShow() {
     this.setData({
-      imgSrc: getApp().globalData.imgSrc
+      imgSrc: getApp().globalData.imgSrc,
+      imgPPTSrc: getApp().globalData.imgPPTSrc,
     })
   },
 

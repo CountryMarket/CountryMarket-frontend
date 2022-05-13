@@ -134,7 +134,7 @@ Page({
                 if (this.data.pos == -1) {
                   app.globalData.imgSrc = obj.url;
                 } else {
-                  
+                  app.globalData.imgPPTSrc[this.data.pos] = obj.url;
                 }
                 wx.navigateBack({
                     delta: -1
