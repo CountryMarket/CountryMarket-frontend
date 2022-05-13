@@ -33,7 +33,7 @@ Page({
   },
   choosePictrue() {
     wx.navigateTo({
-      url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=`
+      url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&pos=-1`
     })
   },
   async uploadProduct() {

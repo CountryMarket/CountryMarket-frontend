@@ -10,11 +10,17 @@
   </view>
   <view class="segment">
     <view class="text">价格</view>
-    <input type="text" class="input_block" value="{{ info.price }}" bindinput="inputHandler_price" placeholder="显示的"></input>
+    <input type="number" class="input_block" bindinput="inputHandler_price" placeholder="显示的"></input>
   </view>
   <view class="segment-upload">
     <view class="text">商品图片</view>
-    <image class="upload" bindtap="choosePictrue" src="{{ imgSrc }}"></image>
+    <view class="upload" bindtap="choosePictrue">
+      <view wx:if="{{ !imgSrc }}" style="padding-top: 75rpx; font-size: 30rpx; padding-left: 10rpx; color: rgb(88, 88, 88);">点此上传图片</view>
+      <image src="{{ imgSrc }}" wx:if="{{ imgSrc }}"></image>
+    </view>
+  </view>
+  <view class="segment-ppt">
+    <view class="text">商品幻灯片</view>
   </view>
 </view>
 <button style="margin-top: 50rpx;background-color: #33cc99; color: white; border-radius: 60rpx;" bindtap="uploadProduct">新增商品</button>

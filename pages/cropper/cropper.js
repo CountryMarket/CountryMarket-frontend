@@ -10,13 +10,15 @@ Page({
         disable_rotate: true, //是否禁用旋转
         disable_ratio: true, //锁定比例
         limit_move: true, //是否限制移动
+        pos: -1,
     },
     onLoad: function (options) {
             this.cropper = this.selectComponent("#image-cropper");
             this.setData({
                 src: options.imgSrc,
                 width: options.width,
-                height: options.height
+                height: options.height,
+                pos: options.pos
             });
             if(!options.imgSrc){
                 this.cropper.upload(); //上传图片
@@ -129,7 +131,11 @@ Page({
         },
         submit() {
             this.cropper.getImg((obj) => {
-                app.globalData.imgSrc = obj.url;
+                if (this.data.pos == -1) {
+                  app.globalData.imgSrc = obj.url;
+                } else {
+                  
+                }
                 wx.navigateBack({
                     delta: -1
                 })
