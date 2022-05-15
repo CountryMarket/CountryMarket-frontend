@@ -106,6 +106,7 @@ Page({
                   })
                 } else {
                   this.setData({
+                    is_all_Selected: false,
                     shopList: res.data.data.Products,
                     page_from: this.data.page_from + this.data.page_length
                   })
@@ -367,6 +368,23 @@ async modifyProduct_cart(p) {
       this.setData({
         [`isSelected[${e.currentTarget.dataset.value}]`]: this.data.isSelected[e.currentTarget.dataset.value]==1 ? 0 : 1
       })
+      if(this.data.isSelected[e.currentTarget.dataset.value]==1) {
+        let temp=true
+        for(let i=0;i<this.data.shopList.length;i++) {
+          if(this.data.isSelected[i]==1||this.data.shopList[i].Count>this.data.shopList[i].Stock) continue;
+          temp=false;
+          break;
+        }
+        if(temp==true) {
+          this.setData({
+            is_all_Selected: true
+          })
+        }
+      } else {
+        this.setData({
+          is_all_Selected: false
+        })
+      }
       this.countAll()
     } else {
       wx.showToast({
