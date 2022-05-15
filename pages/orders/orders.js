@@ -78,6 +78,15 @@ Page({
                     orders: [...this.data.orders,...res.data.data.orders],
                     from: this.data.from + this.data.page_size
                   })
+                  console.log(this.data.orders.length)
+                  for(let i=0;i<this.data.orders.length;i++) {
+                    this.setData({
+                      [`orders[${i}].total_price`]: (Number)(this.data.orders[i].total_price)
+                    })
+                    this.setData({
+                      [`orders[${i}].total_price`]: this.data.orders[i].total_price.toFixed(2)
+                    })
+                  }
             console.log(this.data.orders)
             console.log(res.data.data.orders)
                 }
@@ -145,7 +154,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-
+      this.get_orders()
   },
 
   /**

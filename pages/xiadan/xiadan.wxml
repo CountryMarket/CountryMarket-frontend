@@ -94,7 +94,7 @@
 <view>
     <modal title="请输入备注" cancel-text="取消" confire-text="确认" hidden="{{input_Hidden}}" bindconfirm="changeModel" bindcancel="modelCancel">
         <view style="display: flex;">
-          <textarea value="{{message[now_index]}}" bindinput="input_Handler" style="flex:1; border: 1rpx solid #33cc99; border-radius: 10rpx; margin: 5rpx"></textarea>
+          <textarea value="{{message[now_index]}}" bindinput="input_Handler" style="flex:1; border: 1rpx solid #33cc99; border-radius: 10rpx; margin: 5rpx; padding: 10rpx"></textarea>
         </view>
     </modal>
 </view>

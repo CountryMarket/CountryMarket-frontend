@@ -40,16 +40,16 @@
     </view>
     <!-- 第三框: 店家后台管理 -->
     <view class="third-block" wx:if="{{ permission & 2 }}">
-      <view class="item">
-        <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>
-        <view class="item-text">信息管理</view>
-      </view>
       <view class="item" bindtap="goto_product">
+        <image src="/image/add_new_product.png"></image>
+        <view class="item-text">新增商品</view>
+      </view>
+      <view class="item">
         <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>
         <view class="item-text">商品管理</view>
       </view>
       <view class="item" bindtap="goto_guanli">
-        <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>
+        <image src="/image/manage2.png"></image>
         <view class="item-text" >订单管理</view>
       </view>
       <view class="item">

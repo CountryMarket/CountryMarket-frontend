@@ -149,9 +149,18 @@ Page({
             icon: 'none'
           })
         } else {
-          this.add_into_cart(this.data.shopList[e.currentTarget.dataset.value].Id).then(() => {
-            this.getShopList()
-          })
+          if(this.data.shopList[e.currentTarget.dataset.value].Count>=this.data.shopList[e.currentTarget.dataset.value].Stock) {
+            wx.showToast({
+              title: '超过库存咯~',
+              duration: 750,
+              icon: 'none'
+            })
+          } else {
+            this.add_into_cart(this.data.shopList[e.currentTarget.dataset.value].Id).then(() => {
+              this.getShopList()
+            })
+          }
+          
         }
     },
     minus(e) {
@@ -273,9 +282,18 @@ async modifyProduct_cart(p) {
               icon: 'none'
             })
           } else {
-            this.modifyProduct_cart({idex: this.data.shopList[this.data.nowChange_index].Id, number: this.data.now_change_number}).then(()=> {
-              this.modelCancel()
-            })
+            if(this.data.now_change_number>this.data.shopList[this.data.nowChange_index].Stock) {
+              wx.showToast({
+                title: '亲,数量超过库存了喔~',
+                duration: 750,
+                icon: 'none'
+              })
+              console.log('haha')
+            } else {
+              this.modifyProduct_cart({idex: this.data.shopList[this.data.nowChange_index].Id, number: this.data.now_change_number}).then(()=> {
+                this.modelCancel()
+              })
+            }
           }
         }
       }
@@ -342,10 +360,19 @@ async modifyProduct_cart(p) {
   //----------------------------------------------
   change_isSelected(e) {
     console.log(e.currentTarget.dataset.value)
-    this.setData({
-      [`isSelected[${e.currentTarget.dataset.value}]`]: this.data.isSelected[e.currentTarget.dataset.value]==1 ? 0 : 1
-    })
-    this.countAll()
+    if(this.data.shopList[e.currentTarget.dataset.value].Count<=this.data.shopList[e.currentTarget.dataset.value].Stock) {
+      this.setData({
+        [`isSelected[${e.currentTarget.dataset.value}]`]: this.data.isSelected[e.currentTarget.dataset.value]==1 ? 0 : 1
+      })
+      this.countAll()
+    } else {
+      wx.showToast({
+        title: '亲，库存不足哦~',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+    
   },
 
   change_all_selected() {
@@ -353,7 +380,7 @@ async modifyProduct_cart(p) {
         is_all_Selected: false
       })
       for(let i = 0, len = this.data.shopList.length ; i<len ; i++) {
-          if(this.data.isSelected[i] == 1) continue;
+          if(this.data.isSelected[i] == 1||this.data.shopList[i].Count>this.data.shopList[i].Stock) continue;
           this.setData({
             is_all_Selected: true
           })
@@ -367,6 +394,7 @@ async modifyProduct_cart(p) {
           } 
       } else {
           for(let i = 0, len = this.data.shopList.length ; i<len ; i++) {
+            if(this.data.shopList[i].Count>this.data.shopList[i].Stock) continue;
             this.setData({
               [`isSelected[${i}]`]: 1
             })
