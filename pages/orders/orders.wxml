@@ -71,7 +71,7 @@
       <!-- 收货 -->
       <view wx:if="{{first.now_status==2}}">
             <view style="display: flex; justify-content: flex-end;">
-            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #a3a3a3; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx;" bindtap="goto_comment">追加评价</view>
+            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #a3a3a3; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx;" catchtap="goto_comment">追加评价</view>
             <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #a3a3a3; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx;">查看物流</view>
             <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #33cc99; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx; color: #33cc99;">确认收货</view>
           </view>

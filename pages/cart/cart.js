@@ -96,13 +96,16 @@ Page({
                   return ;
                 }
                 if(res.data.data.Products==null) {
+                    this.setData({
+                      shopList: [],
+                      page_from: this.data.page_from + this.data.page_length
+                    })
                   wx.showToast({
                     title: '购物车已经到底了喔~',
                     icon: 'none'
                   })
                 } else {
                   this.setData({
-    //                 shopList: [...this.data.shopList,...res.data.data.Products],
                     shopList: res.data.data.Products,
                     page_from: this.data.page_from + this.data.page_length
                   })
@@ -507,6 +510,7 @@ async modifyProduct_cart(p) {
     console.log(res)
     this.getShopList()
   },
+
   onTapOnItem() {
     this.setData({
       translateX: []

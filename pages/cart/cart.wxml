@@ -42,6 +42,13 @@
 </view>
 
 <!-- 商品信息 -->
+<view wx:if="{{!shopList.length}}" style="display: flex; justify-content: center;">
+  <view style="display: block;">
+    <image src="/image/cart_empty.png" style="width: 250rpx; height: 250rpx; margin-top: 100rpx; margin-right: 30rpx;"></image>
+    <view style="display: flex; justify-content: center; font-size: 60rpx; font-weight: 600; color: #b2b2b2;">购物车空</view>
+  </view>
+</view>
+<view wx:else>
 <view wx:for="{{ shopList }}"  
       wx:key="{{ index }}" 
       style="transform: translate3d({{ translateX[index] }}px, 0, 0); transition: all 0.3s ease-out;margin-bottom: 5rpx;"
@@ -108,6 +115,7 @@
       </view>
   </view>
 <!-- </navigator>  -->
+</view>
 </view>
 
 <view class="liu"></view>
