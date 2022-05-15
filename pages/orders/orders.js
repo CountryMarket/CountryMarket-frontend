@@ -44,6 +44,13 @@ Page({
       console.log(this.data.now_page)
   },
 
+  goto_order_info(e) {
+      console.log(e)
+      wx.navigateTo({
+        url: `/pages/order_info/order_info?id=${this.data.orders[e.currentTarget.dataset.value].order_id}`
+      })
+  },
+
     async get_orders() {
         console.log(this.data.from)
           wx.showLoading({
@@ -91,36 +98,13 @@ Page({
           this.setData({
             [`products[${i}]`]: []
           })
-          console.log(this.data.products[i])
           for(let j=0;j<this.data.orders[i].product_and_count.length;j++) {
-            wx.showLoading({
-                        title: '数据加载中'
-                    })
-                    if (isTokenEmpty(getApp().globalData.token)) {
-                      showTokenInvalidModal();
-                      wx.hideLoading();
-                      return ;
-                    }
-                    wxRequest("GET","shop/product",{
-                id: this.data.orders[i].product_and_count[j].product_id
-              }).then(res => {
-                          console.log(res)
-                          if (isResTokenInvalid(res)) {
-                            showTokenInvalidModal();
-                            get_products();
-                            return ;
-                          }
-                          console.log(this.data.products[i])
-                            this.setData({
-                                 [`products[${i}]`]: [...this.data.products[i],res.data.data]
-                            })
-                          console.log(this.data.products)
-                          
-                    }).then(()=> {
-                      wx.hideLoading()
-                    })
+                     this.setData({
+                         [`products[${i}]`]: [...this.data.products[i],this.data.orders[i].product_and_count[j].products]
+                      })
           }
         }
+        console.log(this.data.products)
     },
   /**
    * 生命周期函数--监听页面初次渲染完成

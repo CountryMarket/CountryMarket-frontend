@@ -36,7 +36,7 @@
     </view>
 </view>
 <view style="height: 90rpx; background-color: #33cc99; width: 100%;"></view>
-<view wx:for="{{orders}}" class="goods_container" wx:for-item="first" wx:for-index="i">
+<view wx:for="{{orders}}" class="goods_container" wx:for-item="first" wx:for-index="i"  data-value="{{[i]}}" bindtap="goto_order_info">
        <view style="display: flex; margin: 10rpx; margin-left: 20rpx;color: #33cc99; font-weight: 700;">
               <view wx:if="{{first.now_status==1}}">待支付</view>
               <view wx:if="{{first.now_status==2}}">待收货</view>

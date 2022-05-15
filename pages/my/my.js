@@ -137,9 +137,9 @@ Page({
         await new Promise((resolve) => {
           wx.getUserProfile({
             desc: '获取你的昵称、头像、地区及性别',
-            success: res => {
-              nickNameTmp = res.userInfo.NickName;
-              avatarUrlTmp = res.userInfo.AvatarUrl;
+            success: res => {              
+              nickNameTmp = res.userInfo.nickName;
+              avatarUrlTmp = res.userInfo.avatarUrl;
               console.log(res.userInfo);
               resolve();
             },

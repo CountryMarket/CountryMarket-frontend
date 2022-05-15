@@ -3,7 +3,7 @@
 
 <scroll-view bindtap="onTapOnItem" bindtouchstart="onTapOnItem" class="-webkit-scrollbar">
 
-<!-- 信息 要限定长度-->
+<!-- 信息 要限定长度
 <navigator url="/pages/addresses/addresses" hover-class="navigator-hover"> 
     <view class="address" style="font-size: 25rpx;">
           <view class="address_title" style="font-size: 30rpx;">收货信息：</view>
@@ -16,6 +16,21 @@
             <view>收货地址：</view>
             <view style="width: 500rpx;">{{address_message[0].Address}}</view>
         </view>
+    </view>
+</navigator> -->
+
+<navigator url="/pages/addresses/addresses" hover-class="navigator-hover"> 
+    <view class="address" style="font-size: 25rpx; display: flex;">
+            <view style="width: 95%;">
+                <view style="width: 95%; font-weight: 600; font-size: 35rpx;">{{address_message[0].Address}}</view>
+                <view style="display: flex; margin-top: 10rpx; width: 95%; font-size: 30rpx;">
+                    <view style="color: #b2b2b2;">{{address_message[0].Name}}</view>
+                    <text style="color: #b2b2b2;" decode="{{true}}">&nbsp;&nbsp;{{address_message[0].PhoneNumber}}</text>
+                </view>
+            </view>
+            <view style="width: 5%; display: flex; align-items: center;">
+                  <image src="/image/arrow_right.png"></image>
+            </view>
     </view>
 </navigator>
 <!-- 购物车商品列表的标题区域 -->

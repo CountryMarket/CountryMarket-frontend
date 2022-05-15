@@ -1,1 +1,35 @@
 /* pages/xiadan/xiadan.wxss */
+/* 地址信息 */
+.address {
+  padding: 20rpx;
+  margin-top: 15rpx;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  border: 1rpx solid #efefef;
+  border-radius: 8rpx;
+  box-shadow: 22rpx 2rpx 30rpx #efefef;
+  font-size: 28rx;
+  text-shadow: 2rpx 2rpx 2rpx #ededed;
+  background-color: white;
+}
+.address_title {
+  margin-bottom: 10rpx;
+  display: flex;
+  font-weight: 800;
+  color: #33CC99;
+}
+.address image {
+  padding: 5rpx;
+  height: 28rpx;
+  width: 28rpx;
+}
+.address_block1 {
+  margin-bottom: 10rpx;
+  display: flex;
+}
+.address_block2 {
+  display: flex;
+}
+.address_people {
+  width: 360rpx;
+}

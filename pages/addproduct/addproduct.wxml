@@ -1,32 +1,36 @@
 <!--pages/addproduct/addproduct.wxml-->
-<view class="block-container">
-  <view class="segment">
-    <view class="text">商品标题</view>
-    <input type="text" class="input_block" value="{{ info.title }}" bindinput="inputHandler_title" placeholder="显示的标题文字"></input>
-  </view>
-  <view class="segment">
-    <view class="text">商品描述</view>
-    <input type="text" class="input_block" value="{{ info.description }}" bindinput="inputHandler_description" placeholder="显示的描述文字"></input>
-  </view>
-  <view class="segment">
-    <view class="text">价格</view>
-    <input type="number" class="input_block" bindinput="inputHandler_price" placeholder="商品单价"></input>
-  </view>
-  <view class="segment-upload">
-    <view class="text">商品图片</view>
-    <view class="upload" bindtap="choosePictrue">
-      <view wx:if="{{ !imgSrc }}" style="padding-top: 75rpx; font-size: 30rpx; padding-left: 10rpx; color: rgb(88, 88, 88);">点此上传图片</view>
-      <image src="{{ imgSrc }}" wx:if="{{ imgSrc }}"></image>
+<view style="background-color: white; height: 100%;">
+    <view class="block-container">
+      <view class="segment">
+        <view class="text">商品标题</view>
+        <input type="text" class="input_block" value="{{ info.title }}" bindinput="inputHandler_title" placeholder="显示的标题文字"></input>
+      </view>
+      <view class="segment">
+        <view class="text">商品描述</view>
+        <textarea style="height: 400rpx; padding: 10rpx;" class="input_block" value="{{ info.description }}" bindinput="inputHandler_description" placeholder="显示的描述文字"></textarea>
+      </view>
+      <view class="segment">
+        <view class="text">价格</view>
+        <input type="number" class="input_block" bindinput="inputHandler_price" placeholder="商品单价"></input>
+      </view>
+      <view class="segment-upload">
+        <view class="text" style="width: 500rpx;">展示商品图片</view>
+        <view class="upload" bindtap="choosePictrue">
+          <view wx:if="{{ !imgSrc }}" style="padding-top: 75rpx; font-size: 30rpx; padding-left: 10rpx; color: rgb(88, 88, 88);">点此上传图片</view>
+          <image src="{{ imgSrc }}" wx:if="{{ imgSrc }}"></image>
+        </view>
+      </view>
+      <view class="segment-ppt">
+        <view class="text" style="width: 500rpx;">商品幻灯片 (长按图片删除)</view>
+          <image wx:for="{{ imgPPTSrc }}" src="{{ item }}" 
+                class="image-block" bindtap="modifyPPTPictrue" data-value="{{index}}"
+                bindlongtap="PPTlongTap"
+                bindtouaddimagechstart="mytouchstart"
+                bindtouchend="mytouchend"></image>
+          <image class="upload" src="../../image/addimage.jpg" bindtap="choosePPTPictrue"></image>
+          <!-- <view style="width: 200rpx; height: 200rpx; background-color: #e4e4e4; color: #888888;" bindtap="choosePPTPictrue">点击上传图片</view> -->
+      </view>
     </view>
-  </view>
-  <view class="segment-ppt">
-    <view class="text" style="width: 500rpx;">商品幻灯片 (长按图片删除)</view>
-      <image wx:for="{{ imgPPTSrc }}" src="{{ item }}" 
-             class="image-block" bindtap="modifyPPTPictrue" data-value="{{index}}"
-             bindlongtap="PPTlongTap"
-             bindtouchstart="mytouchstart"
-             bindtouchend="mytouchend"></image>
-      <image class="upload" src="../../image/addimage.png" bindtap="choosePPTPictrue"></image>
-  </view>
+    <button style="background-color: #33cc99; color: white; border-radius: 60rpx;" bindtap="uploadProduct">新增商品</button>
+    <view style="width: 100%; height: 40rpx"></view>
 </view>
-<button style="margin-top: 50rpx;background-color: #33cc99; color: white; border-radius: 60rpx;" bindtap="uploadProduct">新增商品</button>

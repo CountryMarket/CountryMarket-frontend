@@ -4,12 +4,12 @@
 
 <view style="display: flex;margin-top: 30rpx;margin-left: 20rpx;">
     <view style="font-size: 35rpx; font-weight: 600;width: 140rpx; padding-top: 12rpx;">收货人</view>
-    <input type="text" class="input_block" value="{{info.name}}" style="padding-left: 20rpx; margin-left: 8rpx; margin-right: 20rpx;" bindinput="inputHandler_name"></input>
+    <input type="text" class="input_block" value="{{info.name}}" style="padding-left: 20rpx; margin-left: 8rpx; margin-right: 20rpx;" placeholder="输入收货人名称" bindinput="inputHandler_name"></input>
 </view>
 
 <view style="display: flex;margin-top: 30rpx;margin-left: 20rpx;">
     <view style="font-size: 35rpx; font-weight: 600;width: 140rpx; padding-top: 12rpx;">手机号码</view>
-    <input type="text" class="input_block" value="{{info.phoneNumber}}" style="padding-left: 20rpx; margin-left: 8rpx; margin-right: 20rpx;" bindinput="inputHandler_phone"></input>
+    <input type="text" class="input_block" value="{{info.phoneNumber}}" style="padding-left: 20rpx; margin-left: 8rpx; margin-right: 20rpx;" bindinput="inputHandler_phone"  placeholder="输入电话号码"></input>
 </view>
 
 <view style="display: flex;margin-top: 30rpx;margin-left: 20rpx;">
@@ -26,7 +26,7 @@
 
 <view style="display: flex;margin-top: 30rpx; margin-left: 20rpx;">
     <view style="font-size: 35rpx; font-weight: 600;width: 140rpx; padding-top: 12rpx;">详细地址</view>
-    <textarea type="text" class="input_block" value="{{info.address}}" style="padding-left: 20rpx; margin-left: 8rpx; margin-right: 20rpx; padding-top: 20rpx; height:200rpx;" bindinput="inputHandler_address"></textarea>
+    <textarea type="text" class="input_block" value="{{info.address}}" style="padding-left: 15rpx; margin-left: 8rpx; margin-right: 20rpx; padding-top: 15rpx; height:200rpx;" bindinput="inputHandler_address"  placeholder="输入详细收货地址"></textarea>
 </view>
 
 <button style="margin-top: 50rpx;background-color: #33cc99; color: white; border-radius: 60rpx;" bindtap="keep_address">保存</button>

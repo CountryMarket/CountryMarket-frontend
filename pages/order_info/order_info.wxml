@@ -1,0 +1,118 @@
+
+<wxs src="../../module/change_string_length.wxs" module="stringUtils"></wxs>
+<view style="display: flex; margin: 20rpx;">
+    <view>当前订单状态：</view>
+    <view style="color: #33cc99; font-weight: 600;">
+      <view wx:if="{{info.now_status==1}}">待支付</view>
+      <view wx:if="{{info.now_status==2}}">待收货</view>
+      <view wx:if="{{info.now_status==3}}">待评价</view>
+      <view wx:if="{{info.now_status==4}}">已完成</view>
+    </view>
+</view>
+<view> </view>
+<view style="margin: 10rpx; border-radius: 10rpx; border: 1rpx solid #efefef; padding: 20rpx; background-color: white;">
+    <view wx:for="{{products}}" style="display: flex; margin: 10rpx; height: 200rpx;" data-value="{{index}}" bindtap="goto_goods">
+      <image src="{{'https://7072-prod-0guks42iab6ab66f-1311448235.tcb.qcloud.la/assert/image/product/'+item.Id+'/view.png'}}" style="height: 200rpx; width: 200rpx; border-radius: 30rpx;"></image>
+          <view style="width: 480rpx; margin-left: 10rpx; margin-right: 10rpx; margin-top: 5rpx; margin-bottom: 5rpx;">
+            <view style="font-weight: 600; font-size: 30rpx;">{{stringUtils.subString(item.Title,0,16)}}</view>
+            <view style="font-size: 25rpx; font-weight: 600; color: #a3a3a3; height: 100rpx;">{{stringUtils.subString(item.Description,0,38)}}</view>
+            <view style="display: flex; justify-content: flex-end;">
+              <view style="font-size: 35rpx; font-weight: 600;">￥{{item.Price}}</view>
+              <view style="color: #a3a3a3;">×{{info.product_and_count[index].count}}</view>
+            </view>
+          </view>
+    </view>
+    <view style="display: flex; margin: 10rpx;">
+        <view style="width: 200rpx">实付款</view> 
+        <view style=" display: flex; justify-content: flex-end; width: 100%; color: #33cc99;">
+            <view>￥</view>
+            <view style="font-weight: 600;">{{info.total_price}}</view>
+        </view>
+    </view>
+    <view style="display: flex; margin: 10rpx;">
+        <view style="height: 20rpx">订单编号：</view>
+        <view style="display: flex; justify-content: flex-end; width: 400rpx; margin-left: 100rpx;">
+          <text style="color: #b2b2b2; font-size: 30rpx;" user-select="{{true}}">{{info.order_id}}</text>
+        </view>
+    </view>
+    <view></view>
+</view>
+
+
+
+<view style="margin: 10rpx; border-radius: 10rpx; border: 1rpx solid #efefef; padding: 20rpx; background-color: white;">
+  <view style="display: flex; margin: 10rpx;">
+        <view>收件信息：</view>
+        <view style="display: flex; justify-content: flex-end; width: 400rpx; margin-left: 100rpx;">
+          <text style="color: #b2b2b2; font-size: 30rpx;" user-select="{{true}}" decode="{{true}}">{{info.person_name}},&nbsp;&nbsp;{{info.person_phone_number}},&nbsp;&nbsp;{{info.person_address}}</text>
+        </view>
+  </view>
+  <view wx:if="{{if_open==false}}" bindtap="change_open" style="display: flex; justify-content: center; font-size: 30rpx; color: #b2b2b2; margin-top: 30rpx;"> 
+        <view>查看更多</view>
+        <image style="height: 40rpx; width: 40rpx;" src="/image/downward1.png"></image>
+  </view>
+  <view wx:else>
+        <view style="display: flex; margin: 10rpx;">
+            <view>下单时间：</view>
+            <view style="display: flex; justify-content: flex-end; width: 400rpx; margin-left: 100rpx;">
+              <text style="color: #b2b2b2; font-size: 30rpx;" user-select="{{true}}" decode="{{true}}">{{info.order_time}}</text>
+            </view>
+      </view>
+      <view style="display: flex; margin: 10rpx;"  wx:if="{{info.now_status>1}}">
+            <view>支付时间：</view>
+            <view style="display: flex; justify-content: flex-end; width: 400rpx; margin-left: 100rpx;">
+              <text style="color: #b2b2b2; font-size: 30rpx;" user-select="{{true}}" decode="{{true}}">{{info.pay_time}}</text>
+            </view>
+      </view>
+      <view style="display: flex; margin: 10rpx;"  wx:if="{{info.now_status>2}}">
+            <view>收货时间：</view>
+            <view style="display: flex; justify-content: flex-end; width: 400rpx; margin-left: 100rpx;">
+              <text style="color: #b2b2b2; font-size: 30rpx;" user-select="{{true}}" decode="{{true}}">{{info.varify_time}}</text>
+            </view>
+      </view>
+        <view bindtap="change_open" style="display: flex; justify-content: center; font-size: 30rpx; color: #b2b2b2; margin-top: 30rpx;">
+            <view>收起</view>
+            <image style="height: 40rpx; width: 40rpx;" src="/image/upward1.png"></image>
+      </view>
+  </view>
+</view>
+
+<view style="margin: 10rpx; border-radius: 10rpx; border: 1rpx solid #efefef; padding: 20rpx; background-color: white;">
+  <view style="display: flex; margin: 10rpx;">
+        <view>留言信息：</view>
+        <view style="display: flex; justify-content: flex-end; width: 400rpx; margin-left: 100rpx;">
+          <text style="color: #b2b2b2; font-size: 30rpx;" user-select="{{true}}" decode="{{true}}">{{info.message}}</text>
+        </view>
+  </view>
+</view>
+
+
+<button style="background-color: #33cc99; color: white; border-radius: 100rpx; margin-top: 20rpx; margin-bottom: 20rpx;">删除订单</button>
+
+
+<view style="height: 100rpx; width: 100%"></view>
+
+<view style="position: fixed; bottom: 0; width: 100%; border: 1rpx solid #efefef; padding-top: 15rpx; padding-bottom: 15rpx; font-weight: 550; background-color: #efefef;">
+<!-- 完成支付 -->
+  <view wx:if="{{info.now_status == 1}}" style=" display: flex; justify-content: flex-end; margin-right: 20rpx;">
+        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #33cc99; color: #33cc99; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;">前往支付</view>
+    </view>
+<!-- 待收货 -->
+    <view wx:if="{{info.now_status == 2}}" style=" display: flex; justify-content: flex-end; margin-right: 20rpx;">
+        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;">追加评论</view>
+        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;">查看物流</view>
+        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #33cc99; color: #33cc99; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;">确认收货</view>
+    </view>
+    <!-- 评价 -->
+    <view wx:if="{{info.now_status == 3}}" style=" display: flex; justify-content: flex-end; margin-right: 20rpx;">
+        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;">追加评论</view>
+        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;">查看物流</view>
+        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;">申请售后</view>
+    </view>
+    <!-- 完成 -->
+    <view wx:if="{{info.now_status == 4}}" style=" display: flex; justify-content: flex-end; margin-right: 20rpx;">
+        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;">追加评论</view>
+        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;">查看物流</view>
+        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;">申请售后</view>
+    </view>
+</view>

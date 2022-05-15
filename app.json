@@ -15,7 +15,9 @@
     "pages/guanli/guanli",
     "pages/comment/comment",
     "pages/cropper/cropper",
-    "pages/addproduct/addproduct"
+    "pages/addproduct/addproduct",
+    "pages/order_info/order_info",
+    "pages/pay/pay"
   ],
   "window": {
     "navigationBarBackgroundColor": "#33CC99",

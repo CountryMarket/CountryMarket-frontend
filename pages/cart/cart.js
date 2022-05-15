@@ -37,7 +37,9 @@ Page({
     startX: '', //开始位置空
     active: false,  //左滑删除是否工作,默认false
 
-    translateX: []
+    translateX: [],
+    
+    push: []
 
   },
 
@@ -61,9 +63,19 @@ Page({
   },
 
   goto_xiadan() {
-      wx.navigateTo({
-        url: '/pages/xiadan/xiadan',
+    this.countAll()
+    if(this.data.total_money==0) {
+      wx.showToast({
+        title: '亲，请选择商品哦~',
+        duration: 2000,
+        icon: 'none'
       })
+    } else {
+      wx.navigateTo({
+          url: `/pages/xiadan/xiadan?id=${this.data.push}`
+        })
+    }
+      
   },
 
   //获取商品列表信息-----------------------------------------------------
@@ -366,12 +378,14 @@ async modifyProduct_cart(p) {
 
   countAll() {
     this.setData({
-      money_sum: 0.00
+      money_sum: 0.00,
+      push: []
     }) 
     for(let i = 0, len = this.data.isSelected.length ; i<len ; i++) {
       if(this.data.isSelected[i] == 1) {
         this.setData({
-          money_sum: this.data.money_sum+(this.data.shopList[i].Count*this.data.shopList[i].Price)
+          money_sum: this.data.money_sum+(this.data.shopList[i].Count*this.data.shopList[i].Price),
+          push: [...this.data.push,this.data.shopList[i].Id]
         })
       }
     } 

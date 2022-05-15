@@ -1,6 +1,8 @@
 /* pages/addproduct/addproduct.wxss */
+page {
+  background-color: #ffffff;
+}
 .block-container {
-  margin-top: 15rpx;
   padding-bottom: 20rpx;
   background-color: white;
 }
@@ -45,7 +47,7 @@
   height: 100%;
 }
 .segment-ppt {
-  margin-left: 15rpx;
+  margin-left: 20rpx;
   margin-top: 10rpx;
 }
 .segment-ppt .upload {
