@@ -9,10 +9,19 @@ Page({
 
   },
 
+  goto_home() {
+    wx.switchTab({
+      url: '/pages/home/home'
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    wx.setNavigationBarTitle({
+      title: '支付页面'
+    })
   },
 
   /**

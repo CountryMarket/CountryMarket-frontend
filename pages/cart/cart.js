@@ -117,6 +117,7 @@ Page({
           this.countAll()
         }).then(() => {
           wx.createSelectorQuery().in(this).selectAll(".delete").boundingClientRect(res => {
+            console.log(res)
             rightWidth = res[0].width;
           }).exec();
         })
@@ -254,6 +255,13 @@ async modifyProduct_cart(p) {
       icon: 'none'
     })
   }
+},
+
+goto_home() {
+  console.log('haha')
+  wx.switchTab({
+    url: '/pages/home/home',
+  })
 },
 
   changeModel() {

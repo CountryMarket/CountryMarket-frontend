@@ -26,6 +26,11 @@
     height: 250rpx;
 }
 
+.number_input_text {
+  text-align: center;
+  font-size: 40rpx;
+  color: #33CC99;
+}
 .custom-bar__wrapper {
   left: 24rpx;
   padding: 0 10rpx;

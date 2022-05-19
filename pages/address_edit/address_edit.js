@@ -45,15 +45,53 @@ Page({
   // 保存信息
   async keep_address() {
       let address_string = this.data.region[0] + ' ' + this.data.region[1] + ' ' + this.data.region[2] + ' '
+      if(this.data.info.name=='') {
+        wx.showToast({
+          title: '请输入称谓',
+          duration: 1000,
+          icon: 'none'
+        })
+        return;
+      }
+      if(this.data.info.phoneNumber=='') {
+        wx.showToast({
+          title: '请输入联系方式',
+          duration: 1000,
+          icon: 'none'
+        })
+        return;
+      }
+      if(this.data.region[0]==undefined||this.data.region[1]==undefined||this.data.region[2]==undefined) {
+        wx.showToast({
+          title: '请选择地区',
+          duration: 1000,
+          icon: 'none'
+        })
+        return;
+      }
+      if(this.data.info.address=='') {
+        wx.showToast({
+          title: '请输入地址',
+          duration: 1000,
+          icon: 'none'
+        })
+        return;
+      }
+
       address_string = address_string + this.data.info.address
       console.log(address_string)
       console.log(this.data.info.address)
-      let res=await wxRequest("POST","address/addAddress",{name: this.data.info.name,phoneNumber: this.data.info.phoneNumber, address: address_string});
+      let res=await wxRequest("POST","address/addAddress",{name: this.data.info.name, phoneNumber: this.data.info.phoneNumber, address: address_string});
       console.log(this.data.info)
       console.log(res)
       if(res.data.success) {
         wx.navigateBack({
           delta: 0
+        })
+        this.setData({
+          [`info.name`]: '',
+          [`info.address`]: '',
+          [`info.phoneNumber`]: ''
         })
       } else {
         wx.showToast({

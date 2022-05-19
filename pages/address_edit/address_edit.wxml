@@ -18,7 +18,7 @@
   <picker mode="region" bindchange="getUserProvince" class="input_block" style="padding-left: 5rpx; margin-left: 8rpx; margin-right: 20rpx;">
         <view style="width: 100%;" style="padding-top: 12rpx;">
           <image src="/image/arrow_right.png" style="width: 10px; height: 10px;"></image> 
-          <text wx:for="{{region}}" wx:key="id" style="font-size: 15px;">{{item}} </text>
+          <text wx:for="{{region}}" wx:key="id" style="font-size: 15px;">{{item}}</text>
           <!-- 待处理文字过长问题 -->
         </view>
   </picker>

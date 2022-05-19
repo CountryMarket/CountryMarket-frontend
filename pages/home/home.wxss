@@ -12,15 +12,27 @@ search-bar {
   height: 260rpx;
   background-color: #33cc99;
 }
+::-webkit-scrollbar {
+  display:none;
+  width:0;
+  height:0;
+  color:transparent;
+}
 .box-container {
   margin: 10rpx 0 20rpx 10rpx;
 }
 .fenlei {
-  height: 150rpx;
-  width: 150rpx;
   border-radius: 65rpx;
   background-color: white;
   margin: 20rpx;
+  display: inline-block;
+}
+.image_fenlei {
+  display: flex; 
+  border-radius: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 /*轮播图指示点*/
 .lunbo .wx-swiper-dots.wx-swiper-dots-horizontal{

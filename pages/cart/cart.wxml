@@ -20,7 +20,13 @@
 </navigator> -->
 
 <navigator url="/pages/addresses/addresses" hover-class="navigator-hover"> 
-    <view class="address" style="font-size: 25rpx; display: flex;">
+    <view wx:if="{{address_message==null}}" class="address" style="font-size: 25rpx; display: flex;justify-content: center;">
+      <view style="color: #33cc99; font-size: 35rpx; font-weight: 600;">暂时没有收货信息，快去添加叭~</view>
+            <view style="width: 5%; display: flex; align-items: center;">
+                  <image src="/image/arrow_right.png"></image>
+            </view>
+    </view>
+    <view class="address" style="font-size: 25rpx; display: flex;" wx:else>
             <view style="width: 95%;">
                 <view style="width: 95%; font-weight: 600; font-size: 35rpx;">{{address_message[0].Address}}</view>
                 <view style="display: flex; margin-top: 10rpx; width: 95%; font-size: 30rpx;">
@@ -46,6 +52,9 @@
   <view style="display: block;">
     <image src="/image/cart_empty.png" style="width: 250rpx; height: 250rpx; margin-top: 100rpx; margin-right: 30rpx;"></image>
     <view style="display: flex; justify-content: center; font-size: 60rpx; font-weight: 600; color: #b2b2b2;">购物车空</view>
+    <view style="margin-top: 50rpx; border: 1rpx solid #33cc99; color: #33cc99; height: 60rpx; border-radius: 40rpx; display: flex; justify-content: center; align-content: center;" bindtap="goto_home">
+          <view style="font-weight: 600; font-size: 40rpx;">返回首页</view>
+    </view>
   </view>
 </view>
 <view wx:else>

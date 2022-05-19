@@ -1,6 +1,10 @@
 
-<view style="display: flex; justify-content: flex-end;margin: 20rpx; font-size: 35rpx; font-weight: 600; color: #33cc99;">
-    <view style="display: flex; border: 1rpx solid #33cc99; border-radius: 50rpx; width: 100rpx; justify-content: center;" bindtap="change_statue">{{statue}}</view>
+<view wx:if="{{address_message!=null}}" style="display: flex; justify-content: flex-end;margin: 20rpx; font-size: 35rpx; font-weight: 600; color: #33cc99;">
+    <view wx:if="{{statue=='管理'}}" style="display: flex; border: 1rpx solid #b2b2b2; color: #b2b2b2; border-radius: 50rpx; width: 100rpx; justify-content: center;" bindtap="change_statue">管理</view>
+    <view wx:else style="display: flex; border: 1rpx solid #33cc99; border-radius: 50rpx; width: 100rpx; justify-content: center;" bindtap="change_statue">完成</view>
+</view>
+<view wx:else style="display: flex; justify-content: center; margin-top: 30rpx; margin-bottom: 30rpx; font-size: 40rpx; font-weight: 600; color: #33cc99;">
+    <view>暂时没有收货信息哦，快去添加叭~</view>
 </view>
 
 

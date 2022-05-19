@@ -31,15 +31,23 @@
 </view>
 
 <view style="margin-top: 10rpx; background-color: white; padding: 10rpx; font-weight: 600;">
-    <view>发货地址</view>
-    <view>配送情况</view>
+    <view style="font-size: 35rpx;">配送情况</view>
+    <view>运费：5元</view>
+    <view>平均时效：省内2天，省外3天</view>
 </view>
 
-<view style="margin-top: 10rpx; background-color: white; padding: 10rpx; font-weight: 600;">评论</view>
+<view style="margin-top: 10rpx; background-color: white; padding: 10rpx; font-weight: 600;">
+    <view style=" font-size: 35rpx;">商品评价(2)</view>
+    <view style="color: #b2b2b2; font-weight: 500;">
+      <view>该商品还不错</view>
+      <view>好评！</view>
+    </view>
+</view>
 <!-- 接入评论 -->
 
 <view style="margin-top: 10rpx; width: 750rpx; background-color: white;">
-    <view style="padding-top: 10rpx; padding-left: 10rpx; margin-bottom: 10rpx; font-size: 40rpx; font-weight: 600;">详情</view>
+    <view style="padding-top: 10rpx; padding-left: 10rpx; margin-bottom: 10rpx; font-size: 40rpx; font-weight: 600;">商品详情</view>
+    <view style="padding-top: 10rpx; padding-left: 10rpx; margin-bottom: 10rpx;">出自阳曲县自种，物美价廉</view>
     <view>
         <image src="{{'https://7072-prod-0guks42iab6ab66f-1311448235.tcb.qcloud.la/assert/image/product/'+good_info.Id+'/view.png'}}" style="width: 750rpx;" mode="widthFix"></image>
         <image src="{{'https://7072-prod-0guks42iab6ab66f-1311448235.tcb.qcloud.la/assert/image/product/'+good_info.Id+'/view.png'}}" style="width: 750rpx;" mode="widthFix"></image>
@@ -54,15 +62,15 @@
 
 
 <view class="goods-bottom">
-    <view class="keep" style="margin-left: 20rpx;">
+    <!-- <view class="keep" style="margin-left: 20rpx;">
       <image src="{{is_kept_path}}" class="keep_image" bindtap="change_keep"></image>
       <view style="font-size: 10px; margin-top: -13rpx;text-align: center; font-weight: 500; color: #a8a8a8;" wx:if="{{is_kept_path == '/image/keep.png'}}">收藏</view>
       <view style="font-size: 10px; margin-top: -13rpx;text-align: center; font-weight: 500; color: #33CC99;" wx:else>收藏</view>
-    </view>
+    </view> -->
     
     <view class="keep" style="margin-left: 20rpx;">
-      <image src="/image/kefu2.png" class="keep_image" bindtap="change_keep"></image>
-      <view style="font-size: 10px; margin-top: -13rpx;text-align: center; font-weight: 500; color: #33CC99;" catchtap="goto_kefu">客服</view>
+      <image src="/image/kefu.png" class="keep_image" bindtap="change_keep"></image>
+      <view style="font-size: 10px; margin-top: -13rpx;text-align: center; font-weight: 500; color: #33CC99; " catchtap="goto_kefu">客服</view>
     </view>
     
     <button class="add_button" bindtap="add_into_cart">{{if_in_cart}}</button>

@@ -1,2 +1,1 @@
-<!--pages/pay/pay.wxml-->
-<text>pages/pay/pay.wxml</text>
+<button style="background-color: #33cc99; color: white; margin-top: 30rpx;" bindtap="goto_home">返回首页</button>
