@@ -87,7 +87,7 @@
 </view>
 
 
-<button style="background-color: #33cc99; color: white; border-radius: 100rpx; margin-top: 20rpx; margin-bottom: 20rpx;">删除订单</button>
+<button style="background-color: #33cc99; color: white; border-radius: 100rpx; margin-top: 20rpx; margin-bottom: 20rpx;" bindtap="delete_order">删除订单</button>
 
 
 <view style="height: 100rpx; width: 100%"></view>

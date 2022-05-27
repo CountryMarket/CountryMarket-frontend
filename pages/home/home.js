@@ -56,6 +56,24 @@ Page({
           url: `/pages/products/products`
         })
     },
+
+    goto_ljyx() {
+      wx.navigateTo({
+        url: '/pages/ljyx/ljyx',
+      })
+    },
+
+    goto_hnzcpj() {
+      wx.navigateTo({
+        url: '/pages/hnzcpj/hnzcpj',
+      })
+    },
+
+    goto_kxzh() {
+      wx.navigateTo({
+        url: '/pages/kxzh/kxzh',
+      })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

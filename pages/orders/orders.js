@@ -96,9 +96,10 @@ Page({
           })
     },
 
-    goto_comment() {
+    goto_comment(e) {
+      console.log(e)
       wx.navigateTo({
-        url: '/pages/comment/comment',
+        url: `/pages/comment/comment?id=${e.currentTarget.dataset.value.order_id}`
       })
     },
 

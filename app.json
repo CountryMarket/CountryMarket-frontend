@@ -17,11 +17,14 @@
     "pages/cropper/cropper",
     "pages/addproduct/addproduct",
     "pages/order_info/order_info",
-    "pages/pay/pay"
+    "pages/pay/pay",
+    "pages/ljyx/ljyx",
+    "pages/hnzcpj/hnzcpj",
+    "pages/kxzh/kxzh"
   ],
   "window": {
     "navigationBarBackgroundColor": "#33CC99",
-    "navigationBarTitleText": "阳曲县产品出售平台",
+    "navigationBarTitleText": "杨兴乡产品出售平台",
     "navigationBarTextStyle": "white",
     "backgroundTextStyle": "dark",
     "backgroundColor": "#efefef"
@@ -36,7 +39,7 @@
       },
       {
         "pagePath": "pages/products/products",
-        "text": "商品",
+        "text": "分类",
         "iconPath": "/image/shop.png",
         "selectedIconPath": "/image/shop_active.png"
       },

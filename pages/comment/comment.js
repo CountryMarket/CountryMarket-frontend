@@ -1,20 +1,41 @@
 // pages/comment/comment.js
+
+
+import { wxLogin } from "../../utils/wxLogin"
+import { wxRequest, isTokenEmpty, validateToken, showTokenInvalidModal ,isResTokenInvalid } from "../../utils/wxRequest"
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+      order: [],
+      products: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+      console.log(options)
       wx.setNavigationBarTitle({
-        title: '评论'
+        title: '发表评论'
       })
+      if (isTokenEmpty(getApp().globalData.token)) {
+                showTokenInvalidModal();
+                return ;
+      }
+     wxRequest("GET","order/orderInfo",{order_id: options.id}).then(res => {
+           console.log(res)
+        this.setData({
+          order: res.data.data
+        })
+        console.log(this.data.order)
+        this.setData({
+          products: this.data.order.product_and_count
+        })
+    })
   },
 
   /**

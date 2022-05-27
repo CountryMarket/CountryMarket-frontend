@@ -9,7 +9,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        nickName: "你好，请登录",
+        nickName: "请点击此处以登录",
         avatarUrl: "https://blog.lyffly.com/static/images/avatar.jpg",
         isLogging: false,
         localToken: undefined, // 本地 token，用于和 global 的比较是否有出入
@@ -105,7 +105,7 @@ Page({
       } else { // 无登录态
         // 初始化数据，显示要求登录页面
         this.setData({
-          nickName: "你好，请登录",
+          nickName: "请点击此处以登录",
           avatarUrl: "https://blog.lyffly.com/static/images/avatar.jpg",
           permission: 1
         });

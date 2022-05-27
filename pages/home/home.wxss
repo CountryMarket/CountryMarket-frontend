@@ -9,7 +9,7 @@ search-bar {
   margin-left: 25rpx;
   border-radius: 40rpx;
   width: 700rpx;
-  height: 260rpx;
+  height: 300rpx;
   background-color: #33cc99;
 }
 ::-webkit-scrollbar {

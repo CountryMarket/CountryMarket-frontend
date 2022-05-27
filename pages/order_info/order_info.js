@@ -11,7 +11,9 @@ Page({
   data: {
     info: [],
     products: [],
-    if_open: false
+    if_open: false,
+    order_id: 0,
+
   },
 
   /**
@@ -23,6 +25,9 @@ Page({
         if_open: false
       })
       this.get_info(options.id).then(()=> {
+        this.setData({
+          order_id: options.id
+        })
         if(this.data.info.now_status==1) {
           wx.setNavigationBarTitle({
             title: '待支付'
@@ -98,6 +103,39 @@ Page({
       wx.navigateTo({
         url: `/pages/goods/goods?id=${this.data.products[e.currentTarget.dataset.value].Id}`
       })
+  },
+
+  delete_order(e) {
+      console.log(e)
+      if(this.data.info.now_status>=3) {
+          this.del_order()
+      } else {
+        wx.showToast({
+          title: '当前订单尚未完成，不可以删除哦',
+          icon: 'none'
+        })
+      }
+  },
+
+  async del_order() {
+    let res=await wxRequest("POST","order/deleteOrder",{order_id: Number(this.data.order_id)});
+    console.log(res)
+    if(res.data.success) {
+      wx.showToast({
+        title: '订单删除成功',
+        duration: 500,
+        icon: 'none'
+      })
+      wx.navigateTo({
+        url: '/pages/orders/orders'
+      })
+    } else {
+      wx.showToast({
+        title: '订单删除失败，请重试~',
+        duration: 1000,
+        icon: 'none'
+      })
+    }
   },
 
   /**
