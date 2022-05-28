@@ -77,6 +77,14 @@ Page({
         })
         return;
       }
+      if(this.data.info.phoneNumber.length!=11) {
+        wx.showToast({
+          title: '请输入11位电话号码',
+          duration: 1000,
+          icon: 'none'
+        })
+        return;
+      }
 
       address_string = address_string + this.data.info.address
       console.log(address_string)

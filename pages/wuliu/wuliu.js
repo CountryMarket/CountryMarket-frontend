@@ -1,30 +1,18 @@
-// pages/pay/pay.js
+// pages/wuliu/wuliu.js
 Page({
 
   /**
    * 页面的初始数据
    */
-  data: { 
-    product_id: 0
+  data: {
 
   },
 
-  goto_home() {
-    wx.switchTab({
-      url: '/pages/home/home'
-    })
-  },
-
-  finish_pay() {
-
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    wx.setNavigationBarTitle({
-      title: '支付页面'
-    })
+
   },
 
   /**
@@ -52,9 +40,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
-    wx.navigateBack({
-      delta: 1,
-    })
+
   },
 
   /**

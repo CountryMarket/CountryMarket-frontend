@@ -1,1 +1,12 @@
-<button style="background-color: #33cc99; color: white; margin-top: 30rpx;" bindtap="goto_home">返回首页</button>
+<view style="display: flex; justify-content: center; margin-top: 20rpx;">
+  <image src="/image/SZU.png" style="width: 600rpx; height: 600rpx;"></image>
+</view>
+
+<view style="display: flex; justify-content: center; margin-top: 20rpx;">
+  <view style="margin-top: 20rpx; font-size: 35rpx; font-weight: 600;color: #33cc99;">由于支付资质问题，当前线上支付仅模拟</view>
+</view>
+
+
+<button style="background-color: #33cc99; color: white; margin-top: 30rpx;" bindtap="finish_pay">完成支付</button>
+
+<button style=" color: red; margin-top: 20rpx;" bindtap="goto_home">返回首页</button>

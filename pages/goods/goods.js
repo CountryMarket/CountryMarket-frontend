@@ -14,8 +14,8 @@ Page({
       is_kept_path: '/image/keep.png',
       if_in_cart: '加入购物车',
       id: 0,
-      good_info: {}
-
+      good_info: {},
+      array: []
   },
 
   /**
@@ -31,6 +31,13 @@ Page({
     })
     this.getGoodList().then( () => {
         this.check_cart()
+        console.log(this.data.good_info)
+        for(let i=0;i<this.data.good_info.PictureNumber;i++) {
+          this.setData({
+            array: [...this.data.array,1]
+          })
+        }
+        console.log(this.data.array)
     })
   },
 

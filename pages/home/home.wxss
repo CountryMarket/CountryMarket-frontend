@@ -19,7 +19,7 @@ search-bar {
   color:transparent;
 }
 .box-container {
-  margin: 10rpx 0 20rpx 10rpx;
+  margin: 10rpx 0 20rpx 10rpx；
 }
 .fenlei {
   border-radius: 65rpx;

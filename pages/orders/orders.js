@@ -103,6 +103,17 @@ Page({
       })
     },
 
+    goto_pay() {
+      wx.navigateTo({
+        url: '/pages/pay/pay',
+      })
+    },
+
+    goto_wuliu(e) {
+      wx.navigateTo({
+        url: `/pages/wuliu/wuliu?id=${e.currentTarget.dataset.value.order_id}`
+      })
+    },
     get_products() {
         for(let i=0;i<this.data.orders.length;i++) {
           this.setData({

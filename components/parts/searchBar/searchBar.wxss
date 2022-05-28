@@ -30,6 +30,7 @@
   flex: 1;
   margin: 0 20rpx;
   text-align: left;
+  font-size: 25rpx;
 }
 .cancel-btn {
   margin-left: 24rpx;

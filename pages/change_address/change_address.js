@@ -50,6 +50,48 @@ Page({
 
   // 保存信息
   async keep_address() {
+    
+    if(this.data.info.Name=='') {
+      wx.showToast({
+        title: '请输入称谓',
+        duration: 1000,
+        icon: 'none'
+      })
+      return;
+    }
+    if(this.data.info.PhoneNumber=='') {
+      wx.showToast({
+        title: '请输入联系方式',
+        duration: 1000,
+        icon: 'none'
+      })
+      return;
+    }
+    if(this.data.region[0]==undefined||this.data.region[1]==undefined||this.data.region[2]==undefined) {
+      wx.showToast({
+        title: '请选择地区',
+        duration: 1000,
+        icon: 'none'
+      })
+      return;
+    }
+    if(this.data.info.Address=='') {
+      wx.showToast({
+        title: '请输入地址',
+        duration: 1000,
+        icon: 'none'
+      })
+      return;
+    }
+    if(this.data.info.PhoneNumber.length!=11) {
+      wx.showToast({
+        title: '请输入11位电话号码',
+        duration: 1000,
+        icon: 'none'
+      })
+      return;
+    }
+
       let address_string = this.data.region[0] + ' ' + this.data.region[1] + ' ' + this.data.region[2] + ' '
       this.setData({
         [`info.Address`]: address_string + this.data.info.Address

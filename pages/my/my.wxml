@@ -45,7 +45,7 @@
         <view class="item-text">新增商品</view>
       </view>
       <view class="item">
-        <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>
+        <image src="/image/manage_good.png"></image>
         <view class="item-text">商品管理</view>
       </view>
       <view class="item" bindtap="goto_guanli">
@@ -53,7 +53,7 @@
         <view class="item-text" >订单管理</view>
       </view>
       <view class="item">
-        <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>
+        <image src="/image/colculate.png"></image>
         <view class="item-text">统计</view>
       </view>
     </view>
@@ -61,6 +61,11 @@
   <view style="display: flex; justify-content: center; margin-top: 20rpx;">
       <view style="width: 350rpx; background-color: white; border-radius: 20rpx; display: flex; justify-content: center;">
           <text style="color: red;margin-top: 15rpx; margin-bottom: 15rpx;">退出登录</text>
+      </view>
+  </view>
+  <view style="display: flex; justify-content: center; margin-top: 20rpx; margin-bottom: 20rpx;">
+      <view style="width: 350rpx; background-color: white; border-radius: 20rpx; display: flex; justify-content: center;">
+          <text style="color: red;margin-top: 15rpx; margin-bottom: 15rpx;">切换账户</text>
       </view>
   </view>
 </view>

@@ -6,7 +6,7 @@
   margin-left: 15rpx;
   margin-right: 15rpx;
   margin-top: 15rpx;
-  border: 1rpx solid #33cc99;
+  border: 5rpx solid #33cc99;
   background-color: white;
   border-radius: 8rpx;
   font-size: 28rpx;

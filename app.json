@@ -20,7 +20,8 @@
     "pages/pay/pay",
     "pages/ljyx/ljyx",
     "pages/hnzcpj/hnzcpj",
-    "pages/kxzh/kxzh"
+    "pages/kxzh/kxzh",
+    "pages/wuliu/wuliu"
   ],
   "window": {
     "navigationBarBackgroundColor": "#33CC99",
