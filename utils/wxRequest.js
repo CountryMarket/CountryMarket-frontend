@@ -1,3 +1,5 @@
+import { wxLogin } from "./wxLogin"
+
 const wxRequest = async function(method, path, data) {
   const { globalData } = getApp();
   const res = await wx.cloud.callContainer({
@@ -46,13 +48,76 @@ const isTokenEmpty = function(t) { // 检验给定的 token 是否为空
 const isResTokenInvalid = function(res) {
   return !res.data.success && (res.data.info == "invalid token" || res.data.info == "auth error");
 }
-const showTokenInvalidModal = function() { // 弹窗显示登录态失效提醒
+const showTokenInvalidModal = function(that) { // 弹窗显示登录态失效提醒
   wx.showModal({
     title: "提示",
     content: "登录状态失效，请重新登录",
     showCancel: false,
-    confirmText: "知道了"
+    confirmText: "知道了",
+    success (res) {
+      if (res.confirm) {
+        console.log('用户点击确定')
+        login(that)
+      }
+    }
   });
+}
+const login = async function(that) {
+  const { globalData } = getApp();
+  let nickNameTmp, avatarUrlTmp;
+        await new Promise((resolve) => {
+          wx.getUserProfile({
+            desc: '获取你的昵称、头像、地区及性别',
+            success: res => {              
+              nickNameTmp = res.userInfo.nickName;
+              avatarUrlTmp = res.userInfo.avatarUrl;
+              console.log(res.userInfo);
+              resolve();
+            },
+            fail: res => {
+              console.log(res)
+              wx.showModal({
+                title: "提示",
+                content: "获取头像昵称失败",
+                showCancel: false,
+                confirmText: "知道了"
+              });
+              this.data.isLogging = false;
+              return ;
+            }
+          })
+        });
+        wx.showLoading({
+          title: '正在登录中...',
+        });
+        // 获取 code
+        globalData.code = await wxLogin();
+        // console.log(globalData.code)
+        // 将 code 发送到云服务器，获取 token
+        let res = await wxRequest("GET", "user/code", {
+          code: globalData.code,
+          nickName: nickNameTmp,
+          avatarUrl: avatarUrlTmp
+        });
+        console.log(res)
+        // 失败
+        if (!res.data.success) {
+          wx.showModal({
+            title: "提示",
+            content: "登录失败",
+            showCancel: false,
+            confirmText: "知道了"
+          });
+          this.data.isLogging = false;
+          return ;
+        }
+        globalData.token = res.data.data.token;
+        wx.setStorageSync("token", globalData.token); // 两处 token 一起修改
+
+        that.onLoad();
+        that.onShow();
+
+        wx.hideLoading()
 }
 module.exports = {
   wxRequest,

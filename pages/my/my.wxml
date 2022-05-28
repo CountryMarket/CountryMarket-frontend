@@ -58,12 +58,12 @@
       </view>
     </view>
   </view>
-  <view style="display: flex; justify-content: center; margin-top: 20rpx;">
-      <view style="width: 350rpx; background-color: white; border-radius: 20rpx; display: flex; justify-content: center;">
+  <view style="display: flex; justify-content: center; margin-top: 20rpx;" wx:if="{{ isLogged }}">
+      <view style="width: 350rpx; background-color: white; border-radius: 20rpx; display: flex; justify-content: center;" bindtap="logout">
           <text style="color: red;margin-top: 15rpx; margin-bottom: 15rpx;">退出登录</text>
       </view>
   </view>
-  <view style="display: flex; justify-content: center; margin-top: 20rpx; margin-bottom: 20rpx;">
+  <view style="display: flex; justify-content: center; margin-top: 20rpx; margin-bottom: 20rpx;" wx:if="{{ isLogged }}">
       <view style="width: 350rpx; background-color: white; border-radius: 20rpx; display: flex; justify-content: center;">
           <text style="color: red;margin-top: 15rpx; margin-bottom: 15rpx;">切换账户</text>
       </view>

@@ -173,14 +173,16 @@ input_number_Handler(e) {
                 title: '数据加载中'
             })
             if (isTokenEmpty(getApp().globalData.token)) {
-              showTokenInvalidModal();
+              let that = this;
+              showTokenInvalidModal(that);
               wx.hideLoading();
               return ;
             }
             let res= await wxRequest("GET","product/tabList")
                   console.log(res)
                   if (isResTokenInvalid(res)) {
-                    showTokenInvalidModal();
+                    let that = this;
+                    showTokenInvalidModal(that);
                     getTabList();
                     return ;
                   }
@@ -195,7 +197,7 @@ input_number_Handler(e) {
 
       gettabProducts() {
         if (isTokenEmpty(getApp().globalData.token)) {
-                  showTokenInvalidModal();
+                  //showTokenInvalidModal();
                   wx.hideLoading();
                   return;
         }
@@ -203,7 +205,7 @@ input_number_Handler(e) {
                       console.log(this.data.currentId)
                       console.log(res)
                       if (isResTokenInvalid(res)) {
-                        showTokenInvalidModal();
+                        //showTokenInvalidModal();
                         this.gettabProducts();
                         return ;
                       }

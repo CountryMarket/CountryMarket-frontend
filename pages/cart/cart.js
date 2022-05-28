@@ -50,7 +50,7 @@ Page({
     wx.setNavigationBarTitle({
       title: '购物车'
     })
-    this.getShopList() //获取购物车数据
+    // this.getShopList() //获取购物车数据
     this.getAddressList() //获取地址信息列表
   },
 
@@ -84,15 +84,20 @@ Page({
               title: '数据加载中'
           })
           if (isTokenEmpty(getApp().globalData.token)) {
-            showTokenInvalidModal();
+            this.setData({
+              shopList: [],
+              page_from: 0
+            })
+            let that = this;
+            showTokenInvalidModal(that);
             wx.hideLoading();
             return ;
           }
-          wxRequest("GET","cart/userProducts",{from: 0, length: this.data.page_length}).then(res => {
+          wxRequest("GET","cart/userProducts",{from: 0, length: this.data.page_length}).then(async res => {
                 console.log(res)
                 if (isResTokenInvalid(res)) {
-                  showTokenInvalidModal();
-                  getShopList();
+                  let that = this;
+                  showTokenInvalidModal(that);
                   return ;
                 }
                 if(res.data.data.Products==null) {
@@ -126,13 +131,11 @@ Page({
     //获取收货信息列表
     getAddressList() {
       if (isTokenEmpty(getApp().globalData.token)) {
-                showTokenInvalidModal();
                 return ;
        }
       wxRequest("GET","address/address").then(res => {
         console.log(res)
                     if (isResTokenInvalid(res)) {
-                      showTokenInvalidModal();
                       getAddressList();
                       return ;
                     }

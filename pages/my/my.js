@@ -14,6 +14,7 @@ Page({
         isLogging: false,
         localToken: undefined, // 本地 token，用于和 global 的比较是否有出入
         permission: 1,
+        isLogged: false
     },
 
     /**
@@ -39,13 +40,8 @@ Page({
      */
     onShow: function () {
       // 非第一次进入，判断 token 是否发生变化
-      const { globalData } = getApp();
-      validateToken().then(() => { // 检验 Token 合法性, 仅 my 页
-          if (isTokenEmpty(globalData.token)) {
-            showTokenInvalidModal();
-            this.refresh();
-          }
-      }); 
+      // const { globalData } = getApp();
+      this.refresh();
     },
        
   goto_orders(e) {
@@ -101,6 +97,9 @@ Page({
             avatarUrl: porfile.AvatarUrl,
             permission: porfile.Permission
           });
+          this.setData({
+            isLogged: true,
+          })
         });
       } else { // 无登录态
         // 初始化数据，显示要求登录页面
@@ -123,6 +122,16 @@ Page({
       wx.navigateTo({
         url: '/pages/guanli/guanli'
       })
+  },
+
+  logout() {
+    const { globalData } = getApp();
+    globalData.token = undefined;
+    wx.setStorageSync("token", undefined);
+    this.refresh();
+    this.setData({
+      isLogged: false,
+    })
   },
 
   // 用户登录，此处 global token 会改变
@@ -198,6 +207,10 @@ Page({
           avatarUrl: profile.AvatarUrl,
           permission: profile.Permission,
         });
+
+        this.setData({
+          isLogged: true,
+        })
       } catch(err) {
         wx.showModal({
           title: "提示",
