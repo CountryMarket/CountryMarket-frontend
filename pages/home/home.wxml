@@ -22,7 +22,7 @@
   <scroll-view  scroll-x="true" style="display: inline-block; white-space: nowrap; border: 1rpx solid #efefef; border-radius: 40rpx; margin: 15rpx; background-color: white; width: 720rpx;" class="-webkit-scrollbar">
 
         <view class="fenlei" data-value="0" bindtap="goto_tab">
-              <view class="image_fenlei" style="background-color:#00FFCC;">
+              <view class="image_fenlei" style="background-color:#bbfff1;">
               <image src="/image/vegetable.png" style=" height: 85rpx; width: 85rpx; margin: 15rpx;"></image>
             </view>
             <text style="justify-content: center; display: flex; font-size: 30rpx; font-weight: 600; margin-top: 10rpx;">蔬菜</text>
@@ -57,7 +57,7 @@
         </view>
 
         <view class="fenlei" data-value="5" bindtap="goto_tab">
-              <view class="image_fenlei" style="background-color:  #33FFFF;">
+              <view class="image_fenlei" style="background-color: #caffff;">
               <image src="/image/gift.png" style=" height: 85rpx; width: 85rpx; margin: 15rpx;"></image>
             </view>
             <text style="justify-content: center; display: flex; font-size: 30rpx; font-weight: 600; margin-top: 10rpx;">特产</text>

@@ -1,1 +1,40 @@
 /* pages/guanli/guanli.wxss */
+.number_control {
+  border-color: red;
+  border-top: 1rpx red;
+  border: 1rpx solid #efefef;
+  width: 200rpx;
+  height: 40rpx;
+  display: flex;
+  border-radius: 8rpx;
+}
+.change_tab {
+  width: 20%;
+  height: 40rpx;
+  background-color: #33CC99;
+  font-weight: 800;
+  color: white;
+  display: inline-block;
+  border-radius: 8rpx; 
+}
+.change_tab .text {
+  font-size: 40rpx;
+  margin-top: -8rpx;
+  text-align: center;
+}
+
+.number_input {
+  font-size: 14px;
+  text-align: center;
+  height: 40rpx;
+  width: 40%;
+  display: inline-block;
+  margin: 0 10%;
+  z-index: 0;
+}
+
+.number_input_text {
+  text-align: center;
+  font-size: 40rpx;
+  color: #33CC99;
+}

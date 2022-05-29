@@ -93,9 +93,6 @@ Page({
       console.log(this.data.info)
       console.log(res)
       if(res.data.success) {
-        wx.navigateBack({
-          delta: 0
-        })
         this.setData({
           [`info.name`]: '',
           [`info.address`]: '',
@@ -108,7 +105,9 @@ Page({
           icon: 'none'
         })
       }
-      
+      wx.navigateBack({
+        delta: -1
+      })
   },
 
   /**

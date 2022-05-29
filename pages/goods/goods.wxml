@@ -64,9 +64,14 @@
       <view style="font-size: 10px; margin-top: -13rpx;text-align: center; font-weight: 500; color: #33CC99;" wx:else>收藏</view>
     </view> -->
     
-    <view class="keep" style="margin-left: 20rpx;">
-      <image src="/image/kefu.png" class="keep_image" bindtap="change_keep"></image>
-      <view style="font-size: 10px; margin-top: -13rpx;text-align: center; font-weight: 500; color: #33CC99; " catchtap="goto_kefu">客服</view>
+    <view class="keep" style="margin-left: 20rpx;"  catchtap="goto_kefu">
+      <image src="/image/kefu.png" class="keep_image" ></image>
+      <view style="font-size: 10px; margin-top: -13rpx;text-align: center; font-weight: 500; color: #33CC99; ">客服</view>
+    </view>
+
+    <view class="keep" style="margin-left: 20rpx;" catchtap="goto_cart">
+      <image src="/image/cart.png" class="keep_image"></image>
+      <view style="font-size: 10px; margin-top: -13rpx;text-align: center; font-weight: 500; color: #33CC99; ">购物车</view>
     </view>
     
     <button class="add_button" bindtap="add_into_cart">{{if_in_cart}}</button>

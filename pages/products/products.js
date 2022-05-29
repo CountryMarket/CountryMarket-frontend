@@ -40,7 +40,7 @@ Page({
         movehight2:systeminfo.windowHeight-100,
         currentTab: getApp().globalData.goto_tab
       })
-  
+
       this.setData({
         menuButtonInfo: wx.getMenuButtonBoundingClientRect()
       })
@@ -172,20 +172,20 @@ input_number_Handler(e) {
             wx.showLoading({
                 title: '数据加载中'
             })
-            if (isTokenEmpty(getApp().globalData.token)) {
+            /*if (isTokenEmpty(getApp().globalData.token)) {
               let that = this;
               showTokenInvalidModal(that);
               wx.hideLoading();
               return ;
-            }
+            }*/
             let res= await wxRequest("GET","product/tabList")
                   console.log(res)
-                  if (isResTokenInvalid(res)) {
+                  /*if (isResTokenInvalid(res)) {
                     let that = this;
                     showTokenInvalidModal(that);
                     getTabList();
                     return ;
-                  }
+                  }*/
                   this.setData({
                       tabList: res.data.data.Tabs,
                   })
@@ -196,11 +196,11 @@ input_number_Handler(e) {
       },
 
       gettabProducts() {
-        if (isTokenEmpty(getApp().globalData.token)) {
+        /*if (isTokenEmpty(getApp().globalData.token)) {
                   //showTokenInvalidModal();
                   wx.hideLoading();
                   return;
-        }
+        }*/
                 wxRequest("GET","product/tabProducts",{tabId: this.data.currentId}).then(res => {
                       console.log(this.data.currentId)
                       console.log(res)
@@ -243,6 +243,14 @@ input_number_Handler(e) {
           [`if_in_cart[${e.currentTarget.dataset.value}]`]: this.data.if_in_cart[e.currentTarget.dataset.value]+1
         })
       } else {
+        if (isResTokenInvalid(res)) {
+          wx.showToast({
+            title: '请先登录哦~',
+            duration: 500,
+            icon: 'none'
+          })
+          return;
+        }
         wx.showToast({
           title: '商品添加失败，请重试~',
           duration: 1000,

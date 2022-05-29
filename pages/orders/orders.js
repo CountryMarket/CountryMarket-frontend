@@ -94,6 +94,7 @@ Page({
             wx.hideLoading()
             this.get_products()
           })
+          console.log(this.data.orders)
     },
 
     goto_comment(e) {

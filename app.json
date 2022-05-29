@@ -21,7 +21,11 @@
     "pages/ljyx/ljyx",
     "pages/hnzcpj/hnzcpj",
     "pages/kxzh/kxzh",
-    "pages/wuliu/wuliu"
+    "pages/wuliu/wuliu",
+    "pages/yinsi/yinsi",
+    "pages/xieyi/xieyi",
+    "pages/team/team",
+    "pages/order_manage/order_manage"
   ],
   "window": {
     "navigationBarBackgroundColor": "#33CC99",

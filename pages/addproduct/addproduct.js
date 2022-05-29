@@ -11,14 +11,20 @@ Page({
       title: "",
       description: "",
       price: 0.0,
-      pictureNumber: 0
+      pictureNumber: 0,
+      stock: 0
     },
     imgSrc: "",
     imgPPTSrc: [],
+    imgDetailSrc: [],
     start: 0,
-    end: 0,
+    end: 0
   },
-
+  inputHandler_stock(e) {
+    this.setData({
+      [`info.stock`]: Number(e.detail.value)
+    })
+  },
   inputHandler_title(e) {
     this.setData({
       [`info.title`]: e.detail.value
@@ -34,26 +40,31 @@ Page({
       [`info.price`]: parseFloat(e.detail.value)
     })
   },
+  inputHandler_detail(e) {
+    this.setData({
+      [`info.detail`]: e.detail.value
+    })
+  },
   choosePictrue() {
     wx.navigateTo({
-      url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&pos=-1`
+      url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&pos=-1&&type=0`
     })
   },
   choosePPTPictrue() {
     if (!this.data.imgPPTSrc) {
       wx.navigateTo({
-        url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&pos=0`
+        url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&pos=0&&type=0`
       })
     } else {
       wx.navigateTo({
-        url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&pos=${this.data.imgPPTSrc.length}`
+        url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&type=0&&pos=${this.data.imgPPTSrc.length}`
       })
     }
   },
   modifyPPTPictrue(e) {
     if (this.data.end - this.data.start > 350) return ;
     wx.navigateTo({
-      url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&pos=${e.currentTarget.dataset.value}`
+      url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&type=0&&pos=${e.currentTarget.dataset.value}`
     })
   },
   mytouchstart: function (e) { 
@@ -91,6 +102,53 @@ Page({
       }
     })
   },
+
+  chooseDetailPictrue() {
+    if (!this.data.imgDetailSrc) {
+      wx.navigateTo({
+        url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&pos=0&&type=1`
+      })
+    } else {
+      wx.navigateTo({
+        url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&type=1&&pos=${this.data.imgDetailSrc.length}`
+      })
+    }
+  },
+  modifyDetailPictrue(e) {
+    if (this.data.end - this.data.start > 350) return ;
+    wx.navigateTo({
+      url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&type=1&&pos=${e.currentTarget.dataset.value}`
+    })
+  },
+  detailLongTap(e) {
+    // console.log(e)
+    let that = this;
+    wx.showModal({
+      title: "提示",
+      content: "删除该图片",
+      success(res) {
+        if (res.confirm) {
+          let tmp = JSON.stringify(that.data.imgDetailSrc)
+          let imgDetailSrcTmp = JSON.parse(tmp)
+          let id = e.currentTarget.dataset.value
+
+          tmp = imgDetailSrcTmp[imgDetailSrcTmp.length - 1];
+          imgDetailSrcTmp[imgDetailSrcTmp.length - 1] = imgDetailSrcTmp[id];
+          imgDetailSrcTmp[id] = tmp;
+          imgDetailSrcTmp.length--
+
+          tmp = getApp().globalData.imgDetailSrc[getApp().globalData.imgDetailSrc.length - 1];
+          getApp().globalData.imgDetailSrc[ getApp().globalData.imgDetailSrc.length - 1] =  getApp().globalData.imgDetailSrc[id];
+          getApp().globalData.imgDetailSrc[id] = tmp;
+          getApp().globalData.imgDetailSrc.length--
+
+          that.setData({
+            imgDetailSrc: imgDetailSrcTmp
+          })
+        }
+      }
+    })
+  },
   async uploadProduct() {
     if (this.data.info.title == "") {
       wx.showModal({
@@ -116,6 +174,15 @@ Page({
       })
       return
     }
+    if (this.data.info.stock <=1 ) {
+      wx.showModal({
+        title: '提示',
+        content: '库存不能小于1',
+        showCancel: false
+      })
+      return
+    }
+    
     if (this.data.imgSrc == "" || !this.data.imgSrc) {
       wx.showModal({
         title: '提示',
@@ -128,7 +195,8 @@ Page({
       title: '正在提交商品...',
     })
     this.setData({
-      [`info.pictureNumber`]: this.data.imgPPTSrc.length
+      [`info.pictureNumber`]: this.data.imgPPTSrc.length,
+      [`info.detailPictureNumber`]: this.data.imgDetailSrc.length,
     })
     let res = await wxRequest("POST", "shop/addProduct", this.data.info)
     if (isResTokenInvalid(res)) {
@@ -183,12 +251,38 @@ Page({
         }
       })
     }
+    for (let i = 0; i < this.data.imgDetailSrc.length; ++i) {
+      let gg = i;
+      await wx.cloud.uploadFile({
+        cloudPath: 'assert/image/product/' + id + `/detail${gg}.png`, 
+        filePath: this.data.imgDetailSrc[gg], 
+        config: {
+          env: 'prod-0guks42iab6ab66f' 
+        },
+        success: res => {
+          console.log(res.fileID)
+        },
+        fail: err => {
+          wx.showModal({
+            title: '提示',
+            content: `商品详情图第${gg + 1}张上传发生错误，请进入修改页面重新上传图片`,
+          })
+          console.error(err)
+        }
+      })
+    }
+    wx.hideLoading()
     wx.showModal({
       title: '提示',
       content: '新增成功！',
-      showCancel: false
+      showCancel: false,
+      success(res) {
+        wx.navigateBack({
+          delta: -1
+        })
+      }
     })
-    wx.hideLoading()
+    
   },
 
   /**
@@ -213,6 +307,7 @@ Page({
     this.setData({
       imgSrc: getApp().globalData.imgSrc,
       imgPPTSrc: getApp().globalData.imgPPTSrc,
+      imgDetailSrc: getApp().globalData.imgDetailSrc,
     })
   },
 

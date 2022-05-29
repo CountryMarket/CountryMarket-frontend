@@ -20,12 +20,12 @@
         </view>
         <view class="{{now_page == 2 ? 'order_blocks_active' : 'order_blocks'}}" data-value="2" bindtap="change_page">
             <view style="display: block;">
-              <view>待评价</view>
+              <view>待收货</view>
             </view>
         </view>
         <view class="{{now_page == 3 ? 'order_blocks_active' : 'order_blocks'}}" data-value="3" bindtap="change_page">
             <view style="display: block;">
-              <view>待收货</view>
+              <view>待评价</view>
             </view>
         </view>
         <view class="{{now_page == 4 ? 'order_blocks_active' : 'order_blocks'}}" data-value="4" bindtap="change_page">
@@ -36,7 +36,22 @@
     </view>
 </view>
 <view style="height: 90rpx; background-color: #33cc99; width: 100%;"></view>
-<view wx:for="{{orders}}" class="goods_container" wx:for-item="first" wx:for-index="i"  data-value="{{[i]}}" bindtap="goto_order_info">
+
+<view wx:if="{{orders.length==0}}" style="display: flex; justify-content: center;">
+    <view style="margin-top: 200rpx;">
+      <image src="/image/no_order.png" style="width: 400rpx; height: 400rpx;"></image>
+      <view style="width: 100%; display: flex; justify-content: center; color: #dbdbdb; font-weight: 700; font-size: 40rpx;">
+        <view wx:if="{{now_page==0}}">当前暂无订单哦</view>
+        <view wx:if="{{now_page==1}}">当前暂无待支付订单哦</view>
+        <view wx:if="{{now_page==2}}">当前暂无待收货订单哦</view>
+        <view wx:if="{{now_page==3}}">当前暂无待评价订单哦</view>
+        <view wx:if="{{now_page==4}}">当前暂无售后中订单哦</view>
+      </view>
+    </view>
+</view>
+
+<view wx:else>
+  <view wx:for="{{orders}}" class="goods_container" wx:for-item="first" wx:for-index="i"  data-value="{{[i]}}" bindtap="goto_order_info">
        <view style="display: flex; margin: 10rpx; margin-left: 20rpx;color: #33cc99; font-weight: 700;">
               <view wx:if="{{first.now_status==1}}">待支付</view>
               <view wx:if="{{first.now_status==2}}">待收货</view>
@@ -93,3 +108,4 @@
           </view>
       </view>
     </view>
+</view>

@@ -11,20 +11,155 @@ Page({
   data: {
     from: 0,
     page_size: 10,
-    status: 0,
-    orders: []
+    goods: [],
+    input_num_Hidden: true,
+    now_id: 0,
+    number_limit: 999,
+    now_change_number: ''
+  },
+  add(e) {
+    console.log('haha')
+    if(this.data.goods[e.currentTarget.dataset.value].Stock < this.data.number_limit) {
+      this.setData({
+        [`goods[${e.currentTarget.dataset.value}].Stock`]: this.data.goods[e.currentTarget.dataset.value].Stock+1
+      })
+      this.change_number(e.currentTarget.dataset.value)
+    } else {
+      wx.showToast({
+        title: '该商品库存不能增加了哟~',
+        duration: 750,
+        icon: 'none'
+      })
+    }
   },
 
+  minus(e) {
+    if(this.data.goods[e.currentTarget.dataset.value].Stock >=1) {
+      this.setData({
+        [`goods[${e.currentTarget.dataset.value}].Stock`]: this.data.goods[e.currentTarget.dataset.value].Stock-1
+      })
+      this.change_number(e.currentTarget.dataset.value)
+    } else {
+      wx.showToast({
+        title: '该商品库存不能减少了哟~',
+        duration: 750,
+        icon: 'none'
+      })
+    }
+  },
+  
+  changeModel() {
+    if(this.data.now_change_number == '' || this.data.now_change_number == undefined) {
+      wx.showToast({
+        title: '亲不能什么都不输入呀~',
+        duration: 750,
+        icon: 'none'
+      })
+    } else {
+      if(!(/(^[0-9]*$)/.test(this.data.now_change_number))) {//非整数
+        wx.showToast({
+          title: '现在是非法输入哦亲~',
+          duration: 750,
+          icon: 'none'
+        })
+      } else {
+        this.setData({
+          now_change_number: Number(this.data.now_change_number)
+        })
+        if(this.data.now_change_number == 0) {
+          this.setData({
+            now_change_number: 1
+          })
+        }
+        if(this.data.now_change_number > this.data.number_limit) {
+          wx.showToast({
+            title: '亲库存数量太多了喔~',
+            duration: 750,
+            icon: 'none'
+          })
+        } else {
+          this.setData({
+            [`goods[${this.data.now_id}].Stock`]: this.data.now_change_number
+          })
+          this.change_number(this.data.now_id).then(()=>{
+            this.modelCancel()
+          })
+        }
+      }
+    }
+},
+  async change_number(index) {
+    console.log(this.data.goods[index])
+    let res=await wxRequest("POST","shop/updateProduct",this.data.goods[index]);
+    console.log(res)
+    if(res.data.success) {
+      wx.showToast({
+        title: '商品库存修改成功',
+        duration: 500,
+        icon: 'none'
+      })
+    } else {
+      wx.showToast({
+        title: '商品修改失败，请重试~',
+        duration: 1000,
+        icon: 'none'
+      })
+    }
+  },
+  async drop_product(e) {
+    let res=await wxRequest("POST","shop/dropProduct",{id: this.data.goods[e.currentTarget.dataset.value].Id});
+    console.log(res)
+    if(res.data.success) {
+      wx.showToast({
+        title: '商品下架成功',
+        duration: 500,
+        icon: 'none'
+      })
+      this.setData({
+        [`goods[${e.currentTarget.dataset.value}].IsDrop`]: true
+      })
+    } else {
+      wx.showToast({
+        title: '商品下架失败，请重试~',
+        duration: 1000,
+        icon: 'none'
+      })
+    }
+ },
+  input_number_Handler(e) {
+    this.setData({
+      now_change_number: e.detail.value
+    })
+  },
+  inputHandler(e) {
+    console.log(e)
+    this.setData({
+      now_id: e.currentTarget.dataset.value,
+      now_change_number: this.data.goods[e.currentTarget.dataset.value].Stock,
+      input_num_Hidden: false
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-      wx.setNavigationBarTitle({
-        title: '管理端'
+    this.get_goods()
+  },
+
+  goto_goods(e) {
+    console.log(e)
+    console.log(e.currentTarget.dataset.value)
+      wx.navigateTo({
+        url: `/pages/goods/goods?id=${this.data.goods[e.currentTarget.dataset.value].Id}`
       })
   },
 
-  get_orders() {
+  goto_addproduct() {
+    wx.navigateTo({
+      url: '/pages/addproduct/addproduct',
+    })
+  },
+  get_goods() {
     wx.showLoading({
                 title: '数据加载中'
             })
@@ -33,30 +168,39 @@ Page({
               wx.hideLoading();
               return ;
             }
-            wxRequest("GET","order/shopOrder",{from: this.data.from, length: this.data.page_size}).then(res => {
+            wxRequest("GET","shop/ownerProducts",{from: this.data.from, length: this.data.page_size}).then(res => {
                   console.log(res)
                   if (isResTokenInvalid(res)) {
                     showTokenInvalidModal();
-                    get_orders();
+                    get_goods();
                     return ;
                   }
-                  if(res.data.data.orders == null) {
+                  if(res.data.data.Products == null) {
                     wx.showToast({
-                      title: '订单已经到底了喔~',
+                      title: '您的商品已经看完了喔~',
                       icon: 'none'
                     })
                   } else {
                     this.setData({
-      //                 shopList: [...this.data.shopList,...res.data.data.Products],
-                      orders: res.data.data.orders,
+                      goods: [...this.data.goods,...res.data.data.Products],
                       from: this.data.from + this.data.page_size
                     })
                   }
             }).then(()=> {
-            console.log(this.data.orders)
-            wx.hideLoading()
+              console.log(this.data.goods)
+              wx.hideLoading()
           })
   },
+
+  modelCancel() {
+    this.setData({
+      input_num_Hidden: true,
+      now_id: 0,
+      now_change_number: 0
+    })
+    this.getShopList()
+},
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -97,7 +241,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-
+    this.get_goods()
   },
 
   /**

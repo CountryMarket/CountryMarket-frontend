@@ -105,6 +105,14 @@ input_Handler(e) {
 
   goto_pay() {
     this.countAll()
+    console.log(this.data.address_message)
+    if(this.data.address_message==null) {
+      wx.showToast({
+        title: '请完善收货地址~',
+        icon: 'none'
+      })
+      return;
+    }
     if (isTokenEmpty(getApp().globalData.token)) {
               showTokenInvalidModal();
               return ;

@@ -31,26 +31,19 @@
         <view class="item-text">售后/退款</view>
       </view>
     </view>
-    <!-- 第二框 -->
-    <view class="second-block">
-      <view class="item" wx:for="{{ [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] }}">
-        <image src="https://blog.lyffly.com/static/images/avatar.jpg"></image>
-        <view class="item-text">{{ item }}</view>
-      </view>
-    </view>
     <!-- 第三框: 店家后台管理 -->
     <view class="third-block" wx:if="{{ permission & 2 }}">
       <view class="item" bindtap="goto_product">
         <image src="/image/add_new_product.png"></image>
         <view class="item-text">新增商品</view>
       </view>
-      <view class="item">
+      <view class="item" bindtap="goto_guanli">
         <image src="/image/manage_good.png"></image>
         <view class="item-text">商品管理</view>
       </view>
-      <view class="item" bindtap="goto_guanli">
+      <view class="item" bindtap="goto_order_manage">
         <image src="/image/manage2.png"></image>
-        <view class="item-text" >订单管理</view>
+        <view class="item-text">订单管理</view>
       </view>
       <view class="item">
         <image src="/image/colculate.png"></image>
@@ -58,6 +51,36 @@
       </view>
     </view>
   </view>
+
+  <view style="margin: 30rpx; margin-left: 60rpx; margin-right: 60rpx;border: 1rpx solid white; background-color: white; border-radius: 20rpx; padding: 10rpx;">
+      <view style="display: flex; margin: 30rpx; font-size: 30rpx;" bindtap="goto_yinsi">
+        <view style="display: flex; width: 280rpx;">
+          <image src="/image/yinsi.png" style="height: 40rpx; width: 40rpx;  margin-right: 20rpx;"></image>
+          <view>隐私协议</view>
+        </view>
+        <view style="display: flex; justify-content: flex-end; width: 260rpx">
+            <image src="/image/arrow_right.png" style="height: 35rpx; width: 35rpx;"></image>
+        </view>
+    </view>
+    <view style=" margin: 30rpx;display: flex;  font-size: 30rpx;" bindtap="goto_xieyi">
+      <view style="display: flex; width: 280rpx;">
+        <image src="/image/xieyi.png" style="height: 40rpx; width: 40rpx;  margin-right: 20rpx;"></image>
+        <view>用户服务协议</view>
+      </view>
+        <view style="display: flex; justify-content: flex-end; width: 260rpx">
+            <image src="/image/arrow_right.png" style="height: 35rpx; width: 35rpx;"></image>
+        </view>
+    </view>
+    <view style=" margin: 30rpx; display: flex;  font-size: 30rpx;" bindtap="goto_team">
+      <view style="display: flex; width: 280rpx;">
+          <image src="/image/team.png" style="height: 40rpx; width: 40rpx; margin-right: 20rpx;"></image>
+          <view>小程序设计团队</view>
+      </view>
+        <view style="display: flex; justify-content: flex-end; width: 260rpx">
+            <image src="/image/arrow_right.png" style="height: 35rpx; width: 35rpx;"></image>
+        </view>
+    </view>
+ </view>
   <view style="display: flex; justify-content: center; margin-top: 20rpx;" wx:if="{{ isLogged }}">
       <view style="width: 350rpx; background-color: white; border-radius: 20rpx; display: flex; justify-content: center;" bindtap="logout">
           <text style="color: red;margin-top: 15rpx; margin-bottom: 15rpx;">退出登录</text>

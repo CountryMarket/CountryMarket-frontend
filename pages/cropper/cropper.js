@@ -11,6 +11,7 @@ Page({
         disable_ratio: true, //锁定比例
         limit_move: true, //是否限制移动
         pos: -1,
+        type: 0,
     },
     onLoad: function (options) {
             this.cropper = this.selectComponent("#image-cropper");
@@ -18,7 +19,8 @@ Page({
                 src: options.imgSrc,
                 width: options.width,
                 height: options.height,
-                pos: options.pos
+                pos: options.pos,
+                type: options.type
             });
             if(!options.imgSrc){
                 this.cropper.upload(); //上传图片
@@ -131,10 +133,14 @@ Page({
         },
         submit() {
             this.cropper.getImg((obj) => {
-                if (this.data.pos == -1) {
-                  app.globalData.imgSrc = obj.url;
-                } else {
-                  app.globalData.imgPPTSrc[this.data.pos] = obj.url;
+                if (this.data.type == 0) {
+                  if (this.data.pos == -1) {
+                    app.globalData.imgSrc = obj.url;
+                  } else {
+                    app.globalData.imgPPTSrc[this.data.pos] = obj.url;
+                  }
+                } else if (this.data.type == 1) {
+                  app.globalData.imgDetailSrc[this.data.pos] = obj.url;
                 }
                 wx.navigateBack({
                     delta: -1

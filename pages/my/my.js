@@ -43,6 +43,24 @@ Page({
       // const { globalData } = getApp();
       this.refresh();
     },
+
+    goto_xieyi() {
+      wx.navigateTo({
+        url: '/pages/xieyi/xieyi',
+      })
+    },
+
+    goto_team() {
+      wx.navigateTo({
+        url: '/pages/team/team'
+      })
+    },
+
+    goto_yinsi() {
+      wx.navigateTo({
+        url: '/pages/yinsi/yinsi'
+      })
+    },
        
   goto_orders(e) {
     wx.navigateTo({
@@ -50,6 +68,11 @@ Page({
     })
   },
 
+  goto_order_manage() {
+    wx.navigateTo({
+      url: '/pages/order_manage/order_manage',
+    })
+  },
     /**
      * 生命周期函数--监听页面隐藏
      */
