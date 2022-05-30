@@ -23,7 +23,7 @@
           </view>
     </view>
     <view style="display: flex; margin: 10rpx;">
-        <view style="width: 200rpx">实付款</view> 
+        <view style="width: 200rpx">实付款：</view> 
         <view style=" display: flex; justify-content: flex-end; width: 100%; color: #33cc99;">
             <view>￥</view>
             <view style="font-weight: 600;">{{info.total_price}}</view>
@@ -95,24 +95,24 @@
 <view style="position: fixed; bottom: 0; width: 100%; border: 1rpx solid #efefef; padding-top: 15rpx; padding-bottom: 15rpx; font-weight: 550; background-color: #efefef;">
 <!-- 完成支付 -->
   <view wx:if="{{info.now_status == 1}}" style=" display: flex; justify-content: flex-end; margin-right: 20rpx;">
-        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #33cc99; color: #33cc99; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;">前往支付</view>
+        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #33cc99; color: #33cc99; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;" catchtap="goto_pay">前往支付</view>
     </view>
 <!-- 待收货 -->
     <view wx:if="{{info.now_status == 2}}" style=" display: flex; justify-content: flex-end; margin-right: 20rpx;">
-        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;">追加评论</view>
-        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;">查看物流</view>
-        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #33cc99; color: #33cc99; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;">确认收货</view>
+        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;" catchtap="goto_comment">追加评论</view>
+        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;" catchtap="goto_wuliu">查看物流</view>
+        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #33cc99; color: #33cc99; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;" catchtap="shouhuo">确认收货</view>
     </view>
     <!-- 评价 -->
     <view wx:if="{{info.now_status == 3}}" style=" display: flex; justify-content: flex-end; margin-right: 20rpx;">
-        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;">追加评论</view>
-        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;">查看物流</view>
-        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;">申请售后</view>
+        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;" catchtap="goto_comment">追加评论</view>
+        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;" catchtap="goto_wuliu">查看物流</view>
+        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;"  catchtap="goto_shouhou">申请售后</view>
     </view>
     <!-- 完成 -->
     <view wx:if="{{info.now_status == 4}}" style=" display: flex; justify-content: flex-end; margin-right: 20rpx;">
-        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;">追加评论</view>
-        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;">查看物流</view>
-        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;">申请售后</view>
+        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;" catchtap="goto_comment">追加评论</view>
+        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;" catchtap="goto_wuliu">查看物流</view>
+        <view style="padding-left: 20rpx; padding-right: 20rpx; padding-top: 10rpx; padding-bottom: 10rpx; border: 1rpx solid #a3a3a3; margin-left: 10rpx; margin-right: 10rpx; border-radius: 40rpx;" catchtap="goto_shouhou">申请售后</view>
     </view>
 </view>

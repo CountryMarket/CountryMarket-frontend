@@ -2,7 +2,7 @@
 <view class="searchbar">
   <view class="content">
     <!-- 搜索图标 -->
-    <fa icon="fa fa-search text-secondary" class="search-icon" aria-hidden="true"></fa>
+    <fa icon="fa fa-search text-main" class="search-icon" aria-hidden="true"></fa>
     <!-- 输入框 -->
     <input 
       bindinput="handleInput"

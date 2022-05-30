@@ -82,7 +82,6 @@ const login = async function(that) {
                 showCancel: false,
                 confirmText: "知道了"
               });
-              this.data.isLogging = false;
               return ;
             }
           })
@@ -108,7 +107,6 @@ const login = async function(that) {
             showCancel: false,
             confirmText: "知道了"
           });
-          this.data.isLogging = false;
           return ;
         }
         globalData.token = res.data.data.token;

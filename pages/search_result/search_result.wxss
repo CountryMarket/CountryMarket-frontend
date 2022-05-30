@@ -1,0 +1,4 @@
+/* pages/search_result/search_result.wxss */
+search-bar {
+  width: 100%;
+}

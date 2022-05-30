@@ -46,7 +46,8 @@
   align-items: center;
   background:#ffffff ;
   border-radius: 100rpx;
-  padding: 0 15rpx;
+  padding-left: 15rpx;
+  padding-right: 5rpx; 
 }
 .search-group > input {
   font-size: 25rpx;

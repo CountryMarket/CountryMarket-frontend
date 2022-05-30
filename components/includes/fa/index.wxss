@@ -10,3 +10,4 @@
 .text-muted 		{ color: rgb(138,147,155) !important; }
 .text-white 		{ color: #fff !important; }
 .text-grey      { color: #ddd !important; }
+.text-main      { color: #33cc99 !important; }

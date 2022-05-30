@@ -15,7 +15,9 @@ Page({
       if_in_cart: '加入购物车',
       id: 0,
       good_info: {},
-      array: []
+      array: [],
+      array1: [],
+      comments: null
   },
 
   /**
@@ -31,20 +33,43 @@ Page({
     })
     this.getGoodList().then( () => {
         this.check_cart()
+        this.get_comment()
         console.log(this.data.good_info)
         for(let i=0;i<this.data.good_info.PictureNumber;i++) {
           this.setData({
             array: [...this.data.array,1]
           })
         }
-        console.log(this.data.array)
+        for(let i=0;i<this.data.good_info.DetailPictureNumber;i++) {
+          this.setData({
+            array1: [...this.data.array1,1]
+          })
+        }
+        console.log(this.data.array1)
     })
+  },
+  
+  async get_comment() {
+    console.log(this.data.good_info.Id)
+    await wxRequest("GET","comment/product",{product_id: this.data.good_info.Id}).then(res => {
+      console.log(res)
+      this.setData({
+        comments: res.data.data.comments
+      })
+    })
+    console.log(this.data.comments)
   },
 
   goto_kefu() {
     wx.navigateTo({
       url: '/pages/kefu/kefu'
     })
+  },
+
+  goto_good_comments() {
+      wx.navigateTo({
+        url: `/pages/good_comments/good_comments?product_id=${this.data.good_info.Id}`
+      })
   },
 
   check_cart() {

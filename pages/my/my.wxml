@@ -28,7 +28,7 @@
       </view>
       <view class="item" data-value="4" bindtap="goto_orders">
         <image src="/image/shouhou4.png"></image>
-        <view class="item-text">售后/退款</view>
+        <view class="item-text">已完成/售后</view>
       </view>
     </view>
     <!-- 第三框: 店家后台管理 -->
@@ -52,7 +52,7 @@
     </view>
   </view>
 
-  <view style="margin: 30rpx; margin-left: 60rpx; margin-right: 60rpx;border: 1rpx solid white; background-color: white; border-radius: 20rpx; padding: 10rpx;">
+  <view style="margin: 30rpx; margin-left: 60rpx; margin-right: 60rpx;border: 1rpx solid white; background-color: white; border-radius: 20rpx;">
       <view style="display: flex; margin: 30rpx; font-size: 30rpx;" bindtap="goto_yinsi">
         <view style="display: flex; width: 280rpx;">
           <image src="/image/yinsi.png" style="height: 40rpx; width: 40rpx;  margin-right: 20rpx;"></image>
@@ -62,7 +62,7 @@
             <image src="/image/arrow_right.png" style="height: 35rpx; width: 35rpx;"></image>
         </view>
     </view>
-    <view style=" margin: 30rpx;display: flex;  font-size: 30rpx;" bindtap="goto_xieyi">
+    <view style=" margin: 30rpx; display: flex;  font-size: 30rpx;" bindtap="goto_xieyi">
       <view style="display: flex; width: 280rpx;">
         <image src="/image/xieyi.png" style="height: 40rpx; width: 40rpx;  margin-right: 20rpx;"></image>
         <view>用户服务协议</view>

@@ -20,6 +20,7 @@ Page({
         searchMarginTop: 0, // 搜索框上边距
         searchWidth: 0, // 搜索框宽度
         searchHeight: 0 ,// 搜索框高度
+        search: "",
 
         if_in_cart: [],
         input_num_Hidden: true,
@@ -264,7 +265,24 @@ input_number_Handler(e) {
           url: `/pages/goods/goods?id=${this.data.products[e.currentTarget.dataset.value].Id}`
         })
     },
-    
+
+    search() {
+      if (this.data.search == "") {
+        wx.showToast({
+          title: '不能没有输入哦~',
+          icon: 'none'
+        })
+        return 
+      }
+      wx.navigateTo({
+        url: `/pages/search_result/search_result?key=${this.data.search}`,
+      })
+    },
+    handleInput(e) {
+      this.setData({
+        search: e.detail.value
+      })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

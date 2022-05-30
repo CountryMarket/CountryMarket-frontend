@@ -1,0 +1,28 @@
+
+<view style="margin: 10rpx; border: 1rpx solid white; background-color: white; border-radius: 20rpx;  padding: 15rpx; ">
+  <view style="display: flex;" bindtap="go_back">
+            <image src="{{'https://7072-prod-0guks42iab6ab66f-1311448235.tcb.qcloud.la/assert/image/product/'+good_info.Id+'/view.png'}}" style="height: 200rpx; width: 200rpx; border-radius: 30rpx;"></image>
+          <view style="width: 480rpx; margin-left: 10rpx; margin-right: 10rpx; margin-top: 5rpx; margin-bottom: 5rpx;">
+            <view style="font-weight: 600; font-size: 30rpx; color: black;">{{stringUtils.subString(good_info.Title,0,16)}}</view>
+            <view style="font-size: 25rpx; font-weight: 600; color: #a3a3a3; height: 100rpx;">{{stringUtils.subString(good_info.Description,0,38)}}</view>
+            <view style="display: flex; justify-content: flex-end;">
+              <view style="font-size: 35rpx; font-weight: 600; color:red">￥{{good_info.Price}}</view>
+            </view>
+          </view>
+      </view>
+</view>
+
+<view style="padding: 20rpx; border-radius: 20rpx; border: 1rpx solid white; background-color: white; margin: 10rpx;">
+  
+  <view style="display: flex">
+    <image src="/image/comment.png" style="width: 60rpx; height: 60rpx; margin-right: 10rpx;"></image>
+    <view style="font-size: 40rpx; font-weight: 600;  color: #33cc99; " wx:if="{{comments!=null}}">商品评价({{comments.length}})</view>
+    <view style="font-size: 40rpx; font-weight: 600; color: #33cc99" wx:else>商品暂无评价</view>
+  </view>
+
+  <view wx:for="{{comments}}" style="margin-top: 30rpx;">
+    <view style="border-left: 5rpx solid #33cc99; padding-left: 10rpx;">{{item.comment}}</view>
+  </view>
+</view>
+
+<wxs src="../../module/change_string_length.wxs" module="stringUtils"></wxs>

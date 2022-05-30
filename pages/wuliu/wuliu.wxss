@@ -1,1 +1,21 @@
-/* pages/wuliu/wuliu.wxss */
+.navi_map {
+  height: 800rpx;
+}
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+::-ms-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+::-moz-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  color: transparent;
+}

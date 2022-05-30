@@ -26,31 +26,39 @@
     </view>
 </view>
 
+<view style="margin-top: 10rpx; background-color: white; padding: 10rpx; font-weight: 600; display: flex;">
+    <view style="font-size: 35rpx;">剩余库存：{{good_info.Stock}}</view>
+</view>
+
 <view style="margin-top: 10rpx; background-color: white; padding: 10rpx; font-weight: 600;">
-    <view style="font-size: 35rpx;">配送情况</view>
+    <view style="font-size: 35rpx; color: #33CC99;">配送情况</view>
     <view>运费：5元</view>
     <view>平均时效：省内2天，省外3天</view>
 </view>
 
-<view style="margin-top: 10rpx; background-color: white; padding: 10rpx; font-weight: 600;">
-    <view style=" font-size: 35rpx;">商品评价(2)</view>
-    <view style="color: #b2b2b2; font-weight: 500;">
-      <view>该商品还不错</view>
-      <view>好评！</view>
+<view style="margin-top: 10rpx; background-color: white; padding: 10rpx; font-weight: 600;"  bindtap="goto_good_comments">
+    <view wx:if="{{comments==null}}">商品暂无评论</view>
+    <view wx:else>
+      <view style="display: flex;">
+        <view style=" font-size: 35rpx; width: 50%;">商品评价({{comments.length}})</view>
+        <view style="width: 45%; display: flex; justify-content: flex-end; font-size: 25rpx; align-content: center;">
+            <view style="color: #33CC99;">查看全部</view>
+            <image src="/image/arrow_right.png" style="width: 27rpx; height: 27rpx; margin-top: 3rpx;"></image>
+        </view>
+      </view>
+      <view style="font-size: 30rpx; color: #b2b2b2; font-weight: 520; margin-top: 10rpx; margin-left: 5rpx;">{{ stringUtils.subString(comments[0].comment,0,25) }}</view>
+      <view wx:if="{{comments.length>=2}}" style="font-size: 30rpx; color: #b2b2b2; font-weight: 520; margin-top: 7rpx; margin-left: 5rpx;">{{ stringUtils.subString(comments[1].comment,0,25) }}</view>
+      <view wx:if="{{comments.length>=3}}" style="font-size: 30rpx; color: #b2b2b2; font-weight: 520; margin-top: 7rpx; margin-left: 5rpx;">{{ stringUtils.subString(comments[2].comment,0,25) }}</view>
     </view>
 </view>
 <!-- 接入评论 -->
 
-<view style="margin-top: 10rpx; width: 750rpx; background-color: white;">
+<view style="margin-top: 10rpx; width: 750rpx; background-color: white; margin-bottom: 100rpx;">
     <view style="padding-top: 10rpx; padding-left: 10rpx; margin-bottom: 10rpx; font-size: 40rpx; font-weight: 600;">商品详情</view>
-    <view style="padding-top: 10rpx; padding-left: 10rpx; margin-bottom: 10rpx;">出自阳曲县自种，物美价廉</view>
-    <view>
-        <image src="{{'https://7072-prod-0guks42iab6ab66f-1311448235.tcb.qcloud.la/assert/image/product/'+good_info.Id+'/view.png'}}" style="width: 750rpx;" mode="widthFix"></image>
-        <image src="{{'https://7072-prod-0guks42iab6ab66f-1311448235.tcb.qcloud.la/assert/image/product/'+good_info.Id+'/view.png'}}" style="width: 750rpx;" mode="widthFix"></image>
-        <image src="{{'https://7072-prod-0guks42iab6ab66f-1311448235.tcb.qcloud.la/assert/image/product/'+good_info.Id+'/view.png'}}" style="width: 750rpx;" mode="widthFix"></image>
-        <image src="{{'https://7072-prod-0guks42iab6ab66f-1311448235.tcb.qcloud.la/assert/image/product/'+good_info.Id+'/view.png'}}" style="width: 750rpx;" mode="widthFix"></image>
+    <view style="padding-top: 10rpx; padding-left: 10rpx; margin-bottom: 20rpx;">{{good_info.Detail}}</view>
+    <view wx:for="{{array1}}">
+        <image src="{{'https://7072-prod-0guks42iab6ab66f-1311448235.tcb.qcloud.la/assert/image/product/'+ good_info.Id +'/detail'+ index +'.png'}}" style="width: 750rpx;" mode="widthFix"></image>
     </view>
-
 </view>
 
 
@@ -70,9 +78,11 @@
     </view>
 
     <view class="keep" style="margin-left: 20rpx;" catchtap="goto_cart">
-      <image src="/image/cart.png" class="keep_image"></image>
+      <image src="/image/cart_title.png" class="keep_image"></image>
       <view style="font-size: 10px; margin-top: -13rpx;text-align: center; font-weight: 500; color: #33CC99; ">购物车</view>
     </view>
     
     <button class="add_button" bindtap="add_into_cart">{{if_in_cart}}</button>
 </view>
+
+<wxs src="../../module/change_string_length.wxs" module="stringUtils"></wxs>

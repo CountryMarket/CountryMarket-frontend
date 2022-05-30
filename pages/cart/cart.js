@@ -31,7 +31,8 @@ Page({
     total_money: 0.00,//计总价，优惠
     show_money_sum: 0.00,
     // 后端需要记录上一次的购物车预选信息
-    isSelected: [],//记录是否被选中,默认不,到时要转数组
+    // isSelected: [],//记录是否被选中,默认不,到时要转数组
+
     is_all_Selected: false,
 
     startX: '', //开始位置空
@@ -80,12 +81,12 @@ Page({
 
   //获取商品列表信息-----------------------------------------------------
   getShopList() {
+    console.log('获取商品列表')
           wx.showLoading({
               title: '数据加载中'
           })
           if (isTokenEmpty(getApp().globalData.token)) {
             this.setData({
-              shopList: [],
               page_from: 0
             })
             let that = this;
@@ -102,7 +103,6 @@ Page({
                 }
                 if(res.data.data.Products==null) {
                     this.setData({
-                      shopList: [],
                       page_from: this.data.page_from + this.data.page_length
                     })
                   wx.showToast({
@@ -110,11 +110,25 @@ Page({
                     icon: 'none'
                   })
                 } else {
+                  let st=this.data.shopList.length
                   this.setData({
-                    is_all_Selected: false,
-                    shopList: res.data.data.Products,
-                    page_from: this.data.page_from + this.data.page_length
+                    is_all_Selected: false,        
+                    page_from: this.data.page_from + this.data.page_length,
+                    // shopList: [...this.data.shopList,...res.data.data.Products]
+                    shopList: res.data.data.Products
                   })
+                  console.log(this.data.shopList)
+                  let tmpShopList = this.data.shopList;
+                  console.log(tmpShopList)
+                  for(let i=0;i<res.data.data.Products.length;i++) {
+                    //tmpShopList[st+i]['isSelected'] = 0;
+                    Object.defineProperty(tmpShopList[i], 'isSelected', {value: 0, enumerable: true, writable: true});
+                    console.log(tmpShopList)
+                  }
+                  this.setData({
+                    shopList: tmpShopList
+                  })
+                  console.log(this.data.shopList)
                 }
           }).then(()=> {
           console.log(this.data.shopList)
@@ -165,7 +179,9 @@ Page({
             })
           } else {
             this.add_into_cart(this.data.shopList[e.currentTarget.dataset.value].Id).then(() => {
-              this.getShopList()
+              this.setData({
+                [`shopList[${e.currentTarget.dataset.value}].Count`]: shopList[e.currentTarget.dataset.value].Count+1
+              })
             })
           }
           
@@ -174,7 +190,9 @@ Page({
     minus(e) {
         if(this.data.shopList[e.currentTarget.dataset.value].Count > 1) {
           this.reduce_from_cart(this.data.shopList[e.currentTarget.dataset.value].Id).then(() => {
-            this.getShopList()
+            this.setData({
+              [`shopList[${e.currentTarget.dataset.value}].Count`]: shopList[e.currentTarget.dataset.value].Count-1
+            })
           })
         } else {
           wx.showToast({
@@ -306,6 +324,10 @@ goto_home() {
               console.log('haha')
             } else {
               this.modifyProduct_cart({idex: this.data.shopList[this.data.nowChange_index].Id, number: this.data.now_change_number}).then(()=> {
+                console.log('寄')
+                this.setData({
+                  [`shopList[${this.data.nowChange_index}].Count`]: this.data.now_change_number
+                })
                 this.modelCancel()
               })
             }
@@ -320,7 +342,6 @@ goto_home() {
         nowChange_index: 0,
         now_change_number: ""
       })
-      this.getShopList()
   },
 
 
@@ -330,7 +351,6 @@ goto_home() {
   onPullDownRefresh() {
     this.setData({
       shopList: [],
-      isSelected: [],
       page_from: 0,
       translateX: []
     })
@@ -373,30 +393,35 @@ goto_home() {
   },
 
   //----------------------------------------------
-  change_isSelected(e) {
+  async change_isSelected(e) {
     console.log(e.currentTarget.dataset.value)
     if(this.data.shopList[e.currentTarget.dataset.value].Count<=this.data.shopList[e.currentTarget.dataset.value].Stock) {
-      this.setData({
-        [`isSelected[${e.currentTarget.dataset.value}]`]: this.data.isSelected[e.currentTarget.dataset.value]==1 ? 0 : 1
-      })
-      if(this.data.isSelected[e.currentTarget.dataset.value]==1) {
-        let temp=true
-        for(let i=0;i<this.data.shopList.length;i++) {
-          if(this.data.isSelected[i]==1||this.data.shopList[i].Count>this.data.shopList[i].Stock) continue;
-          temp=false;
-          break;
-        }
-        if(temp==true) {
           this.setData({
-            is_all_Selected: true
+            [`shopList[${e.currentTarget.dataset.value}].isSelected`]: this.data.shopList[e.currentTarget.dataset.value].isSelected==1 ? 0 : 1
           })
+          console.log(this.data.shopList[e.currentTarget.dataset.value].isSelected)
+          if(this.data.shopList[e.currentTarget.dataset.value].isSelected==1) {//选中
+            console.log('当前被选中')
+            let temp=true
+            for(let i=0;i<this.data.shopList.length;i++) {
+              if(this.data.shopList[i].isSelected==1||this.data.shopList[i].Count>this.data.shopList[i].Stock) continue;
+              temp=false;
+              break;
+            }
+            if(temp==true) {
+              this.setData({
+                is_all_Selected: true
+              })
+              console.log(this.data.shopList)
+            }
+            this.countAll()
+        }  else {
+          this.setData({
+            is_all_Selected: false
+          })
+          console.log(this.data.shopList)
+          this.countAll()
         }
-      } else {
-        this.setData({
-          is_all_Selected: false
-        })
-      }
-      this.countAll()
     } else {
       wx.showToast({
         title: '亲，库存不足哦~',
@@ -404,7 +429,6 @@ goto_home() {
         duration: 1000
       })
     }
-    
   },
 
   change_all_selected() {
@@ -412,7 +436,7 @@ goto_home() {
         is_all_Selected: false
       })
       for(let i = 0, len = this.data.shopList.length ; i<len ; i++) {
-          if(this.data.isSelected[i] == 1||this.data.shopList[i].Count>this.data.shopList[i].Stock) continue;
+          if(this.data.shopList[i].isSelected == 1||this.data.shopList[i].Count>this.data.shopList[i].Stock) continue;
           this.setData({
             is_all_Selected: true
           })
@@ -421,14 +445,14 @@ goto_home() {
       if(this.data.is_all_Selected == false) {
           for(let i = 0, len = this.data.shopList.length ; i<len ; i++) {
               this.setData({
-                [`isSelected[${i}]`]: 0
+                [`shopList[${i}].isSelected`]: 0
               })
           } 
       } else {
           for(let i = 0, len = this.data.shopList.length ; i<len ; i++) {
             if(this.data.shopList[i].Count>this.data.shopList[i].Stock) continue;
             this.setData({
-              [`isSelected[${i}]`]: 1
+              [`shopList[${i}].isSelected`]: 1
             })
           } 
       }
@@ -441,8 +465,9 @@ goto_home() {
       money_sum: 0.00,
       push: []
     }) 
-    for(let i = 0, len = this.data.isSelected.length ; i<len ; i++) {
-      if(this.data.isSelected[i] == 1) {
+    console.log('计算总价')
+    for(let i = 0, len = this.data.shopList.length ; i<len ; i++) {
+      if(this.data.shopList[i].isSelected == 1) {
         this.setData({
           money_sum: this.data.money_sum+(this.data.shopList[i].Count*this.data.shopList[i].Price),
           push: [...this.data.push,this.data.shopList[i].Id]
@@ -453,8 +478,10 @@ goto_home() {
       money_sum: this.data.money_sum.toFixed(2),
       show_money_sum: this.data.money_sum.toFixed(2)
     })
+    console.log(this.data.money_sum)
     this.countFinal()
   },
+
   countFinal() {
       console.log('计算最终')
       this.setData({

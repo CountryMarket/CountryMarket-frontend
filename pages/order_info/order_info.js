@@ -13,7 +13,6 @@ Page({
     products: [],
     if_open: false,
     order_id: 0,
-
   },
 
   /**
@@ -63,6 +62,62 @@ Page({
     }
   },
 
+  goto_wuliu() {
+    wx.navigateTo({
+      url: `/pages/wuliu/wuliu?id=${this.data.info.order_id}`
+    })
+  },
+
+  goto_shouhou() {
+    wx.navigateTo({
+      url: '/pages/shouhou/shouhou',
+    })
+  },
+
+  async shouhuo(e) {
+    let res = await wxRequest("POST", "order/changeStatus", {order_id: this.data.info.order_id, status: 3});
+    console.log(res)
+    if (!res.data.success) {
+      console.log('失败')
+      wx.showToast({
+        title: '收货失败',
+        icon: 'error'
+      })
+    } else {
+      console.log('成功')
+      wx.showToast({
+        title: '收货成功'
+      })
+    }
+    this.get_info(this.data.info.order_id).then(()=> {
+      wx.showToast({
+        title: '收货成功啦~',
+        icon: 'none',
+        duration: 750
+      })
+      if(this.data.info.now_status==1) {
+        wx.setNavigationBarTitle({
+          title: '待支付'
+        })
+      }
+      if(this.data.info.now_status==2) {
+        wx.setNavigationBarTitle({
+          title: '待收货'
+        })
+      }
+      if(this.data.info.now_status==3) {
+        wx.setNavigationBarTitle({
+          title: '待评价'
+        })
+      }
+      if(this.data.info.now_status==4) {
+        wx.setNavigationBarTitle({
+          title: '已完成'
+        })
+      }
+    })
+  },
+
   async get_info(id) {
       wx.showLoading({
           title: '数据加载中'
@@ -98,11 +153,24 @@ Page({
       console.log(this.data.products)
  },
 
+ goto_pay() {
+  wx.navigateTo({
+    url: `/pages/pay/pay?money=${this.data.info.total_price}&order_id=${this.data.info.order_id}`
+  })
+ },
+
   goto_goods(e) {
     console.log(e)
       wx.navigateTo({
         url: `/pages/goods/goods?id=${this.data.products[e.currentTarget.dataset.value].Id}`
       })
+  },
+
+  goto_comment(e) {
+    console.log(e)
+    wx.navigateTo({
+      url: `/pages/comment/comment?id=${this.data.order_id}`
+    })
   },
 
   delete_order(e) {

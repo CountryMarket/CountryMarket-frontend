@@ -13,9 +13,9 @@
             </view>
           </view>
     </view>
-    <view style="margin-top: 10rpx;margin-left: 20rpx; margin-right: 20rpx; height: 400rpx; border: 1rpx solid #efefef; background-color: white; border-radius: 20rpx; margin-bottom: 20rpx;">
-          <textarea style="margin: 20rpx;"></textarea>
-       </view>
+    <view style="margin-top: 10rpx;margin-left: 20rpx; margin-right: 20rpx; height: 400rpx; border: 1rpx solid #efefef; background-color: white; border-radius: 20rpx; margin-bottom: 20rpx; padding: 15rpx">
+          <textarea class="margin: 20rpx;" data-value="{{index}}" bindinput="inputHandler" placeholder="请输入评论"></textarea>
+    </view>
 </view>
 
-<button style="margin-top: 20rpx; background-color: #33cc99; color: white; border-radius: 50rpx; margin-bottom: 30rpx;" bindtap="submit_comment">提交评论</button>
+<button style="margin-top: 20rpx; background-color: #33cc99; color: white; border-radius: 50rpx; margin-bottom: 30rpx;" bindtap="submit_comment" >提交评论</button>

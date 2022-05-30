@@ -10,7 +10,7 @@ Page({
    */
   data: {
     from: 0,
-    page_size: 10,
+    page_size: 50,
     orders: [],
     products: [],
     now_page: 0
@@ -28,6 +28,11 @@ Page({
       console.log(this.data.now_page)
   },
 
+  goto_shouhou() {
+      wx.navigateTo({
+        url: '/pages/shouhou/shouhou',
+      })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -51,17 +56,35 @@ Page({
       })
   },
 
+  async shouhuo(e) {
+    console.log(this.data.orders)
+    console.log(this.data.orders[e.currentTarget.dataset.value])
+    let res = await wxRequest("POST", "order/changeStatus", {order_id: this.data.orders[e.currentTarget.dataset. value].order_id, status: 3});
+    console.log( this.data.orders[e.currentTarget.dataset. value].order_id)
+    console.log(res)
+    if (!res.data.success) {
+      console.log('失败')
+      wx.showToast({
+        title: '收货失败',
+        icon: 'error'
+      })
+    } else {
+      console.log('成功')
+      wx.showToast({
+        title: '收货成功'
+      })
+      this.get_orders()
+    }
+  },
+
     async get_orders() {
         console.log(this.data.from)
-          wx.showLoading({
-              title: '数据加载中'
-          })
           if (isTokenEmpty(getApp().globalData.token)) {
             showTokenInvalidModal();
             wx.hideLoading();
             return ;
           }
-          await wxRequest("GET","order/userOrder",{from: this.data.from, length: this.data.page_size, status: this.data.now_page}).then(res => {
+          await wxRequest("GET","order/userOrder",{from: 0, length: this.data.page_size, status: this.data.now_page}).then(res => {
                 console.log(res)
                 if (isResTokenInvalid(res)) {
                   showTokenInvalidModal();
@@ -73,10 +96,13 @@ Page({
                     title: '订单已经看完了喔~',
                     icon: 'none'
                   })
+                  this.setData({
+                    orders: []
+                  })
                 } else {
+                  console.log('请求数据')
                   this.setData({
-                    orders: [...this.data.orders,...res.data.data.orders],
-                    from: this.data.from + this.data.page_size
+                    orders: res.data.data.orders
                   })
                   console.log(this.data.orders.length)
                   for(let i=0;i<this.data.orders.length;i++) {
@@ -91,7 +117,6 @@ Page({
             console.log(res.data.data.orders)
                 }
           }).then(()=> {
-            wx.hideLoading()
             this.get_products()
           })
           console.log(this.data.orders)
@@ -104,15 +129,17 @@ Page({
       })
     },
 
-    goto_pay() {
+    goto_pay(e) {
       wx.navigateTo({
-        url: '/pages/pay/pay',
+        url: `/pages/pay/pay?money=${this.data.orders[e.currentTarget.dataset.value].total_price}&order_id=${this.data.orders[e.currentTarget.dataset.value].order_id}`
       })
     },
 
     goto_wuliu(e) {
+      console.log(this.data.orders)
+      console.log(this.data.orders[e.currentTarget.dataset.value].order_id)
       wx.navigateTo({
-        url: `/pages/wuliu/wuliu?id=${e.currentTarget.dataset.value.order_id}`
+        url: `/pages/wuliu/wuliu?id=${this.data.orders[e.currentTarget.dataset.value].order_id}`
       })
     },
     get_products() {
@@ -139,7 +166,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    this.get_orders()
   },
 
   /**
@@ -167,7 +194,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-      this.get_orders()
+      wx.showToast({
+        title: '已经到底了哦~',
+        icon: 'none'
+      })
   },
 
   /**

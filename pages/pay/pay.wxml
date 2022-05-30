@@ -2,7 +2,12 @@
   <image src="/image/SZU.png" style="width: 600rpx; height: 600rpx;"></image>
 </view>
 
+
 <view style="display: flex; justify-content: center; margin-top: 20rpx;">
+  <view style="margin-top: 20rpx; font-size: 35rpx; font-weight: 600;color: #33cc99;">您需要支付{{money}}元</view>
+</view>
+
+<view style="display: flex; justify-content: center; margin-top: 10rpx;">
   <view style="margin-top: 20rpx; font-size: 35rpx; font-weight: 600;color: #33cc99;">由于支付资质问题，当前线上支付仅模拟</view>
 </view>
 

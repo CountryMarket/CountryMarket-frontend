@@ -1,0 +1,12 @@
+<view style="width: 100%; margin-top: 40%;">
+  <view style="display: flex; justify-content: center; width: 100%;">
+    <image src="/image/sh1.png" style="width: 300rpx; height: 300rpx;"></image>
+  </view>
+  <view style="display: flex; justify-content: center; margin-top: 30rpx; font-size: 40rpx; font-weight: 600; color: #b2b2b2;">
+      <view>暂时不支持售后哦~</view>
+  </view>
+
+  <view style="display: flex; justify-content: center; margin: 30rpx; font-weight: 600; font-size: 40rpx;">
+      <view style="border: 1px solid #33cc99; color: #33cc99; padding: 10rpx; padding-left: 20rpx; padding-right: 20rpx; border-radius: 100rpx;" bindtap="go_back">返回上一页</view>
+  </view>
+</view>

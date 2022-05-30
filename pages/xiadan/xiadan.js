@@ -125,8 +125,8 @@ input_Handler(e) {
                     goto_pay()
                     return ;
                   }
-                  wx.navigateTo({
-                    url: `/pages/pay/pay?money=${this.data.total_money}`
+                  wx.redirectTo({
+                    url: `/pages/pay/pay?money=${this.data.total_money}&order_id=${res.data.data.order_id[0]}`,
                   })
             })
   },

@@ -72,7 +72,7 @@
   </view>
   <view class="shop-item" bindtap="goto_goods" data-value="{{shopList[index].Id}}"> 
       <view class="circle" data-value="{{index}}" catchtap="change_isSelected">
-            <icon type="success" wx:if="{{isSelected[index]}}"></icon>
+            <icon type="success" wx:if="{{shopList[index].isSelected==1}}"></icon>
             <icon type="circle" color="#999" wx:else></icon>
       </view>
 

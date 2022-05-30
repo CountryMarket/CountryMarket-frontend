@@ -8,7 +8,8 @@ Page({
      */
     data: {
       productsLeft: [],
-      productsRight: []
+      productsRight: [],
+      keyvalue: "",
     },
 
     // 跳转到商品页
@@ -74,6 +75,21 @@ Page({
         url: '/pages/kxzh/kxzh',
       })
     },
+
+    handleSearch(e) {
+      console.log(e)
+      if (e.detail == '') {
+        wx.showToast({
+          title: '不能没有输入哦~',
+          icon: 'none'
+        })
+        return 
+      }
+      wx.navigateTo({
+        url: `/pages/search_result/search_result?key=${e.detail}`,
+      })
+    },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

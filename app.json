@@ -25,7 +25,10 @@
     "pages/yinsi/yinsi",
     "pages/xieyi/xieyi",
     "pages/team/team",
-    "pages/order_manage/order_manage"
+    "pages/order_manage/order_manage",
+    "pages/good_comments/good_comments",
+    "pages/search_result/search_result",
+    "pages/shouhou/shouhou"
   ],
   "window": {
     "navigationBarBackgroundColor": "#33CC99",

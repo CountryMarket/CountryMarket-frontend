@@ -160,9 +160,6 @@ Page({
     })
   },
   get_goods() {
-    wx.showLoading({
-                title: '数据加载中'
-            })
             if (isTokenEmpty(getApp().globalData.token)) {
               showTokenInvalidModal();
               wx.hideLoading();
@@ -188,7 +185,6 @@ Page({
                   }
             }).then(()=> {
               console.log(this.data.goods)
-              wx.hideLoading()
           })
   },
 

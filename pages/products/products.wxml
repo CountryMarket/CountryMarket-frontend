@@ -1,9 +1,10 @@
 <!--搜索-->
-<view  style="height:{{navHeight}}px;background:#33cc99;position: sticky;top: 0px;z-index:99999; " >
+<view  style="height:{{navHeight}}px; background:#33cc99; position: sticky;top: 0px; z-index:99999; " >
   <view class="custom-bar__wrapper" style="margin-top:{{searchMarginTop}}px; height: {{searchHeight}}px;width: {{searchWidth}}px;position:absolute;" >
     <view class="search-group" style="position:absolute;">
       <fa icon="fa fa-search text-secondary" class="search-icon" aria-hidden="true"></fa>
-      <input  class="search-group__input" type="text" placeholder="查找你想要的商品" confirm-type="search" value="{{search}}" maxlength="25" bindconfirm="search"></input>
+      <input bindinput="handleInput" style="width: 70%;" type="text" placeholder="查找你想要的商品" confirm-type="search" value="{{search}}" maxlength="25" bindconfirm="search"></input>
+      <view style="background-color: #33cc99; color: white; font-size: 25rpx; padding: 10rpx; border-radius: 100rpx; padding-left: 20rpx; padding-right: 20rpx; font-weight: 550; margin-left: 15rpx;" bindtap="search">搜索</view>
     </view>
   </view>
 </view>

@@ -30,7 +30,7 @@
         </view>
         <view class="{{now_page == 4 ? 'order_blocks_active' : 'order_blocks'}}" data-value="4" bindtap="change_page">
             <view style="display: block;">
-              <view>售后</view>
+              <view>已完成</view>
             </view>
         </view>
     </view>
@@ -80,22 +80,22 @@
        <!-- 支付 -->
        <view wx:if="{{first.now_status==1}}">
           <view style="display: flex; justify-content: flex-end;">
-            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #33cc99; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx; color: #33cc99;" catchtap="goto_pay">完成支付</view>
+            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #33cc99; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx; color: #33cc99;" catchtap="goto_pay" data-value="{{i}}">完成支付</view>
           </view>
       </view>
       <!-- 收货 -->
       <view wx:if="{{first.now_status==2}}">
             <view style="display: flex; justify-content: flex-end;">
             <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #a3a3a3; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx;"data-value="{{first}}"  catchtap="goto_comment">追加评价</view>
-            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #a3a3a3; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx;" data-value="{{first}}"  catchtap="goto_wuliu">查看物流</view>
-            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #33cc99; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx; color: #33cc99;">确认收货</view>
+            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #a3a3a3; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx;" data-value="{{i}}"  catchtap="goto_wuliu">查看物流</view>
+            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #33cc99; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx; color: #33cc99;" catchtap="shouhuo" data-value="{{i}}">确认收货</view>
           </view>
       </view>
       <!-- 评价 -->
       <view wx:if="{{first.now_status==3}}">
             <view style="display: flex; justify-content: flex-end;">
             <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #a3a3a3; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx;"data-value="{{first}}"  catchtap="goto_comment">追加评价</view>
-            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #a3a3a3; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx;" data-value="{{first}}"  catchtap="goto_wuliu">查看物流</view>
+            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #a3a3a3; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx;" data-value="{{i}}"  catchtap="goto_wuliu">查看物流</view>
           </view>
       </view>
       
@@ -103,8 +103,8 @@
        <view wx:if="{{first.now_status==4}}">
             <view style="display: flex; justify-content: flex-end;">
             <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #a3a3a3; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx;" data-value="{{first}}" catchtap="goto_comment">追加评价</view>
-            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #a3a3a3; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx;" data-value="{{first}}"  catchtap="goto_wuliu">查看物流</view>
-            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #a3a3a3; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx;">申请售后</view>
+            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #a3a3a3; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx;" data-value="{{i}}"  catchtap="goto_wuliu">查看物流</view>
+            <view style="width: 180rpx; height: 40rpx; border-radius:50rpx; font-size: 30rpx; font-weight: 550;display: flex; border: 1rpx solid #a3a3a3; justify-content: center; padding-top: 15rpx; padding-bottom: 15rpx; margin: 10rpx;" catchtap="goto_shouhou">申请售后</view>
           </view>
       </view>
     </view>

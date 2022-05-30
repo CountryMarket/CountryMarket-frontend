@@ -10,7 +10,7 @@ search-bar {
   border-radius: 40rpx;
   width: 700rpx;
   height: 300rpx;
-  background-color: #33cc99;
+  background-color:white;
 }
 ::-webkit-scrollbar {
   display:none;
