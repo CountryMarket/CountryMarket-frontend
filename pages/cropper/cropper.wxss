@@ -40,12 +40,12 @@ view {
 }
 
 button {
-    font-size: 27rpx;
+    font-size: 30rpx;
     z-index: 2;
-    padding: 0 20rpx;
-    height: 60rpx;
     min-width: 70rpx;
-    margin: 0 4rpx;
+    height: 80rpx;
+    background-color: #33cc99;
+    color: white;
 }
 
 .input {

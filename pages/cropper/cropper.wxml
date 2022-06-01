@@ -1,5 +1,5 @@
 <view style="width:100%;height:500rpx;">
-    <image-cropper id="image-cropper" bindload="cropperload" bindimageload="loadimage" bindtapcut="clickcut" limit_move="{{limit_move}}" disable_rotate="{{disable_rotate}}" width="{{width}}" height="{{height}}" imgSrc="{{src}}" angle="{{angle}}" disable_width="{{disable_width}}" max_width="{{max_width}}" max_height="{{max_height}}" disable_height="{{disable_height}}" disable_ratio="{{disable_ratio}}">
+    <image-cropper id="image-cropper" bindload="cropperload" bindimageload="loadimage" bindtapcut="clickcut" limit_move="{{limit_move}}" disable_rotate="{{disable_rotate}}" imgSrc="{{src}}" angle="{{angle}}" disable_ratio="{{disable_ratio}}">
     </image-cropper>
 </view>
 <view class='bottom'>
@@ -8,7 +8,7 @@
     <text style='color:white;margin-right:5rpx;'>锁定裁剪框高</text>
     <switch checked='{{disable_height?true:false}}' bindchange="switchChangeDisableHeight" />-->
     <button bindtap='submit'>确定</button>
-     <!-- <text style='color:white;margin-right:5rpx;'>锁定比例</text>
+    <!--  <text style='color:white;margin-right:5rpx;'>锁定比例</text>
     <switch checked='{{disable_ratio?true:false}}' bindchange="switchChangeDisableRatio" />
     <text></text>
     <text style='color:white;margin-right:5rpx;'>锁定旋转</text>

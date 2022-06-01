@@ -115,7 +115,7 @@
               <view class="change_tab" data-value="{{index}}" catchtap="minus">
               <view class="text">-</view>
               </view>
-              <view class="number_input" data-value="{{index}}" catchtap="inputHandler"> {{item.Count}}</view>
+              <view class="number_input" data-value="{{index}}" catchtap="inputHandler">{{item.Count}}</view>
               <view class="change_tab" data-value="{{index}}" catchtap="add">
               <view class="text">+</view>
               </view>

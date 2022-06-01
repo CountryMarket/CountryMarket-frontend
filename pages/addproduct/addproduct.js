@@ -47,24 +47,24 @@ Page({
   },
   choosePictrue() {
     wx.navigateTo({
-      url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&pos=-1&&type=0`
+      url: `/pages/cropper/cropper?disable_ratio=true&width=300&height=300&&imgSrc=&&pos=-1&&type=0`
     })
   },
   choosePPTPictrue() {
     if (!this.data.imgPPTSrc) {
       wx.navigateTo({
-        url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&pos=0&&type=0`
+        url: `/pages/cropper/cropper?disable_ratio=true&width=300&height=300&&imgSrc=&&pos=0&&type=0`
       })
     } else {
       wx.navigateTo({
-        url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&type=0&&pos=${this.data.imgPPTSrc.length}`
+        url: `/pages/cropper/cropper?disable_ratio=true&width=300&height=300&&imgSrc=&&type=0&&pos=${this.data.imgPPTSrc.length}`
       })
     }
   },
   modifyPPTPictrue(e) {
     if (this.data.end - this.data.start > 350) return ;
     wx.navigateTo({
-      url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&type=0&&pos=${e.currentTarget.dataset.value}`
+      url: `/pages/cropper/cropper?disable_ratio=true&width=300&height=300&&imgSrc=&&type=0&&pos=${e.currentTarget.dataset.value}`
     })
   },
   mytouchstart: function (e) { 
@@ -106,18 +106,18 @@ Page({
   chooseDetailPictrue() {
     if (!this.data.imgDetailSrc) {
       wx.navigateTo({
-        url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&pos=0&&type=1`
+        url: `/pages/cropper/cropper?disable_ratio=false&width=300&height=300&&imgSrc=&&pos=0&&type=1`
       })
     } else {
       wx.navigateTo({
-        url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&type=1&&pos=${this.data.imgDetailSrc.length}`
+        url: `/pages/cropper/cropper?disable_ratio=false&width=300&height=300&&imgSrc=&&type=1&&pos=${this.data.imgDetailSrc.length}`
       })
     }
   },
   modifyDetailPictrue(e) {
     if (this.data.end - this.data.start > 350) return ;
     wx.navigateTo({
-      url: `/pages/cropper/cropper?width=300&height=300&&imgSrc=&&type=1&&pos=${e.currentTarget.dataset.value}`
+      url: `/pages/cropper/cropper?disable_ratio=false&width=300&height=300&&imgSrc=&&type=1&&pos=${e.currentTarget.dataset.value}`
     })
   },
   detailLongTap(e) {

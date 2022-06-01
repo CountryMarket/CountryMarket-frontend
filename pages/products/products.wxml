@@ -4,7 +4,7 @@
     <view class="search-group" style="position:absolute;">
       <fa icon="fa fa-search text-secondary" class="search-icon" aria-hidden="true"></fa>
       <input bindinput="handleInput" style="width: 70%;" type="text" placeholder="查找你想要的商品" confirm-type="search" value="{{search}}" maxlength="25" bindconfirm="search"></input>
-      <view style="background-color: #33cc99; color: white; font-size: 25rpx; padding: 10rpx; border-radius: 100rpx; padding-left: 20rpx; padding-right: 20rpx; font-weight: 550; margin-left: 15rpx;" bindtap="search">搜索</view>
+      <view style="background-color: #33cc99; color: white; font-size: 25rpx; border-radius: 100rpx; font-weight: 550; width: 20%; display: flex; justify-content: center; padding-top: 10rpx; padding-bottom: 10rpx;" bindtap="search">搜索</view>
     </view>
   </view>
 </view>

@@ -20,7 +20,8 @@ Page({
                 width: options.width,
                 height: options.height,
                 pos: options.pos,
-                type: options.type
+                type: options.type,
+                disable_ratio: options.disable_ratio == 'true' ? true : false
             });
             if(!options.imgSrc){
                 this.cropper.upload(); //上传图片
@@ -35,12 +36,12 @@ Page({
             this.cropper.imgReset();
         },
         clickcut(e) {
-            console.log(e.detail);
+            /*console.log(e.detail);
             //图片预览
             wx.previewImage({
                 current: e.detail.url, // 当前显示图片的http链接
                 urls: [e.detail.url] // 需要预览的图片http链接列表
-            })
+            })*/
         },
         upload() {
             let that = this;

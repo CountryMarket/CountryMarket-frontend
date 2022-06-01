@@ -180,7 +180,7 @@ Page({
           } else {
             this.add_into_cart(this.data.shopList[e.currentTarget.dataset.value].Id).then(() => {
               this.setData({
-                [`shopList[${e.currentTarget.dataset.value}].Count`]: shopList[e.currentTarget.dataset.value].Count+1
+                [`shopList[${e.currentTarget.dataset.value}].Count`]: this.data.shopList[e.currentTarget.dataset.value].Count+1
               })
             })
           }
@@ -191,7 +191,7 @@ Page({
         if(this.data.shopList[e.currentTarget.dataset.value].Count > 1) {
           this.reduce_from_cart(this.data.shopList[e.currentTarget.dataset.value].Id).then(() => {
             this.setData({
-              [`shopList[${e.currentTarget.dataset.value}].Count`]: shopList[e.currentTarget.dataset.value].Count-1
+              [`shopList[${e.currentTarget.dataset.value}].Count`]: this.data.shopList[e.currentTarget.dataset.value].Count-1
             })
           })
         } else {

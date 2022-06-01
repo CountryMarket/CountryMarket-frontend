@@ -1,9 +1,10 @@
 <!--pages/home/home.wxml-->
 <wxs src="../../module/change_string_length.wxs" module="stringUtils"></wxs>
 
-<view class="home">
+<view>
   <!-- 顶部搜索框 -->
   <search-bar placeholder="查找你想要的商品" bind:handleSearch="handleSearch"></search-bar>
+
   <view style="height: 70rpx; display: flex;"></view>
   <!-- 滑动广告栏 -->
   <swiper class="lunbo" indicator-dots autoplay="true" interval="4000" circular="true"  style="height: 370rpx;">
@@ -19,7 +20,7 @@
   </swiper>
 
   <!-- 分类栏 -->
-  <scroll-view  scroll-x="true" style="display: inline-block; white-space: nowrap; border: 1rpx solid #efefef; border-radius: 40rpx; margin: 15rpx; background-color: white; width: 720rpx;" class="-webkit-scrollbar">
+  <scroll-view  scroll-x="true" style="display: inline-block; white-space: nowrap; border: 1rpx solid #efefef; border-radius: 40rpx; margin: 15rpx; background-color: white; width: 720rpx; " scroll-with-animation="{{true}}" enhanced="true" show-scrollbar="false" scroll-into-view="{{toView}}">
 
         <view class="fenlei" data-value="0" bindtap="goto_tab">
               <view class="image_fenlei" style="background-color:#bbfff1;">
