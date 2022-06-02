@@ -104,7 +104,7 @@ Page({
   },
 
   chooseDetailPictrue() {
-    if (!this.data.imgDetailSrc) {
+    /*if (!this.data.imgDetailSrc) {
       wx.navigateTo({
         url: `/pages/cropper/cropper?disable_ratio=false&width=300&height=300&&imgSrc=&&pos=0&&type=1`
       })
@@ -112,13 +112,23 @@ Page({
       wx.navigateTo({
         url: `/pages/cropper/cropper?disable_ratio=false&width=300&height=300&&imgSrc=&&type=1&&pos=${this.data.imgDetailSrc.length}`
       })
-    }
+    }*/
+    let that = this;
+    wx.chooseImage({
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success(res) {
+          // const tempFilePaths = res.tempFilePaths;
+          getApp().globalData.imgDetailSrc = [...getApp().globalData.imgDetailSrc, ...res.tempFilePaths]
+          that.onShow();
+      }
+  })
   },
   modifyDetailPictrue(e) {
     if (this.data.end - this.data.start > 350) return ;
-    wx.navigateTo({
+    /*wx.navigateTo({
       url: `/pages/cropper/cropper?disable_ratio=false&width=300&height=300&&imgSrc=&&type=1&&pos=${e.currentTarget.dataset.value}`
-    })
+    })*/
   },
   detailLongTap(e) {
     // console.log(e)
@@ -291,6 +301,7 @@ Page({
   onLoad(options) {
     getApp().globalData.imgSrc = ""
     getApp().globalData.imgPPTSrc = []
+    getApp().globalData.imgDetailSrc = []
   },
 
   /**

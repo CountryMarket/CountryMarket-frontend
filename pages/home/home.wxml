@@ -51,10 +51,10 @@
         </view>
 
         <view class="fenlei" data-value="4" bindtap="goto_tab">
-                <view class="image_fenlei" style="background-color: #e3f8e7;">
-                <image src="/image/jinian.png" style=" height: 95rpx; width: 95rpx; margin: 10rpx;"></image>
+                <view class="image_fenlei" style="background-color: #FFFFCC;">
+                <image src="/image/guwu.png" style=" height: 95rpx; width: 95rpx; margin: 10rpx;"></image>
               </view>
-            <text style="justify-content: center; display: flex; font-size: 30rpx; font-weight: 600; margin-top: 10rpx;">纪念品</text>
+            <text style="justify-content: center; display: flex; font-size: 30rpx; font-weight: 600; margin-top: 10rpx;">谷物</text>
         </view>
 
         <view class="fenlei" data-value="5" bindtap="goto_tab">

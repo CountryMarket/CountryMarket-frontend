@@ -191,7 +191,7 @@ input_number_Handler(e) {
                       tabList: res.data.data.Tabs,
                   })
                   this.setData({
-                    currentId: this.data.tabList[0].Id
+                    currentId: this.data.tabList[this.data.currentTab].Id
                   })
             wx.hideLoading()
       },
