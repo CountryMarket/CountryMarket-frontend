@@ -126,6 +126,27 @@ Page({
       })
     }
  },
+ async put_product(e) {
+  let res=await wxRequest("POST","shop/putProduct",{id: this.data.goods[e.currentTarget.dataset.value].Id});
+  console.log(res)
+  if(res.data.success) {
+    wx.showToast({
+      title: '商品上架成功',
+      duration: 500,
+      icon: 'none'
+    })
+    this.setData({
+      [`goods[${e.currentTarget.dataset.value}].IsDrop`]: false
+    })
+  } else {
+    wx.showToast({
+      title: '商品上架失败，请重试~',
+      duration: 1000,
+      icon: 'none'
+    })
+  }
+},
+ 
   input_number_Handler(e) {
     this.setData({
       now_change_number: e.detail.value

@@ -41,13 +41,13 @@
         <image src="/image/manage_good.png"></image>
         <view class="item-text">商品管理</view>
       </view>
-      <view class="item" bindtap="goto_order_manage">
-        <image src="/image/manage2.png"></image>
-        <view class="item-text">订单管理</view>
-      </view>
       <view class="item" catchtap="goto_count">
         <image src="/image/colculate.png"></image>
         <view class="item-text">统计</view>
+      </view>
+      <view class="item" bindtap="goto_order_manage">
+        <image src="/image/manage2.png"></image>
+        <view class="item-text">订单管理</view>
       </view>
     </view>
     <view wx:else style="display: flex; width: 100%; margin-top: 20rpx; margin-bottom: 20rpx;">

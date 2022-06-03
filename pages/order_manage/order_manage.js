@@ -15,6 +15,14 @@ Page({
 
   },
 
+  show() {
+    wx.showToast({
+      title: '申请成功，请耐心等待~',
+      duration: 1000,
+      icon: 'none'
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

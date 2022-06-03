@@ -29,7 +29,7 @@
         <view>————请选择支付方式————</view>
     </view>
 
-    <view style=" display: flex;justify-content: center; font-weight: 550;">
+    <view style=" display: flex;justify-content: center; font-weight: 550;" bindtap="pay">
       <view style="margin: 20rpx;">
         <view style="display: flex; margin-bottom: 15rpx;">
             <view style="display: flex; width: 550rpx;">

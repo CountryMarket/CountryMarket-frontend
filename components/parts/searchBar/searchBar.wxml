@@ -13,7 +13,8 @@
       class="input-box"
       confirm-type="search"
     ></input>
+    <!-- 取消键 -->
+    <image wx:if="{{inputValue}}" bindtap="handleTextbtnClick" style="width: 36rpx; height: 36rpx;" src="/image/cancel.png">×</image>
   </view>
-  <!-- 取消键 -->
-  <view wx:if="{{inputValue}}" bindtap="handleTextbtnClick" class="cancel-btn">取消</view>
+    <view wx:if="{{inputValue}}" bindtap="handleConfirm" class="cancel-btn">搜索</view>
 </view>

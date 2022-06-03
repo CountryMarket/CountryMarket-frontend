@@ -10,7 +10,7 @@ Page({
      */
     data: {
         nickName: "请点击此处以登录",
-        avatarUrl: "https://blog.lyffly.com/static/images/avatar.jpg",
+        avatarUrl: "/image/denglu.png",
         isLogging: false,
         localToken: undefined, // 本地 token，用于和 global 的比较是否有出入
         permission: 1,

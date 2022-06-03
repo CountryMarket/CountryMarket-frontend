@@ -5,10 +5,10 @@
         <view class="text">商品标题</view>
         <input type="text" class="input_block" value="{{ info.title }}" bindinput="inputHandler_title" placeholder="显示的标题文字"></input>
       </view>
-      <view class="segment">
+      <!-- <view class="segment">
         <view class="text">商品描述</view>
         <textarea style="height: 250rpx; padding: 10rpx;" class="input_block" value="{{ info.description }}" bindinput="inputHandler_description" placeholder="显示的描述文字"></textarea>
-      </view>
+      </view> -->
       <view class="segment">
         <view class="text">价格</view>
         <input type="number" class="input_block" bindinput="inputHandler_price" value="{{ info.price }}" placeholder="商品单价"></input>

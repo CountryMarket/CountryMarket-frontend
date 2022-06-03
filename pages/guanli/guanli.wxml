@@ -12,7 +12,7 @@
         <view style="margin: 10rpx; margin-top: 20rpx;border: 1rpx solid white; background-color: white; padding: 20rpx; border-radius: 20rpx;">
             <text wx:if="{{item.IsDrop==false}}"  style="color: #33cc99; font-weight: 600; margin-bottom: 10rpx; margin-left: 10rpx;" decode="{{true}}">编号：{{item.Id}}&nbsp;&nbsp;&nbsp;&nbsp;当前状态：销售中</text>
 
-            <text wx:else  style="color: #b2b2b2; font-weight: 600; margin-bottom: 10rpx; margin-left: 10rpx;" decode="{{true}}">编号：{{item.Id}}&nbsp;&nbsp;&nbsp;&nbsp;当前状态：已经下架</text>
+            <text wx:else  style="color: #b2b2b2; font-weight: 600; margin-bottom: 10rpx; margin-left: 10rpx;" decode="{{true}}">编号：{{item.Id}}&nbsp;&nbsp;&nbsp;&nbsp;当前状态：已下架</text>
 
             <view style="display: flex; margin-top: 20rpx;">
                 <image src="{{'https://7072-prod-0guks42iab6ab66f-1311448235.tcb.qcloud.la/assert/image/product/'+item.Id+'/view.png'}}" style="height: 200rpx; width: 200rpx; border-radius: 30rpx;"></image>
@@ -48,10 +48,22 @@
             </view>
 
             <view style="display: flex; justify-content: flex-end; margin: 10rpx; margin-top: 30rpx;">
-                <view wx:if="{{item.IsDrop==false}}" style="margin-right: 40rpx; color: #b2b2b2; font-weight: 400;" data-value="{{index}}" catchtap="drop_product">下架当前商品</view>
-                <view wx:else style="margin-right: 40rpx; color: #33cc99; font-weight: 600;" data-value="{{index}}" catchtap="drop_product">上架当前商品</view>
-                <view wx:if="{{item.IsDrop==false}}" style="font-weight: 600; color: #33cc99;" catchtap="modifyProduct" data-value="{{index}}">修改商品信息</view>
-                <view wx:else style="font-weight: 600; color: #b2b2b2;" >修改商品信息</view>
+                <view wx:if="{{item.IsDrop==false}}" style="margin-right: 40rpx; color: #b2b2b2; font-weight: 400; display: flex;" data-value="{{index}}" catchtap="drop_product">
+                    <image src="/image/drap.png" style="width: 40rpx; height: 40rpx; margin-right: 10rpx;"></image>
+                    <view>下架当前商品</view>
+                </view>
+                <view wx:else style="margin-right: 40rpx; color: #33cc99; font-weight: 600; display: flex;" data-value="{{index}}" catchtap="put_product">
+                  <image src="/image/put.png" style="width: 40rpx; height: 40rpx; margin-right: 10rpx;"></image>
+                  <view>上架当前商品</view>
+                </view>
+                <view wx:if="{{item.IsDrop==false}}" style="font-weight: 600; color: #33cc99;display: flex;" catchtap="modifyProduct" data-value="{{index}}">
+                    <image src="/image/pj.png" style="width: 40rpx; height: 40rpx; margin-right: 10rpx;"></image>
+                    <view>修改商品信息</view>
+                </view>
+                <view wx:else style="font-weight: 600; color: #b2b2b2;display: flex;" catchtap="modifyProduct" data-value="{{index}}">
+                    <image src="/image/pj2.png" style="width: 40rpx; height: 40rpx; margin-right: 10rpx;"></image>
+                  <view>修改商品信息</view>
+                </view>
             </view>
         </view>
     </view>

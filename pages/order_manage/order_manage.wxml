@@ -1,1 +1,13 @@
-<view>订单管理</view>
+
+<view style="width: 100%;  margin-top: 60rpx; margin-bottom: 50rpx;display: flex; justify-content: center; align-items: center;">
+  <view >
+      <view style="width: 100%; justify-content: center; display: flex; margin-bottom: 30rpx;">
+        <image src="/image/add_manage.png" style="width: 250rpx; height: 250rpx;"></image>
+      </view>
+      <button style="width: 400rpx; padding: 10rpx 20rpx 10rpx 20rpx; background-color: #33cc99; color: white; font-weight: 600; border-radius: 200rpx;" bindtap="show">申请成为管理者</button>
+  </view>
+</view>
+
+<view style="margin: 20rpx; border-radius: 30rpx; padding: 40rpx; background-color: white; color: #33cc99; font-weight: 520;">
+  <text>非常抱歉，目前您还不是管理者\n\n阳曲县产品销售平台采用“商户上传产品信息，官方专业团队托管业务（销售、物流、客服等）”的运营模式\n\n如果你希望成为专业团队的一员，请点击以下按钮申请成为管理者，申请提交后会有专人进行审核、验证、确认，流程时效大致为2~3个工作日，请耐心等待，申请结果会以微信服务通知的形式返回</text>
+</view>

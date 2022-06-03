@@ -28,7 +28,7 @@
 }
 .input-box {
   flex: 1;
-  margin: 0 20rpx;
+  margin: 0 10rpx;
   text-align: left;
   font-size: 25rpx;
 }

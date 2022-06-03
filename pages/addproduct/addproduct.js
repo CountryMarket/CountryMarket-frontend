@@ -168,14 +168,14 @@ Page({
       })
       return
     }
-    if (this.data.info.description == "") {
-      wx.showModal({
-        title: '提示',
-        content: '描述不能为空',
-        showCancel: false
-      })
-      return
-    }
+    // if (this.data.info.description == "") {
+    //   wx.showModal({
+    //     title: '提示',
+    //     content: '描述不能为空',
+    //     showCancel: false
+    //   })
+    //   return
+    // }
     if (this.data.info.price == 0) {
       wx.showModal({
         title: '提示',
@@ -206,6 +206,7 @@ Page({
     })
     this.setData({
       [`info.pictureNumber`]: this.data.imgPPTSrc.length,
+      [`info.description`]: this.data.info.detail,
       [`info.detailPictureNumber`]: this.data.imgDetailSrc.length,
     })
     let res = await wxRequest("POST", "shop/addProduct", this.data.info)

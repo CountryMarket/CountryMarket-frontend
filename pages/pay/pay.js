@@ -21,6 +21,14 @@ Page({
       url: '/pages/home/home'
     })
   },
+  
+  pay() {
+    wx.showToast({
+      title: '抱歉，暂未解决支付资质问题，可以直接完成支付',
+      duration: 1000,
+      icon: 'none'
+    })
+  },
 
   async finish_pay() {
     console.log({order_id: this.data.order_id, status: 2})

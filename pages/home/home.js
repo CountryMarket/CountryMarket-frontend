@@ -10,6 +10,8 @@ Page({
       productsLeft: [],
       productsRight: [],
       keyvalue: "",
+      from: 0,
+      length: 10
     },
 
     // 跳转到商品页
@@ -27,12 +29,10 @@ Page({
       wx.showLoading({
           title: '数据加载中'
       })
-      wxRequest("GET", "product/homeTab").then(async res => {
-        if (isResTokenInvalid(res)) {
-          showTokenInvalidModal();
-          wx.hideLoading();
-          return ;
-        }
+      wxRequest("GET", "product/homeTab", {
+        from: this.data.from,
+        length: this.data.length,
+      }).then(async res => {
         let products = res.data.data.products;
         let tmpLeft = [], tmpRight = [];
         for (let i = 0; i < products.length; ++i) {
@@ -129,7 +129,36 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
+      this.setData({
+        from: this.data.from + this.data.length
+      })
+      wxRequest("GET", "product/homeTab", {
+        from: this.data.from,
+        length: this.data.length,
+      }).then(async res => {
+        if(res.data.data.products==null) {
+          wx.showToast({
+            title: '商品已经浏览完了哦~',
+            duration: 750,
+            icon: 'none'
+          })
+          return;
+        }
+        let products = res.data.data.products;
+        let tmpLeft = [], tmpRight = [];
+        for (let i = 0; i < products.length; ++i) {
+          if (i % 2 == 0) {
+            tmpLeft = [...tmpLeft, products[i]]
+          } else {
+            tmpRight = [...tmpRight, products[i]]
+          }
+        }
+        this.setData({
+          productsLeft: [...this.data.productsLeft, ...tmpLeft],
+          productsRight:  [...this.data.productsRight, ...tmpRight], 
+        })
+        wx.hideLoading();
+      })
     },
 
     /**

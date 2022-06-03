@@ -54,5 +54,5 @@
   left: 14px;
 }
 .search-icon {
-  margin: 0 8rpx 0 5rpx;
+  margin: -5rpx 8rpx 0 5rpx;
 }
