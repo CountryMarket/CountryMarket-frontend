@@ -1,5 +1,6 @@
 // pages/pay/pay.js
 
+import { wxLogin } from "../../utils/wxLogin"
 import { wxRequest, isTokenEmpty, validateToken, showTokenInvalidModal ,isResTokenInvalid } from "../../utils/wxRequest"
 
 Page({
@@ -10,7 +11,9 @@ Page({
   data: { 
     product_id: 0,
     money: 0,
-    order_id: 0
+    order_id: 0,
+    info: [],
+    products: []
   },
 
   goto_home() {
@@ -53,8 +56,44 @@ Page({
       money: options.money,
       order_id: options.order_id
     })
+    this.get_info(options.order_id)
   },
 
+
+  async get_info(id) {
+          wx.showLoading({
+              title: '数据加载中'
+          })
+          if (isTokenEmpty(getApp().globalData.token)) {
+            showTokenInvalidModal();
+            wx.hideLoading();
+            return ;
+          }
+          await wxRequest("GET","order/orderInfo",{order_id: id}).then(res => {
+                console.log(res)
+                if (isResTokenInvalid(res)) {
+                  showTokenInvalidModal();
+                  get_info();
+                  return ;
+                }
+                 this.setData({
+                   info: res.data.data
+                 })
+          }).then(()=> {
+            wx.hideLoading()
+            this.get_products()
+          })
+          console.log(this.data.info)
+    },
+
+    get_products() {
+      for(let i=0;i<this.data.info.product_and_count.length;i++) {
+          this.setData({
+            products: [...this.data.products,this.data.info.product_and_count[i].products]
+          })
+      }
+      console.log(this.data.products)
+ },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

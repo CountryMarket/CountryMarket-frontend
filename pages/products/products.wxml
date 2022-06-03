@@ -18,6 +18,57 @@
 </scroll-view>
 
     <view style="margin-left: 140rpx;">
+          <view style="width: 590; background-color: white; padding: 20rpx; display: flex; justify-content: center; border-bottom-left-radius: 10rpx; border-bottom-right-radius: 10rpx;">
+              <view style="display: flex;" wx:if="{{currentTab==0}}">
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+                <image src="/image/vegetable.png" style="width: 52rpx; height: 52rpx; margin-left: 10rpx;"></image>
+                <view style="margin-left: 8rpx; margin-right: 10rpx;font-size: 40rpx; color: #33CC99; font-weight: 600;">蔬菜</view>
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+              </view>
+
+              <view style="display: flex;" wx:if="{{currentTab==1}}">
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+                <image src="/image/apple.png" style="width: 52rpx; height: 52rpx; margin-left: 10rpx;"></image>
+                <view style="margin-left: 8rpx; margin-right: 10rpx;font-size: 40rpx; color: #33CC99; font-weight: 600;">水果</view>
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+              </view>
+
+              <view style="display: flex;" wx:if="{{currentTab==2}}">
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+                <image src="/image/sheep.png" style="width: 52rpx; height: 52rpx; margin-left: 10rpx;"></image>
+                <view style="margin-left: 8rpx; margin-right: 10rpx;font-size: 40rpx; color: #33CC99; font-weight: 600;">农牧</view>
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+              </view>
+
+              <view style="display: flex;" wx:if="{{currentTab==3}}">
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+                <image src="/image/meat.png" style="width: 52rpx; height: 52rpx; margin-left: 10rpx;"></image>
+                <view style="margin-left: 8rpx; margin-right: 10rpx;font-size: 40rpx; color: #33CC99; font-weight: 600;">肉质品</view>
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+              </view>
+
+              <view style="display: flex;" wx:if="{{currentTab==4}}">
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+                <image src="/image/guwu.png" style="width: 52rpx; height: 52rpx; margin-left: 10rpx;"></image>
+                <view style="margin-left: 8rpx; margin-right: 10rpx;font-size: 40rpx; color: #33CC99; font-weight: 600;">谷物</view>
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+              </view>
+
+              <view style="display: flex;" wx:if="{{currentTab==5}}">
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+                <image src="/image/gift.png" style="width: 52rpx; height: 52rpx; margin-left: 10rpx;"></image>
+                <view style="margin-left: 8rpx; margin-right: 10rpx;font-size: 40rpx; color: #33CC99; font-weight: 600;">特产</view>
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+              </view>
+
+              <view style="display: flex;" wx:if="{{currentTab==6}}">
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+                <image src="/image/daily.png" style="width: 52rpx; height: 52rpx; margin-left: 10rpx;"></image>
+                <view style="margin-left: 8rpx; margin-right: 10rpx;font-size: 40rpx; color: #33CC99; font-weight: 600;">日用品</view>
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+              </view>
+          </view>
+
           <view wx:for="{{products}}" class="goods_container" style="display: flex" data-value="{{index}}" bindtap="goto_goods">
             <image src="{{'https://7072-prod-0guks42iab6ab66f-1311448235.tcb.qcloud.la/assert/image/product/'+item.Id+'/view.png'}}" style="width: 230rpx; height: 230rpx; margin: 10rpx; border-radius: 5rpx;"></image>
             <view style="width: 360rpx;">

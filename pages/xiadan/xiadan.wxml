@@ -58,7 +58,7 @@
       </view>
 </view>
 
-<view style="margin: 15rpx; border-radius: 20rpx; border: 1rpx solid #efefef; padding: 20rpx; background-color: white;">
+<view style="margin: 15rpx; border-radius: 20rpx; border: 1rpx solid #efefef; padding: 20rpx; background-color: white; margin-bottom: 120rpx;">
     <view style="font-size: 35rpx; font-weight: 600; color: #33cc99;margin-bottom: 20rpx;">价格明细</view>
     <view style="display: flex;">
       <text decode="{{true}}" style="width: 150rpx;">商品总价:</text>

@@ -12,7 +12,10 @@
       <view wx:for="{{address_message}}" wx:key="index" class="{{index == 0 ? 'address_block1': 'address_block2'}}" data-value="{{index}}" bindtap="change_first_address"> 
       <view style="display: flex;">
             <view>
-              <view style="font-size: 30rpx; font-weight: 600; margin-bottom: 10rpx;">收货信息：</view>
+              <view style="font-size: 30rpx; font-weight: 600; margin-bottom: 10rpx; display: flex;">
+                <image src="/image/sh.png" style="width: 40rpx; height: 40rpx;"></image>
+                <view style="margin-left: 10rpx;">收货信息：</view>
+              </view>
               <view>
                 <view>收货人：{{address_message[index].Name}}</view>
                 <view>电话：{{address_message[index].PhoneNumber}}</view>

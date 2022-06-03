@@ -45,50 +45,52 @@
         <image src="/image/manage2.png"></image>
         <view class="item-text">订单管理</view>
       </view>
-      <view class="item">
+      <view class="item" catchtap="goto_count">
         <image src="/image/colculate.png"></image>
         <view class="item-text">统计</view>
       </view>
     </view>
+    <view wx:else style="display: flex; width: 100%; margin-top: 20rpx; margin-bottom: 20rpx;">
+        <button style="background-color: #33cc99; color: white; border-radius: 100rpx;">申请成为商家</button>
+    </view>
   </view>
 
+
   <view style="margin: 30rpx; margin-left: 60rpx; margin-right: 60rpx;border: 1rpx solid white; background-color: white; border-radius: 20rpx;">
-      <view style="display: flex; margin: 30rpx; font-size: 30rpx;" bindtap="goto_yinsi">
+      <button style="display: flex; margin: 30rpx; margin-bottom: 10rpx;font-size: 30rpx; margin-top: 20rpx;width: 560rpx; padding-left: 0%; padding-right: 0%; background-color: white;" bindtap="goto_yinsi">
         <view style="display: flex; width: 280rpx;">
           <image src="/image/yinsi.png" style="height: 40rpx; width: 40rpx;  margin-right: 20rpx;"></image>
           <view>隐私协议</view>
         </view>
-        <view style="display: flex; justify-content: flex-end; width: 260rpx">
+        <view style="display: flex; justify-content: flex-end; width: 270rpx">
             <image src="/image/arrow_right.png" style="height: 35rpx; width: 35rpx;"></image>
         </view>
-    </view>
-    <view style=" margin: 30rpx; display: flex;  font-size: 30rpx;" bindtap="goto_xieyi">
+    </button>
+    <button style=" margin: 30rpx; margin-top: 0rpx; margin-bottom: 10rpx;display: flex;  font-size: 30rpx; width: 560rpx; padding-left: 0%; padding-right: 0%; background-color: white;" bindtap="goto_xieyi">
       <view style="display: flex; width: 280rpx;">
         <image src="/image/xieyi.png" style="height: 40rpx; width: 40rpx;  margin-right: 20rpx;"></image>
         <view>用户服务协议</view>
       </view>
-        <view style="display: flex; justify-content: flex-end; width: 260rpx">
+        <view style="display: flex; justify-content: flex-end; width: 270rpx">
             <image src="/image/arrow_right.png" style="height: 35rpx; width: 35rpx;"></image>
         </view>
-    </view>
-    <view style=" margin: 30rpx; display: flex;  font-size: 30rpx;" bindtap="goto_team">
+    </button>
+    <button style=" margin: 30rpx; display: flex; margin-top: 0rpx;font-size: 30rpx; margin-bottom: 20rpx;width: 560rpx; padding-left: 0%; padding-right: 0%; background-color: white;" open-type='feedback'>
       <view style="display: flex; width: 280rpx;">
-          <image src="/image/team.png" style="height: 40rpx; width: 40rpx; margin-right: 20rpx;"></image>
-          <view>小程序设计团队</view>
+          <image src="/image/feedback.png" style="height: 40rpx; width: 40rpx; margin-right: 20rpx;"></image>
+          <view>问题反馈</view>
       </view>
-        <view style="display: flex; justify-content: flex-end; width: 260rpx">
+        <view style="display: flex; justify-content: flex-end; width: 270rpx">
             <image src="/image/arrow_right.png" style="height: 35rpx; width: 35rpx;"></image>
         </view>
-    </view>
+    </button>
  </view>
-  <view style="display: flex; justify-content: center; margin-top: 20rpx;" wx:if="{{ isLogged }}">
-      <view style="width: 350rpx; background-color: white; border-radius: 20rpx; display: flex; justify-content: center;" bindtap="logout">
-          <text style="color: red;margin-top: 15rpx; margin-bottom: 15rpx;">退出登录</text>
+  <view style="display: flex; justify-content: center; margin-top: 20rpx; font-weight: 600;" wx:if="{{ isLogged }}">
+      <view style="width: 350rpx; background-color: white; border-top-left-radius: 100rpx; display: flex; justify-content: center; border-bottom-left-radius:100rpx;width: 250rpx; background-color: white; padding-top: 5rpx; padding-bottom: 5rpx;" bindtap="qiehuan">
+          <text style="margin-top: 15rpx; margin-bottom: 15rpx; color: #33cc99;">切换账户</text>
       </view>
-  </view>
-  <view style="display: flex; justify-content: center; margin-top: 20rpx; margin-bottom: 20rpx;" wx:if="{{ isLogged }}">
-      <view style="width: 350rpx; background-color: white; border-radius: 20rpx; display: flex; justify-content: center;">
-          <text style="color: red;margin-top: 15rpx; margin-bottom: 15rpx;">切换账户</text>
+      <view style="width: 350rpx; background-color: white; border-bottom-right-radius:100rpx; display: flex; justify-content: center; border-top-right-radius:100rpx; width: 250rpx; background-color: #33cc99; padding-top: 5rpx; padding-bottom: 5rpx;" bindtap="logout">
+          <text style="color: white;margin-top: 15rpx; margin-bottom: 15rpx;">退出登录</text>
       </view>
   </view>
 </view>

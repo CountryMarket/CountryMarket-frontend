@@ -44,6 +44,17 @@ Page({
       this.refresh();
     },
 
+    qiehuan() {
+      this.logout()
+      this.userLogin()
+    },
+
+    goto_count() {
+      wx.navigateTo({
+        url: '/pages/count/count',
+      })
+    },
+
     goto_xieyi() {
       wx.navigateTo({
         url: '/pages/xieyi/xieyi',

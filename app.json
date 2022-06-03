@@ -28,11 +28,13 @@
     "pages/order_manage/order_manage",
     "pages/good_comments/good_comments",
     "pages/search_result/search_result",
-    "pages/shouhou/shouhou"
+    "pages/shouhou/shouhou",
+    "pages/count/count",
+    "pages/updateproduct/updateproduct"
   ],
   "window": {
     "navigationBarBackgroundColor": "#33CC99",
-    "navigationBarTitleText": "杨兴乡产品出售平台",
+    "navigationBarTitleText": "阳曲县产品销售平台",
     "navigationBarTextStyle": "white",
     "backgroundTextStyle": "dark",
     "backgroundColor": "#efefef"

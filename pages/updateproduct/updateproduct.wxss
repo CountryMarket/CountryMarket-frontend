@@ -1,0 +1,67 @@
+/* pages/addproduct/addproduct.wxss */
+page {
+  background-color: #ffffff;
+}
+.block-container {
+  padding-bottom: 20rpx;
+  background-color: white;
+}
+.segment {
+  display: flex;
+  padding-top: 20rpx;
+  margin-left: 20rpx;
+}
+.segment .text {
+  font-weight: 600;
+  font-size: 35rpx;
+  margin-top: 5rpx;
+  width: 160rpx;
+}
+.input_block {
+  border: 1rpx solid #33cc99;
+  border-radius: 8rpx;
+  height: 60rpx;
+  background-color: white;
+  margin-right: 20rpx;
+  flex: 1;
+  padding-left: 10rpx;
+}
+.segment-upload .text, .segment-ppt .text {
+  font-weight: 600;
+  font-size: 35rpx;
+  margin-top: 5rpx;
+  width: 200rpx;
+}
+.segment-upload {
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+.upload {
+  margin-top: 15rpx;
+  width: 200rpx;
+  height: 200rpx;
+  background-color: rgb(228, 228, 228);
+}
+.upload image {
+  width: 100%;
+  height: 100%;
+}
+.segment-ppt {
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+}
+.segment-ppt .upload {
+  display: inline-block;
+  margin-top: 15rpx;
+  margin-right: 10rpx;
+  width: 200rpx;
+  height: 200rpx;
+}
+.image-block {
+  display: inline-block;
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+  width: 200rpx;
+  height: 200rpx;
+  background-color: rgb(228, 228, 228);
+}

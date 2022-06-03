@@ -197,6 +197,11 @@ Page({
     this.getShopList()
 },
 
+modifyProduct(e) {
+  wx.navigateTo({
+    url: `/pages/updateproduct/updateproduct?id=${this.data.goods[e.currentTarget.dataset.value].Id}`,
+  })
+},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
