@@ -119,6 +119,7 @@ Page({
         duration: 1000,
         icon: 'none'
       })
+      return
     }
     res=await wxRequest("POST","address/modifyAddress",first);
     console.log(res)
@@ -128,8 +129,15 @@ Page({
         duration: 1000,
         icon: 'none'
       })
+    } else {
+      wx.showToast({
+        title: '当前地址已成为默认地址~',
+        duration: 1000,
+        icon: 'none'
+      })
     }
       console.log(this.data.address_message)
+    
       this.getAddressList()
 },
 

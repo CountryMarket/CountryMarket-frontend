@@ -79,7 +79,7 @@ search-bar {
 .box-container .box-left {
   display: inline-block;
   width: 48%;
-  margin: 5rpx 10rpx 5rpx 5rpx;
+  margin: 5rpx 10rpx 5rpx 10rpx;
   vertical-align: top;
 }
 

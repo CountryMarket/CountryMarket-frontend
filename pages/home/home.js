@@ -25,14 +25,16 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-      wx.showLoading({
-          title: '数据加载中'
-      })
+    load() {
       wxRequest("GET", "product/homeTab", {
         from: this.data.from,
         length: this.data.length,
       }).then(async res => {
+        console.log(res)
+        if (res.statusCode != 200) {
+          this.load();
+          return ;
+        }
         let products = res.data.data.products;
         let tmpLeft = [], tmpRight = [];
         for (let i = 0; i < products.length; ++i) {
@@ -49,6 +51,12 @@ Page({
         wx.hideLoading();
       })
     },
+    onLoad: function (options) {
+      wx.showLoading({
+          title: '数据加载中'
+      })
+      this.load();
+    },
 
     goto_tab(e) {
         console.log(e)
@@ -61,6 +69,12 @@ Page({
     goto_ljyx() {
       wx.navigateTo({
         url: '/pages/ljyx/ljyx',
+      })
+    },
+
+    goto_sousuo() {
+      wx.navigateTo({
+        url: '/pages/ss/ss',
       })
     },
 

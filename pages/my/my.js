@@ -3,6 +3,7 @@
 import { wxLogin } from "../../utils/wxLogin"
 import { wxRequest, isTokenEmpty, validateToken, showTokenInvalidModal } from "../../utils/wxRequest"
 
+
 Page({
 
     /**
@@ -27,7 +28,6 @@ Page({
         this.refresh();
     },
 
- 
 
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -72,8 +72,22 @@ Page({
         url: '/pages/yinsi/yinsi'
       })
     },
-       
+      
+    goto_ceshi() {
+      wx.navigateTo({
+        url: '/pages/ceshi/ceshi',
+      })
+    },
   goto_orders(e) {
+    const { globalData } = getApp();
+    if(isTokenEmpty(globalData.token)) {
+        wx.showToast({
+          title: '请先登录哦~',
+          duration: 750,
+          icon:'none'
+        })
+        return;
+    }
     wx.navigateTo({
       url: `/pages/orders/orders?id=${e.currentTarget.dataset.value}`
     })
@@ -139,7 +153,7 @@ Page({
         // 初始化数据，显示要求登录页面
         this.setData({
           nickName: "请点击此处以登录",
-          avatarUrl: "https://blog.lyffly.com/static/images/avatar.jpg",
+          avatarUrl: "/image/denglu.png",
           permission: 1
         });
       }

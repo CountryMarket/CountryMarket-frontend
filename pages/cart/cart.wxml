@@ -20,7 +20,7 @@
 </navigator> -->
 
 <navigator url="/pages/addresses/addresses" hover-class="navigator-hover"> 
-    <view wx:if="{{address_message==null}}" class="address" style="font-size: 25rpx; display: flex;justify-content: center;">
+    <view wx:if="{{address_message.length==0||address_message==null}}" class="address" style="font-size: 25rpx; display: flex;justify-content: center;">
       <view style="color: #33cc99; font-size: 35rpx; font-weight: 600;">暂时没有收货信息，快去添加叭~</view>
             <view style="width: 5%; display: flex; align-items: center;">
                   <image src="/image/arrow_right.png"></image>

@@ -1,0 +1,135 @@
+<!--pages/ss/ss.wxml-->
+
+<wxs src="../../module/change_string_length.wxs" module="stringUtils"></wxs>
+
+  <!-- 顶部搜索框 -->
+  <search-bar placeholder="查找你想要的商品" bind:handleSearch="handleSearch"></search-bar>
+<view style="height: 70rpx;"></view>
+<view style="color: #33cc99; background-color: white; border-radius: 30rpx; margin: 20rpx; padding: 20rpx;">
+  <view style=" font-weight: 600; font-size: 40rpx;">热门搜索</view>
+  <view style="display: flex; margin-left: 20rpx; margin-top: 20rpx; font-weight: 520; color: #666666;">
+    <view style="margin-right: 20rpx; padding: 10rpx 20rpx 10rpx 20rpx; background-color: #f8f8f8; border-radius: 100rpx;">米类</view>
+    <view style="margin-right: 20rpx; padding: 10rpx 20rpx 10rpx 20rpx; background-color: #f8f8f8; border-radius: 100rpx;">面类</view>
+    <view style="margin-right: 20rpx; padding: 10rpx 20rpx 10rpx 20rpx; background-color: #f8f8f8; border-radius: 100rpx;">豆类</view>
+    <view style="padding: 10rpx 20rpx 10rpx 20rpx; background-color: #f8f8f8; border-radius: 100rpx;">蔬菜</view>
+  </view>
+</view>
+<!-- 分类栏 -->
+<view style=" margin: 15rpx; ">
+        <scroll-view  scroll-x="true" style="display: inline-block; white-space: nowrap; border: 1rpx solid #efefef; border-radius: 40rpx;background-color: white; width: 720rpx; " scroll-with-animation="{{true}}" enhanced="true" show-scrollbar="false" scroll-into-view="{{toView}}">
+
+    <view class="fenlei" data-value="0" bindtap="goto_tab">
+            <view class="image_fenlei" style="background-color: #FFFFCC;">
+            <image src="/image/guwu.png" style=" height: 95rpx; width: 95rpx; margin: 10rpx;"></image>
+          </view>
+        <text style="justify-content: center; display: flex; font-size: 30rpx; font-weight: 600; margin-top: 10rpx;">谷物</text>
+    </view>
+
+
+
+    <view class="fenlei" data-value="1" bindtap="goto_tab">
+    <view class="image_fenlei" style="background-color: #caffff;">
+      <image src="/image/mianfen.png" style=" height: 75rpx; width: 75rpx; margin: 20rpx;"></image>
+    </view>
+        <text style="justify-content: center; display: flex; font-size: 30rpx; font-weight: 600; margin-top: 10rpx;">面粉</text>
+    </view>
+
+    <view class="fenlei" data-value="2" bindtap="goto_tab">
+    <view class="image_fenlei" style="background-color: #defbe8">
+      <image src="/image/md.png" style=" height: 95rpx; width: 95rpx; margin: 10rpx;"></image>
+    </view>
+        <text style="justify-content: center; display: flex; font-size: 30rpx; font-weight: 600; margin-top: 10rpx;">豆类</text>
+    </view>
+
+    <view class="fenlei" data-value="3" bindtap="goto_tab">
+            <view class="image_fenlei" style="background-color: #eaf4fe;">
+            <image src="/image/sheep.png" style=" height: 85rpx; width: 85rpx; margin: 15rpx;"></image>
+          </view>
+        <text style="justify-content: center; display: flex; font-size: 30rpx; font-weight: 600; margin-top: 10rpx;">羊驼</text>
+    </view>
+
+    <view class="fenlei" data-value="4" bindtap="goto_tab">
+          <view class="image_fenlei" style="background-color:#bbfff1;">
+          <image src="/image/vegetable.png" style=" height: 85rpx; width: 85rpx; margin: 15rpx;"></image>
+        </view>
+        <text style="justify-content: center; display: flex; font-size: 30rpx; font-weight: 600; margin-top: 10rpx;">蔬菜</text>
+    </view>
+
+    <view class="fenlei" data-value="5" bindtap="goto_tab">
+    <view class="image_fenlei" style="background-color: #ffebea;">
+      <image src="/image/apple.png" style=" height: 85rpx; width: 85rpx; margin: 15rpx;"></image>
+    </view>
+        <text style="justify-content: center; display: flex; font-size: 30rpx; font-weight: 600; margin-top: 10rpx;">水果</text>
+    </view>
+    <view class="fenlei" data-value="6" bindtap="goto_tab">
+            <view class="image_fenlei" style="background-color: #eaf4fe;">
+            <image src="/image/daily.png" style=" height: 85rpx; width: 85rpx; margin: 15rpx;"></image>
+          </view>
+        <text style="justify-content: center; display: flex; font-size: 30rpx; font-weight: 600; margin-top: 10rpx;">日用品</text>
+    </view>
+
+    <view class="fenlei" data-value="7" bindtap="goto_tab">
+            <view class="image_fenlei" style="background-color: #fffae7;">
+            <image src="/image/meat.png" style=" height: 85rpx; width: 85rpx; margin: 15rpx;"></image>
+          </view>
+        <text style="justify-content: center; display: flex; font-size: 30rpx; font-weight: 600; margin-top: 10rpx;">肉质品</text>
+    </view>
+    </scroll-view>
+  </view>
+<!--   
+  <view style="margin-bottom: 20rpx;">
+      <view style="display: flex;">
+        <view style="width: 50%; padding: 10rpx;">
+        <view style=" padding: 10rpx; background-color: white; border-radius: 30rpx;">
+              <image src="{{'https://7072-prod-0guks42iab6ab66f-1311448235.tcb.qcloud.la/assert/image/product/'+products[0].Id+'/view.png'}}" style="height: 330rpx; width: 330rpx;"></image>
+            <view class="title">{{ stringUtils.subString(products[0].Title,0,23) }}</view>
+            <view class="description">{{ stringUtils.subString(products[0].Description,0,48) }}</view>
+            <view class="price-container">
+              <view class="price-icon">￥</view>
+              <view class="price">{{products[0].Price }}</view>
+              <view class="price-per">/份</view>
+            </view>
+          </view>
+          </view>
+        <view style="width: 50%; padding: 10rpx;">
+        <view style=" padding: 10rpx; background-color: white; border-radius: 30rpx;">
+              <image src="{{'https://7072-prod-0guks42iab6ab66f-1311448235.tcb.qcloud.la/assert/image/product/'+products[1].Id+'/view.png'}}" style="height: 330rpx; width: 330rpx;"></image>
+            <view class="title">{{ stringUtils.subString(products[1].Title,0,23) }}</view>
+            <view class="description">{{ stringUtils.subString(products[1].Description,0,48) }}</view>
+            <view class="price-container">
+              <view class="price-icon">￥</view>
+              <view class="price">{{products[1].Price }}</view>
+              <view class="price-per">/份</view>
+            </view>
+          </view>
+          </view>
+      </view>
+      <view style="display: flex;">
+      
+        <view style="width: 50%; padding: 10rpx;">
+        <view style=" padding: 10rpx; background-color: white; border-radius: 30rpx;">
+              <image src="{{'https://7072-prod-0guks42iab6ab66f-1311448235.tcb.qcloud.la/assert/image/product/'+products[2].Id+'/view.png'}}" style="height: 330rpx; width: 330rpx;"></image>
+            <view class="title">{{ stringUtils.subString(products[2].Title,0,23) }}</view>
+            <view class="description">{{ stringUtils.subString(products[2].Description,0,48) }}</view>
+            <view class="price-container">
+              <view class="price-icon">￥</view>
+              <view class="price">{{products[2].Price }}</view>
+              <view class="price-per">/份</view>
+            </view>
+          </view>
+          </view>
+          
+        <view style="width: 50%; padding: 10rpx;">
+        <view style=" padding: 10rpx; background-color: white; border-radius: 30rpx;">
+              <image src="{{'https://7072-prod-0guks42iab6ab66f-1311448235.tcb.qcloud.la/assert/image/product/'+products[3].Id+'/view.png'}}" style="height: 330rpx; width: 330rpx;"></image>
+            <view class="title">{{ stringUtils.subString(products[3].Title,0,23) }}</view>
+            <view class="description">{{ stringUtils.subString(products[3].Description,0,48) }}</view>
+            <view class="price-container">
+              <view class="price-icon">￥</view>
+              <view class="price">{{products[3].Price }}</view>
+              <view class="price-per">/份</view>
+            </view>
+          </view>
+          </view>
+      </view>
+  </view> -->

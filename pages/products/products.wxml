@@ -3,8 +3,8 @@
   <view class="custom-bar__wrapper" style="margin-top:{{searchMarginTop}}px; height: {{searchHeight}}px;width: {{searchWidth}}px;position:absolute;" >
     <view class="search-group" style="position:absolute;">
       <fa icon="fa fa-search text-main" class="search-icon" aria-hidden="true"></fa>
-      <input bindinput="handleInput" style="width: 70%;" type="text" placeholder="查找你想要的商品" confirm-type="search" value="{{search}}" maxlength="25" bindconfirm="search"></input>
-      <view style="background-color: #33cc99; color: white; font-size: 25rpx; border-radius: 100rpx; font-weight: 550; width: 20%; display: flex; justify-content: center; padding-top: 10rpx; padding-bottom: 10rpx;" bindtap="search">搜索</view>
+      <input bindinput="handleInput" style="width: 90%;" type="text" placeholder="查找你想要的商品" confirm-type="search" value="{{search}}" maxlength="25" bindconfirm="search"></input>
+      <!-- <view style="background-color: #33cc99; color: white; font-size: 25rpx; border-radius: 100rpx; font-weight: 550; width: 20%; display: flex; justify-content: center; padding-top: 10rpx; padding-bottom: 10rpx;" bindtap="search">搜索</view> -->
     </view>
   </view>
 </view>
@@ -21,43 +21,43 @@
           <view style="width: 590; background-color: white; padding: 20rpx; display: flex; justify-content: center; border-bottom-left-radius: 10rpx; border-bottom-right-radius: 10rpx;">
               <view style="display: flex;" wx:if="{{currentTab==0}}">
                 <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
-                <image src="/image/vegetable.png" style="width: 52rpx; height: 52rpx; margin-left: 10rpx;"></image>
-                <view style="margin-left: 8rpx; margin-right: 10rpx;font-size: 40rpx; color: #33CC99; font-weight: 600;">蔬菜</view>
-                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
-              </view>
-
-              <view style="display: flex;" wx:if="{{currentTab==1}}">
-                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
-                <image src="/image/apple.png" style="width: 52rpx; height: 52rpx; margin-left: 10rpx;"></image>
-                <view style="margin-left: 8rpx; margin-right: 10rpx;font-size: 40rpx; color: #33CC99; font-weight: 600;">水果</view>
-                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
-              </view>
-
-              <view style="display: flex;" wx:if="{{currentTab==2}}">
-                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
-                <image src="/image/sheep.png" style="width: 52rpx; height: 52rpx; margin-left: 10rpx;"></image>
-                <view style="margin-left: 8rpx; margin-right: 10rpx;font-size: 40rpx; color: #33CC99; font-weight: 600;">农牧</view>
-                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
-              </view>
-
-              <view style="display: flex;" wx:if="{{currentTab==3}}">
-                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
-                <image src="/image/meat.png" style="width: 52rpx; height: 52rpx; margin-left: 10rpx;"></image>
-                <view style="margin-left: 8rpx; margin-right: 10rpx;font-size: 40rpx; color: #33CC99; font-weight: 600;">肉质品</view>
-                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
-              </view>
-
-              <view style="display: flex;" wx:if="{{currentTab==4}}">
-                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
                 <image src="/image/guwu.png" style="width: 52rpx; height: 52rpx; margin-left: 10rpx;"></image>
                 <view style="margin-left: 8rpx; margin-right: 10rpx;font-size: 40rpx; color: #33CC99; font-weight: 600;">谷物</view>
                 <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
               </view>
 
+              <view style="display: flex;" wx:if="{{currentTab==1}}">
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+                <image src="/image/mianfen.png" style="width: 52rpx; height: 52rpx; margin-left: 10rpx;"></image>
+                <view style="margin-left: 8rpx; margin-right: 10rpx;font-size: 40rpx; color: #33CC99; font-weight: 600;">面粉</view>
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+              </view>
+
+              <view style="display: flex;" wx:if="{{currentTab==2}}">
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+                <image src="/image/md.png" style="width: 52rpx; height: 52rpx; margin-left: 10rpx;"></image>
+                <view style="margin-left: 8rpx; margin-right: 10rpx;font-size: 40rpx; color: #33CC99; font-weight: 600;">豆类</view>
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+              </view>
+
+              <view style="display: flex;" wx:if="{{currentTab==3}}">
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+                <image src="/image/sheep.png" style="width: 52rpx; height: 52rpx; margin-left: 10rpx;"></image>
+                <view style="margin-left: 8rpx; margin-right: 10rpx;font-size: 40rpx; color: #33CC99; font-weight: 600;">羊驼</view>
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+              </view>
+
+              <view style="display: flex;" wx:if="{{currentTab==4}}">
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+                <image src="/image/vegetable.png" style="width: 52rpx; height: 52rpx; margin-left: 10rpx;"></image>
+                <view style="margin-left: 8rpx; margin-right: 10rpx;font-size: 40rpx; color: #33CC99; font-weight: 600;">蔬菜</view>
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+              </view>
+
               <view style="display: flex;" wx:if="{{currentTab==5}}">
                 <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
-                <image src="/image/gift.png" style="width: 52rpx; height: 52rpx; margin-left: 10rpx;"></image>
-                <view style="margin-left: 8rpx; margin-right: 10rpx;font-size: 40rpx; color: #33CC99; font-weight: 600;">特产</view>
+                <image src="/image/apple.png" style="width: 52rpx; height: 52rpx; margin-left: 10rpx;"></image>
+                <view style="margin-left: 8rpx; margin-right: 10rpx;font-size: 40rpx; color: #33CC99; font-weight: 600;">水果</view>
                 <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
               </view>
 
@@ -67,6 +67,14 @@
                 <view style="margin-left: 8rpx; margin-right: 10rpx;font-size: 40rpx; color: #33CC99; font-weight: 600;">日用品</view>
                 <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
               </view>
+
+              <view style="display: flex;" wx:if="{{currentTab==7}}">
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+                <image src="/image/meat.png" style="width: 52rpx; height: 52rpx; margin-left: 10rpx;"></image>
+                <view style="margin-left: 8rpx; margin-right: 10rpx;font-size: 40rpx; color: #33CC99; font-weight: 600;">肉制品</view>
+                <view style="color: #33CC99; font-weight: 600; font-size: 40rpx;">———</view>
+              </view>
+
           </view>
 
           <view wx:for="{{products}}" class="goods_container" style="display: flex" data-value="{{index}}" bindtap="goto_goods">

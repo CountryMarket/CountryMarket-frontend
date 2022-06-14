@@ -432,6 +432,22 @@ goto_home() {
   },
 
   change_all_selected() {
+    let zzq=false
+    for(let i = 0, len = this.data.shopList.length ; i<len ; i++) {
+        if(this.data.shopList[i].Count>this.data.shopList[i].Stock) continue;
+        this.setData({
+          zzq: true
+        })
+        break;
+    } 
+    if(zzq==false) {
+      wx.showToast({  
+        title: '当前没有商品可选~',
+        duration: 750,
+        icon: 'none'
+      })
+      return
+    }
       this.setData({
         is_all_Selected: false
       })

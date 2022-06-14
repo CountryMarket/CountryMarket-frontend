@@ -1,7 +1,7 @@
 <view wx:if="{{goods.length==0}}" style="height: 100%; width: 100%; display: flex; justify-content: center; align-content: center; margin-top: 40%;">
  <view>
   <view style="display: flex; justify-content: center;">
-    <image src="/image/ctx.png" style="height: 250rpx; width: 250rpx;"></image>
+    <image src="/image/manage2.png" style="height: 250rpx; width: 250rpx;"></image>
   </view>
   <view style="color: #33cc99; font-weight: 600; margin-top: 30rpx;">当前您还没有加入商品哦</view>
  </view>

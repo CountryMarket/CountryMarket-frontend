@@ -11,7 +11,6 @@
     "pages/orders/orders",
     "pages/change_address/change_address",
     "pages/xiadan/xiadan",
-    "pages/kefu/kefu",
     "pages/guanli/guanli",
     "pages/comment/comment",
     "pages/cropper/cropper",
@@ -30,7 +29,9 @@
     "pages/search_result/search_result",
     "pages/shouhou/shouhou",
     "pages/count/count",
-    "pages/updateproduct/updateproduct"
+    "pages/updateproduct/updateproduct",
+    "pages/ceshi/ceshi",
+    "pages/ss/ss"
   ],
   "window": {
     "navigationBarBackgroundColor": "#33CC99",

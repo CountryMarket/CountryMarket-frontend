@@ -73,6 +73,7 @@ change_currentTab(e) {
         currentTab: e.currentTarget.dataset.value,
         currentId: this.data.tabList[ e.currentTarget.dataset.value ].Id
       })
+      getApp().globalData.goto_tab=e.currentTarget.dataset.value
       this.gettabProducts()
     },
     

@@ -50,14 +50,30 @@
         <view class="item-text">订单管理</view>
       </view>
     </view>
-    <view wx:else style="display: flex; width: 100%; margin-top: 20rpx; margin-bottom: 20rpx;">
-        <button style="background-color: #33cc99; color: white; border-radius: 100rpx;">申请成为商家</button>
-    </view>
   </view>
 
 
   <view style="margin: 30rpx; margin-left: 60rpx; margin-right: 60rpx;border: 1rpx solid white; background-color: white; border-radius: 20rpx;">
-      <button style="display: flex; margin: 30rpx; margin-bottom: 10rpx;font-size: 30rpx; margin-top: 20rpx;width: 560rpx; padding-left: 0%; padding-right: 0%; background-color: white;" bindtap="goto_yinsi">
+      <button wx:if="{{permission&2}}" style="display: flex; margin: 30rpx; margin-bottom: 10rpx;font-size: 30rpx; margin-top: 20rpx;width: 560rpx; padding-left: 0%; padding-right: 0%; background-color: white;" open-type="contact">
+      <view style="display: flex; width: 280rpx;">
+        <image src="/image/kefu2.png" style="height: 40rpx; width: 40rpx;  margin-right: 20rpx;"></image>
+        <view>客服</view>
+      </view>
+        <view style="display: flex; justify-content: flex-end; width: 270rpx">
+            <image src="/image/arrow_right.png" style="height: 35rpx; width: 35rpx;"></image>
+        </view>
+        
+    </button>
+    <button wx:if="{{permission&2}}" style=" margin: 30rpx; margin-top: 0rpx; margin-bottom: 10rpx;display: flex;  font-size: 30rpx; width: 560rpx; padding-left: 0%; padding-right: 0%; background-color: white;" bindtap="goto_xieyi">
+        <view style="display: flex; width: 280rpx;">
+          <image src="/image/yinsi.png" style="height: 40rpx; width: 40rpx;  margin-right: 20rpx;"></image>
+          <view>隐私协议</view>
+        </view>
+        <view style="display: flex; justify-content: flex-end; width: 270rpx">
+            <image src="/image/arrow_right.png" style="height: 35rpx; width: 35rpx;"></image>
+        </view>
+    </button>
+    <button wx:else style="display: flex; margin: 30rpx; margin-bottom: 10rpx;font-size: 30rpx; margin-top: 20rpx;width: 560rpx; padding-left: 0%; padding-right: 0%; background-color: white;" bindtap="goto_xieyi">
         <view style="display: flex; width: 280rpx;">
           <image src="/image/yinsi.png" style="height: 40rpx; width: 40rpx;  margin-right: 20rpx;"></image>
           <view>隐私协议</view>
@@ -75,7 +91,25 @@
             <image src="/image/arrow_right.png" style="height: 35rpx; width: 35rpx;"></image>
         </view>
     </button>
-    <button style=" margin: 30rpx; display: flex; margin-top: 0rpx;font-size: 30rpx; margin-bottom: 20rpx;width: 560rpx; padding-left: 0%; padding-right: 0%; background-color: white;" open-type='feedback'>
+    <button wx:if="{{permission&2}}" style=" margin: 30rpx; margin-top: 0rpx; margin-bottom: 10rpx;display: flex;  font-size: 30rpx; width: 560rpx; padding-left: 0%; padding-right: 0%; background-color: white;" bindtap="goto_order_manage">
+      <view style="display: flex; width: 280rpx;">
+        <image src="/image/admin.png" style="height: 40rpx; width: 40rpx;  margin-right: 20rpx;"></image>
+        <view>申请成为商家</view>
+      </view>
+        <view style="display: flex; justify-content: flex-end; width: 270rpx">
+            <image src="/image/arrow_right.png" style="height: 35rpx; width: 35rpx;"></image>
+        </view>
+    </button>
+    <button wx:else style=" margin: 30rpx; display: flex; margin-top: 0rpx;font-size: 30rpx; margin-bottom: 10rpx;width: 560rpx; padding-left: 0%; padding-right: 0%; background-color: white;" bindtap="goto_ceshi">
+      <view style="display: flex; width: 280rpx;">
+        <image src="/image/bug.png" style="height: 40rpx; width: 40rpx;  margin-right: 20rpx;"></image>
+        <view>登录测试账号</view>
+      </view>
+        <view style="display: flex; justify-content: flex-end; width: 270rpx">
+            <image src="/image/arrow_right.png" style="height: 35rpx; width: 35rpx;"></image>
+        </view>
+    </button>
+    <button style=" margin: 30rpx; margin-top: 0rpx; margin-bottom: 10rpx;display: flex;  font-size: 30rpx; width: 560rpx; padding-left: 0%; padding-right: 0%; background-color: white;"open-type='feedback'>
       <view style="display: flex; width: 280rpx;">
           <image src="/image/feedback.png" style="height: 40rpx; width: 40rpx; margin-right: 20rpx;"></image>
           <view>问题反馈</view>
@@ -84,6 +118,7 @@
             <image src="/image/arrow_right.png" style="height: 35rpx; width: 35rpx;"></image>
         </view>
     </button>
+    
  </view>
   <view style="display: flex; justify-content: center; margin-top: 20rpx; font-weight: 600;" wx:if="{{ isLogged }}">
       <view style="width: 350rpx; background-color: white; border-top-left-radius: 100rpx; display: flex; justify-content: center; border-bottom-left-radius:100rpx;width: 250rpx; background-color: white; padding-top: 5rpx; padding-bottom: 5rpx;" bindtap="qiehuan">

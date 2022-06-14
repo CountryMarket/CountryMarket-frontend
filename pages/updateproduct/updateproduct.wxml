@@ -11,11 +11,11 @@
       </view> -->
       <view class="segment">
         <view class="text">价格</view>
-        <input type="number" class="input_block" bindinput="inputHandler_price" value="{{ info.price }}" placeholder="商品单价"></input>
+        <input class="input_block" bindinput="inputHandler_price" value="{{ temp_val }}" placeholder="商品单价(仅支持小数点后两位)"></input>
       </view>
       <view class="segment">
         <view class="text">商品详细</view>
-        <textarea type="number" class="input_block" bindinput="inputHandler_detail" value="{{ info.detail }}" placeholder="商品详细介绍" style="height: 400rpx; padding: 10rpx"></textarea>
+        <textarea class="input_block" bindinput="inputHandler_detail" value="{{ info.detail }}" placeholder="商品详细介绍" style="height: 400rpx; padding: 10rpx"></textarea>
       </view>
       
       <view class="segment">

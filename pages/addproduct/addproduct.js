@@ -12,13 +12,15 @@ Page({
       description: "",
       price: 0.0,
       pictureNumber: 0,
-      stock: 0
+      stock: 0,
+      detail: ""
     },
     imgSrc: "",
     imgPPTSrc: [],
     imgDetailSrc: [],
     start: 0,
-    end: 0
+    end: 0,
+    temp_val: 0
   },
   inputHandler_stock(e) {
     this.setData({
@@ -37,7 +39,7 @@ Page({
   },
   inputHandler_price(e) {
     this.setData({
-      [`info.price`]: parseFloat(e.detail.value)
+      temp_val: e.detail.value
     })
   },
   inputHandler_detail(e) {
@@ -168,15 +170,15 @@ Page({
       })
       return
     }
-    // if (this.data.info.description == "") {
-    //   wx.showModal({
-    //     title: '提示',
-    //     content: '描述不能为空',
-    //     showCancel: false
-    //   })
-    //   return
-    // }
-    if (this.data.info.price == 0) {
+    if (this.data.info.detail == "") {
+      wx.showModal({
+        title: '提示',
+        content: '详细介绍不能为空',
+        showCancel: false
+      })
+      return
+    }
+    if (this.data.temp_val == 0) {
       wx.showModal({
         title: '提示',
         content: '价格不能为0',
@@ -192,7 +194,6 @@ Page({
       })
       return
     }
-    
     if (this.data.imgSrc == "" || !this.data.imgSrc) {
       wx.showModal({
         title: '提示',
@@ -208,6 +209,7 @@ Page({
       [`info.pictureNumber`]: this.data.imgPPTSrc.length,
       [`info.description`]: this.data.info.detail,
       [`info.detailPictureNumber`]: this.data.imgDetailSrc.length,
+      [`info.price`]: Math.floor(parseFloat(this.data.temp_val)*100)/100
     })
     let res = await wxRequest("POST", "shop/addProduct", this.data.info)
     if (isResTokenInvalid(res)) {

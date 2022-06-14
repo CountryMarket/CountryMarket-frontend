@@ -36,8 +36,8 @@
       <image src="/image/peisong.png" style="width: 44rpx; height: 44rpx; margin-right: 10rpx;"></image>
      <view style="font-size: 35rpx; color: #33CC99;">配送情况</view>
     </view>
-    <view style="margin-left: 10rpx">运费：5元</view>
-    <view style="margin-left: 10rpx">平均时效：省内2天，省外3天</view>
+    <view style="margin-left: 10rpx; padding-top: 10rpx; font-size: 27rpx;">运费：5元</view>
+    <view style="margin-left: 10rpx; padding-top: 10rpx; font-size: 27rpx;">平均时效：省内2天，省外3天</view>
 </view>
 
 <view style="margin-top: 10rpx; background-color: white; padding: 10rpx; font-weight: 600;"  bindtap="goto_good_comments">

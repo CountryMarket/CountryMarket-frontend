@@ -11,10 +11,12 @@ Page({
     info: {
       title: "",
       description: "",
+      detail: "",
       price: 0.0,
       pictureNumber: 0,
       stock: 0
     },
+    temp_val: 0,
     imgSrc: "",
     imgPPTSrc: [],
     imgDetailSrc: [],
@@ -43,7 +45,7 @@ Page({
     this.setData({
       [`info.title`]: _res.data.data.Title,
       [`info.description`]: _res.data.data.Description,
-      [`info.price`]: _res.data.data.Price,
+      temp_val: _res.data.data.Price,
       [`info.pictureNumber`]: _res.data.data.PictureNumber,
       [`info.stock`]: _res.data.data.Stock,
       [`info.detail`]: _res.data.data.Detail
@@ -148,7 +150,7 @@ Page({
   },
   inputHandler_price(e) {
     this.setData({
-      [`info.price`]: parseFloat(e.detail.value)
+      temp_val: e.detail.value
     })
   },
   inputHandler_detail(e) {
@@ -270,6 +272,7 @@ Page({
       }
     })
   },
+
   async uploadProduct() {
     if (this.data.info.title == "") {
       wx.showModal({
@@ -279,15 +282,15 @@ Page({
       })
       return
     }
-    // if (this.data.info.description == "") {
-    //   wx.showModal({
-    //     title: '提示',
-    //     content: '描述不能为空',
-    //     showCancel: false
-    //   })
-    //   return
-    // }
-    if (this.data.info.price == 0) {
+    if (this.data.info.detail == "") {
+      wx.showModal({
+        title: '提示',
+        content: '详细介绍不能为空',
+        showCancel: false
+      })
+      return
+    }
+    if (this.data.temp_val == 0) {
       wx.showModal({
         title: '提示',
         content: '价格不能为0',
@@ -295,15 +298,22 @@ Page({
       })
       return
     }
-    if (this.data.info.stock <=1 ) {
+    if (this.data.info.stock <0 ) {
       wx.showModal({
         title: '提示',
-        content: '库存不能小于1',
+        content: '库存不能小于0',
         showCancel: false
       })
       return
     }
-    
+    if(isNaN(this.data.temp_val)==true) {
+      wx.showModal({
+        title: '提示',
+        content: '请输入合法价格',
+        showCancel: false
+      })
+      return
+    }
     if (this.data.imgSrc == "" || !this.data.imgSrc) {
       wx.showModal({
         title: '提示',
@@ -315,13 +325,18 @@ Page({
     wx.showLoading({
       title: '正在提交商品...',
     })
+    
     this.setData({
       [`info.pictureNumber`]: this.data.imgPPTSrc.length,
       [`info.detailPictureNumber`]: this.data.imgDetailSrc.length,
       [`info.id`]: this.data.id,
-      [`info.description`]: this.data.info.detail
+      [`info.description`]: this.data.info.detail,
+      [`info.price`]: Math.floor(parseFloat(this.data.temp_val)*100)/100
     })
+    console.log(this.data.temp_val)
+    console.log(this.data.info.price)
     let res = await wxRequest("POST", "shop/updateProduct", this.data.info)
+    console.log(res)
     if (isResTokenInvalid(res)) {
       wx.hideLoading()
       showTokenInvalidModal();

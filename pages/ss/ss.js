@@ -1,20 +1,41 @@
-// pages/kefu/kefu.js
+// pages/ss/ss.js
+import { wxRequest, isTokenEmpty, validateToken, showTokenInvalidModal ,isResTokenInvalid } from "../../utils/wxRequest"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    products: []
   },
+  load() {
+    wxRequest("GET", "product/homeTab", {
+      from: 0,
+      length: 4,
+    }).then(async res => {
+      console.log(res)
+      if (res.statusCode != 200) {
+        this.load();
+        return ;
+      }
+      this.setData({
+        products: res.data.data.products
+      })
+    })
+  },
+  goto_tab(e) {
+    console.log(e)
+    getApp().globalData.goto_tab=e.currentTarget.dataset.value
+    wx.switchTab({
+      url: `/pages/products/products`
+    })
+},
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-      thiswx.setNavigationBarTitle({
-        title: '临时客服'
-      })
+    this.load()
   },
 
   /**

@@ -11,7 +11,7 @@
       </view> -->
       <view class="segment">
         <view class="text">价格</view>
-        <input type="number" class="input_block" bindinput="inputHandler_price" placeholder="商品单价"></input>
+        <input class="input_block" bindinput="inputHandler_price" placeholder="商品单价(仅支持小数点后两位)"></input>
       </view>
       <view class="segment">
         <view class="text">商品详细</view>

@@ -1,0 +1,77 @@
+/* pages/ss/ss.wxss */
+.fenlei {
+  border-radius: 65rpx;
+  background-color: white;
+  margin: 20rpx;
+  display: inline-block;
+}
+.image_fenlei {
+  display: flex; 
+  border-radius: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.box-container .box-left {
+  display: inline-block;
+  width: 48%;
+  margin: 5rpx 10rpx 5rpx 10rpx;
+  vertical-align: top;
+}
+
+.box-container .box-right {
+  display: inline-block;
+  width: 48%;
+  margin: 5rpx 10rpx 5rpx 0;
+  vertical-align: top;
+}
+.item {
+  margin-top: 20rpx;
+  margin-left: 25rpx;
+  border-radius: 40rpx;
+  width: 700rpx;
+  height: 300rpx;
+  background-color:white;
+}.price {
+  display: inline-block;
+  font-size: 34rpx;
+}.price-icon {
+  display: inline-block;
+  font-size: 24rpx;
+}.price-container {
+  text-align: left;
+  margin-top: 10rpx;
+  color: #f32b2f;
+  font-weight: bold;
+}.description {
+  text-align: left;
+  font-size: 20rpx;
+  color: #6c757d;
+  margin-top: 6rpx;
+}.title {
+  text-align: left;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.price-per {
+  display: inline-block;
+  font-size: 24rpx;
+  color: #6c757d;
+  font-weight: normal;
+}
+.box-container .box-left {
+  display: inline-block;
+  width: 48%;
+  margin: 5rpx 10rpx 5rpx 10rpx;
+  vertical-align: top;
+  padding: 10rpx 10rpx 10rpx 10rpx;
+}
+
+.box-container .box-right {
+  display: inline-block;
+  width: 48%;
+  margin: 5rpx 10rpx 5rpx 0;
+  vertical-align: top;
+  padding: 10rpx 10rpx 10rpx 10rpx;
+}

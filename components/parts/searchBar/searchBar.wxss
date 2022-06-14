@@ -1,7 +1,7 @@
 /* components/searchBar.wxss */
 .searchbar {
   height: 60rpx;
-  padding-left: 30rpx;
+  padding-left: 35rpx;
   padding-right: 30rpx;
   padding-bottom: 15rpx;
   display: flex;
@@ -28,7 +28,7 @@
 }
 .input-box {
   flex: 1;
-  margin: 0 10rpx;
+  margin: 0 15rpx;
   text-align: left;
   font-size: 25rpx;
 }

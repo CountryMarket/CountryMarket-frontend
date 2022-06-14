@@ -10,7 +10,7 @@ Page({
    */
   data: {
     from: 0,
-    page_size: 10,
+    page_size: 100,
     goods: [],
     input_num_Hidden: true,
     now_id: 0,
@@ -200,7 +200,7 @@ Page({
                     })
                   } else {
                     this.setData({
-                      goods: [...this.data.goods,...res.data.data.Products],
+                      goods: res.data.data.Products,
                       from: this.data.from + this.data.page_size
                     })
                   }
@@ -235,7 +235,11 @@ modifyProduct(e) {
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+      this.setData({
+        from: 0,
+        goods: []
+      })
+    this.get_goods()
   },
 
   /**
