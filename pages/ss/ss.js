@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    products: []
+    products: [],
+    Ffocus: true
   },
   load() {
     wxRequest("GET", "product/homeTab", {
@@ -29,7 +30,41 @@ Page({
     wx.switchTab({
       url: `/pages/products/products`
     })
-},
+  },
+  handleSearch(e) {
+    console.log(e)
+    if (e.detail == '') {
+      wx.showToast({
+        title: '不能没有输入哦~',
+        icon: 'none'
+      })
+      return 
+    }
+    wx.navigateTo({
+      url: `/pages/search_result/search_result?key=${e.detail}`,
+    })
+  },
+  search_mi() {
+    wx.navigateTo({
+      url: `/pages/search_result/search_result?key=米`,
+    })
+  },
+  search_mian() {
+    wx.navigateTo({
+      url: `/pages/search_result/search_result?key=面`,
+    })
+  },
+  search_dou() {
+    wx.navigateTo({
+      url: `/pages/search_result/search_result?key=豆`,
+    })
+  },
+  search_cai() {
+    wx.navigateTo({
+      url: `/pages/search_result/search_result?key=菜`,
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面加载

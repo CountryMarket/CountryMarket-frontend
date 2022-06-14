@@ -3,7 +3,11 @@ Component({
     placeholder: {
       type: String,
       value: '',
-    }
+    },
+    Ffocus: {
+      type: Number,
+      value: 0,
+    },
   },
   data: {
     inputValue: ''

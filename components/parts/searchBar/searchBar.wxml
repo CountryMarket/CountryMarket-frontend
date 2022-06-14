@@ -12,6 +12,7 @@
       placeholder="{{placeholder}}" 
       class="input-box"
       confirm-type="search"
+      focus="{{Ffocus}}"
     ></input>
     <!-- 取消键 -->
     <image wx:if="{{inputValue}}" bindtap="handleTextbtnClick" style="width: 36rpx; height: 36rpx;" src="/image/cancel.png">×</image>
