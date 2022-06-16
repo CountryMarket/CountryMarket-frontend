@@ -51,24 +51,24 @@ Page({
       [`info.detail`]: _res.data.data.Detail
     })
     let res = await wx.cloud.downloadFile({
-      fileID: `cloud://prod-0guks42iab6ab66f.7072-prod-0guks42iab6ab66f-1311448235/assert/image/product/${options.id}/view.png`,
+      fileID: `cloud://yangqu-2gonq20w81d87cfb.7961-yangqu-2gonq20w81d87cfb-1312512244/assert/image/product/${options.id}/view.png`,
     })
     this.setData({
       imgSrc: res.tempFilePath
     })
     for (let i = 0; i < _res.data.data.PictureNumber; ++i) {
-      console.log(`cloud://prod-0guks42iab6ab66f.7072-prod-0guks42iab6ab66f-1311448235/assert/image/product/${options.id}/carousel${i}.png`)
+      console.log(`cloud://yangqu-2gonq20w81d87cfb.7961-yangqu-2gonq20w81d87cfb-1312512244/assert/image/product/${options.id}/carousel${i}.png`)
       res = await wx.cloud.downloadFile({
-        fileID: `cloud://prod-0guks42iab6ab66f.7072-prod-0guks42iab6ab66f-1311448235/assert/image/product/${options.id}/carousel${i}.png`,
+        fileID: `cloud://yangqu-2gonq20w81d87cfb.7961-yangqu-2gonq20w81d87cfb-1312512244/assert/image/product/${options.id}/carousel${i}.png`,
       })
       this.setData({
         [`imgPPTSrc[${i}]`]: res.tempFilePath
       })
     }
     for (let i = 0; i < _res.data.data.DetailPictureNumber; ++i) {
-      console.log(`cloud://prod-0guks42iab6ab66f.7072-prod-0guks42iab6ab66f-1311448235/assert/image/product/${options.id}/detail${i}.png`)
+      console.log(`cloud://yangqu-2gonq20w81d87cfb.7961-yangqu-2gonq20w81d87cfb-1312512244/assert/image/product/${options.id}/detail${i}.png`)
       res = await wx.cloud.downloadFile({
-        fileID: `cloud://prod-0guks42iab6ab66f.7072-prod-0guks42iab6ab66f-1311448235/assert/image/product/${options.id}/detail${i}.png`,
+        fileID: `cloud://yangqu-2gonq20w81d87cfb.7961-yangqu-2gonq20w81d87cfb-1312512244/assert/image/product/${options.id}/detail${i}.png`,
       })
       this.setData({
         [`imgDetailSrc[${i}]`]: res.tempFilePath
@@ -356,7 +356,7 @@ Page({
       cloudPath: 'assert/image/product/' + id + '/view.png', 
       filePath: this.data.imgSrc, 
       config: {
-        env: 'prod-0guks42iab6ab66f' 
+        env: 'yangqu-2gonq20w81d87cfb' 
       },
       success: res => {
         console.log(res.fileID)
@@ -375,7 +375,7 @@ Page({
         cloudPath: 'assert/image/product/' + id + `/carousel${gg}.png`, 
         filePath: this.data.imgPPTSrc[gg], 
         config: {
-          env: 'prod-0guks42iab6ab66f' 
+          env: 'yangqu-2gonq20w81d87cfb' 
         },
         success: res => {
           console.log(res.fileID)
@@ -395,7 +395,7 @@ Page({
         cloudPath: 'assert/image/product/' + id + `/detail${gg}.png`, 
         filePath: this.data.imgDetailSrc[gg], 
         config: {
-          env: 'prod-0guks42iab6ab66f' 
+          env: 'yangqu-2gonq20w81d87cfb' 
         },
         success: res => {
           console.log(res.fileID)

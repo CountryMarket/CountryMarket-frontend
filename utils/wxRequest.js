@@ -2,20 +2,20 @@ import { wxLogin } from "./wxLogin"
 
 const wxRequest = async function(method, path, data) {
   const { globalData } = getApp();
-  /*const res = await wx.cloud.callContainer({
+  const res = await wx.cloud.callContainer({
     "config": {
-      "env": "prod-0guks42iab6ab66f"
+      "env": "yangqu-2gonq20w81d87cfb"
     },
     "path": "/api/v1/" + path,
     "header": {
-      "X-WX-SERVICE": "golang-487g",
+      "X-WX-SERVICE": "yangqu",
       "content-type": "application/json",
       "Authorization": "Bearer " + globalData.token,
     },
     "method": method,
     "data": data
-  });*/
-  const res = await new Promise((resolve, reject) => {
+  });
+  /*const res = await new Promise((resolve, reject) => {
     wx.request({
       "url": "https://golang-487g-1856129-1311448235.ap-shanghai.run.tcloudbase.com/api/v1/" + path,
       "method": method,
@@ -29,7 +29,7 @@ const wxRequest = async function(method, path, data) {
         resolve(res)
       },
     })
-  })
+  })*/
   // 如果 token 失效，清理当前的 token (此处 global token 会改变)
   if (isResTokenInvalid(res)) {
     globalData.token = undefined;

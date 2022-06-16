@@ -81,7 +81,7 @@
       <view style="display: flex;">
         <view style="width: 50%; padding: 10rpx;">
         <view style=" padding: 10rpx; background-color: white; border-radius: 30rpx;">
-              <image src="{{'https://7072-prod-0guks42iab6ab66f-1311448235.tcb.qcloud.la/assert/image/product/'+products[0].Id+'/view.png'}}" style="height: 330rpx; width: 330rpx;"></image>
+              <image src="{{'https://7961-yangqu-2gonq20w81d87cfb-1312512244.tcb.qcloud.la/assert/image/product/'+products[0].Id+'/view.png'}}" style="height: 330rpx; width: 330rpx;"></image>
             <view class="title">{{ stringUtils.subString(products[0].Title,0,23) }}</view>
             <view class="description">{{ stringUtils.subString(products[0].Description,0,48) }}</view>
             <view class="price-container">
@@ -93,7 +93,7 @@
           </view>
         <view style="width: 50%; padding: 10rpx;">
         <view style=" padding: 10rpx; background-color: white; border-radius: 30rpx;">
-              <image src="{{'https://7072-prod-0guks42iab6ab66f-1311448235.tcb.qcloud.la/assert/image/product/'+products[1].Id+'/view.png'}}" style="height: 330rpx; width: 330rpx;"></image>
+              <image src="{{'https://7961-yangqu-2gonq20w81d87cfb-1312512244.tcb.qcloud.la/assert/image/product/'+products[1].Id+'/view.png'}}" style="height: 330rpx; width: 330rpx;"></image>
             <view class="title">{{ stringUtils.subString(products[1].Title,0,23) }}</view>
             <view class="description">{{ stringUtils.subString(products[1].Description,0,48) }}</view>
             <view class="price-container">
@@ -108,7 +108,7 @@
       
         <view style="width: 50%; padding: 10rpx;">
         <view style=" padding: 10rpx; background-color: white; border-radius: 30rpx;">
-              <image src="{{'https://7072-prod-0guks42iab6ab66f-1311448235.tcb.qcloud.la/assert/image/product/'+products[2].Id+'/view.png'}}" style="height: 330rpx; width: 330rpx;"></image>
+              <image src="{{'https://7961-yangqu-2gonq20w81d87cfb-1312512244.tcb.qcloud.la/assert/image/product/'+products[2].Id+'/view.png'}}" style="height: 330rpx; width: 330rpx;"></image>
             <view class="title">{{ stringUtils.subString(products[2].Title,0,23) }}</view>
             <view class="description">{{ stringUtils.subString(products[2].Description,0,48) }}</view>
             <view class="price-container">
@@ -121,7 +121,7 @@
           
         <view style="width: 50%; padding: 10rpx;">
         <view style=" padding: 10rpx; background-color: white; border-radius: 30rpx;">
-              <image src="{{'https://7072-prod-0guks42iab6ab66f-1311448235.tcb.qcloud.la/assert/image/product/'+products[3].Id+'/view.png'}}" style="height: 330rpx; width: 330rpx;"></image>
+              <image src="{{'https://7961-yangqu-2gonq20w81d87cfb-1312512244.tcb.qcloud.la/assert/image/product/'+products[3].Id+'/view.png'}}" style="height: 330rpx; width: 330rpx;"></image>
             <view class="title">{{ stringUtils.subString(products[3].Title,0,23) }}</view>
             <view class="description">{{ stringUtils.subString(products[3].Description,0,48) }}</view>
             <view class="price-container">

@@ -231,7 +231,7 @@ Page({
       cloudPath: 'assert/image/product/' + id + '/view.png', 
       filePath: this.data.imgSrc, 
       config: {
-        env: 'prod-0guks42iab6ab66f' 
+        env: 'yangqu-2gonq20w81d87cfb' 
       },
       success: res => {
         console.log(res.fileID)
@@ -250,7 +250,7 @@ Page({
         cloudPath: 'assert/image/product/' + id + `/carousel${gg}.png`, 
         filePath: this.data.imgPPTSrc[gg], 
         config: {
-          env: 'prod-0guks42iab6ab66f' 
+          env: 'yangqu-2gonq20w81d87cfb' 
         },
         success: res => {
           console.log(res.fileID)
@@ -270,7 +270,7 @@ Page({
         cloudPath: 'assert/image/product/' + id + `/detail${gg}.png`, 
         filePath: this.data.imgDetailSrc[gg], 
         config: {
-          env: 'prod-0guks42iab6ab66f' 
+          env: 'yangqu-2gonq20w81d87cfb' 
         },
         success: res => {
           console.log(res.fileID)
