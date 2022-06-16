@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-      answer: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvcGVuaWQiOiJ0ZXN0Iiwic2Vzc2lvbl9rZXkiOiJoaCIsImV4cCI6MTY2MDIyNDUxN30.K8dM-1bYA5FkH8m0qW5xdJ4gfE0HGUEZHN0jqHJZoqM',
+      answer: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvcGVuaWQiOiJ0ZXN0Iiwic2Vzc2lvbl9rZXkiOiIiLCJleHAiOjE2NjA1NDM0ODd9.uxPwdiNH044ezQaoffddRxtBwwuXSMbRVsAJHukEsm4',
       val: '%#ctx@!+zzz*7-d%lyf}',
       value: ''
   },
