@@ -6,7 +6,6 @@
       latitude="{{latitude}}"
       longitude="{{longitude}}"
       scale="{{ scale }}"
-      subkey="{{ subkey }}"
       markers="{{ markers }}"
       polyline="{{ polyline }}"
       enable-rotate="true"

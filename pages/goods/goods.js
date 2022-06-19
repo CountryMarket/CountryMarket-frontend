@@ -125,6 +125,14 @@ Page({
 
   // 加入购物车
   async add_into_cart() {
+    const { globalData } = getApp();
+    if(isTokenEmpty(globalData.token)) {
+        let that = this;
+        showTokenInvalidModal(that);
+        if(isTokenEmpty(globalData.token)) {
+          return
+        }
+    }
     if(this.data.if_in_cart == '加入购物车') {
           let res=await wxRequest("POST","cart/addProduct",{productId: this.data.id});
           console.log(res)

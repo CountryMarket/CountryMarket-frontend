@@ -92,12 +92,12 @@ const login = async function(that) {
             },
             fail: res => {
               console.log(res)
-              wx.showModal({
+              /*wx.showModal({
                 title: "提示",
                 content: "获取头像昵称失败",
                 showCancel: false,
                 confirmText: "知道了"
-              });
+              });*/
               return ;
             }
           })

@@ -27,9 +27,9 @@ Page({
     number: [], //每个商品的选择数量
     number_limit: 999,
     left: [], //商品的库存
-    money_sum: 0.00,//理论总价
-    total_money: 0.00,//计总价，优惠
-    show_money_sum: 0.00,
+    money_sum: (0.00).toFixed(2),//理论总价
+    total_money: (0.00).toFixed(2),//计总价，优惠
+    show_money_sum: (0.00).toFixed(2),
     // 后端需要记录上一次的购物车预选信息
     // isSelected: [],//记录是否被选中,默认不,到时要转数组
 
@@ -76,7 +76,6 @@ Page({
           url: `/pages/xiadan/xiadan?id=${this.data.push}`
         })
     }
-      
   },
 
   //获取商品列表信息-----------------------------------------------------
@@ -103,7 +102,8 @@ Page({
                 }
                 if(res.data.data.Products==null) {
                     this.setData({
-                      page_from: this.data.page_from + this.data.page_length
+                      page_from: this.data.page_from + this.data.page_length,
+                      shopList: []
                     })
                   wx.showToast({
                     title: '购物车已经到底了喔~',
@@ -278,6 +278,20 @@ async modifyProduct_cart(p) {
   }
 },
 
+goto_address() {
+  if (isTokenEmpty(getApp().globalData.token)) {
+    wx.showToast({
+      title: '请先登录~',
+      icon: 'none',
+      duration: 1000
+    })
+    return;
+   }
+   wx.navigateTo({
+     url: '/pages/addresses/addresses',
+   })
+},
+
 goto_home() {
   console.log('haha')
   wx.switchTab({
@@ -433,11 +447,10 @@ goto_home() {
 
   change_all_selected() {
     let zzq=false
+    console.log(this.data.shopList)
     for(let i = 0, len = this.data.shopList.length ; i<len ; i++) {
         if(this.data.shopList[i].Count>this.data.shopList[i].Stock) continue;
-        this.setData({
-          zzq: true
-        })
+        zzq=true
         break;
     } 
     if(zzq==false) {
@@ -593,21 +606,13 @@ goto_home() {
    * 生命周期函数--监听页面显示
    */
   onShow() {
+      this.setData({
+        is_all_Selected: false,
+        shopList: []
+      })
       this.getAddressList()
       this.getShopList()
   },
-
-
-
-
-
-
-
-
-
-
-
-
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -621,14 +626,13 @@ goto_home() {
    * 生命周期函数--监听页面隐藏
    */
   onHide() {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
-
   },
 
   

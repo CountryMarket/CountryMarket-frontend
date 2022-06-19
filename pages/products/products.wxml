@@ -95,7 +95,7 @@
                         </view>
                         <view wx:else  style="width: 120rpx; height: 60rpx; display: flex; justify-content: flex-end;">
                           <view style="border: 1rpx solid #33cc99;border-radius: 25rpx;">
-                              <view style="height: 40rpx;display: flex; align-content: center; justify-content: center; color: #33cc99; margin: 10rpx;" data-value="{{index}}" catchtap="inputHandler">×{{if_in_cart[index]}}</view>
+                              <view style="height: 40rpx; width: 40rpx;display: flex; align-content: center; justify-content: center; color: #33cc99; margin: 10rpx;" data-value="{{index}}" catchtap="inputHandler">×{{if_in_cart[index]}}</view>
                           </view>
                         </view>
               </view>

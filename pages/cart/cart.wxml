@@ -19,14 +19,14 @@
     </view>
 </navigator> -->
 
-<navigator url="/pages/addresses/addresses" hover-class="navigator-hover"> 
-    <view wx:if="{{address_message.length==0||address_message==null}}" class="address" style="font-size: 25rpx; display: flex;justify-content: center;">
+<!-- <navigator url="/pages/addresses/addresses" hover-class="navigator-hover">  -->
+    <view bindtap="goto_address" wx:if="{{address_message.length==0||address_message==null}}" class="address" style="font-size: 25rpx; display: flex;justify-content: center;">
       <view style="color: #33cc99; font-size: 35rpx; font-weight: 600;">暂时没有收货信息，快去添加叭~</view>
             <view style="width: 5%; display: flex; align-items: center;">
                   <image src="/image/arrow_right.png"></image>
             </view>
     </view>
-    <view class="address" style="font-size: 25rpx; display: flex;" wx:else>
+    <view bindtap="goto_address" class="address" style="font-size: 25rpx; display: flex;" wx:else>
             <view style="width: 95%;">
                 <view style="width: 95%; font-weight: 600; font-size: 35rpx;">{{address_message[0].Address}}</view>
                 <view style="display: flex; margin-top: 10rpx; width: 95%; font-size: 30rpx;">
@@ -38,7 +38,7 @@
                   <image src="/image/arrow_right.png"></image>
             </view>
     </view>
-</navigator>
+<!-- </navigator> -->
 <!-- 购物车商品列表的标题区域 -->
 <view class="cart-title">
   <!-- 左侧的图标 -->

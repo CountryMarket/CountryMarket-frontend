@@ -94,7 +94,7 @@
     <button wx:if="{{permission&2}}" style=" margin: 30rpx; margin-top: 0rpx; margin-bottom: 10rpx;display: flex;  font-size: 30rpx; width: 560rpx; padding-left: 0%; padding-right: 0%; background-color: white;" bindtap="goto_order_manage">
       <view style="display: flex; width: 280rpx;">
         <image src="/image/admin.png" style="height: 40rpx; width: 40rpx;  margin-right: 20rpx;"></image>
-        <view>申请成为商家</view>
+        <view>申请成为管理者</view>
       </view>
         <view style="display: flex; justify-content: flex-end; width: 270rpx">
             <image src="/image/arrow_right.png" style="height: 35rpx; width: 35rpx;"></image>

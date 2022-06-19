@@ -20,8 +20,8 @@
   </swiper>
 
   <!-- 分类栏 -->
-  <view style=" margin: 15rpx; ">
-        <scroll-view  scroll-x="true" style="display: inline-block; white-space: nowrap; border: 1rpx solid #efefef; border-radius: 40rpx;background-color: white; width: 720rpx; " scroll-with-animation="{{true}}" enhanced="true" show-scrollbar="false" scroll-into-view="{{toView}}">
+  <view style=" margin: 11rpx; ">
+        <scroll-view  scroll-x="true" style="display: inline-block; white-space: nowrap; border: 1rpx solid #efefef; border-radius: 40rpx;background-color: white; width: 728rpx; height: 200rpx;" scroll-with-animation="{{true}}" enhanced="true" show-scrollbar="false" scroll-into-view="{{toView}}">
 
     <view class="fenlei" data-value="0" bindtap="goto_tab">
             <view class="image_fenlei" style="background-color: #FFFFCC;">
