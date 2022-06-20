@@ -13,7 +13,22 @@ Page({
     money: 0,
     order_id: 0,
     info: [],
-    products: []
+    products: [],
+    is_show: 0
+  },
+
+  get_show() {
+      wxRequest("GET","user/pay").then(res => {
+            console.log(res)
+            if (isResTokenInvalid(res)) {
+              showTokenInvalidModal();
+              this.get_show();
+              return ;
+            }
+            this.setData({
+              is_show: res.data.data
+            })
+      })
   },
 
   goto_home() {
@@ -60,6 +75,7 @@ Page({
       title: '支付页面'
     })
     console.log(options)
+    this.get_show();
     this.setData({
       money: options.money,
       order_id: options.order_id

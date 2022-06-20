@@ -45,6 +45,7 @@
   <image src="/image/cart_title.png" class="gwc-icon"></image>
   <!-- 描述文本 -->
   <text class="gwc-text">购物车</text>
+  <text style="color: #b2b2b2; font-size: 20rpx; margin-left: 10rpx;">左滑可以删除商品哦~</text>
 </view>
 
 <!-- 商品信息 -->

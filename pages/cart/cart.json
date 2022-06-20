@@ -3,5 +3,5 @@
   "backgroundColor": "#efefef",
   "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark",
-  "onReachBottomDistance": 200
+  "onReachBottomDistance": 50
 }

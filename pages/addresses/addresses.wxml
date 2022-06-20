@@ -1,6 +1,6 @@
 
 <view wx:if="{{address_message!=null}}" style="display: flex; justify-content: flex-end;margin: 20rpx; font-size: 35rpx; font-weight: 600; color: #33cc99;">
-    <view style="color: #33cc99; font-size: 30rpx; margin-right: 20rpx;">点击地址以选中</view>
+    <view style="color: #33cc99; font-size: 30rpx; margin-right: 20rpx;">点击地址以选为默认</view>
     <view wx:if="{{statue=='管理'}}" style="display: flex; border: 1rpx solid #b2b2b2; color: #b2b2b2; border-radius: 50rpx; width: 100rpx; justify-content: center;" bindtap="change_statue">管理</view>
     <view wx:else style="display: flex; border: 1rpx solid #33cc99; border-radius: 50rpx; width: 100rpx; justify-content: center;" bindtap="change_statue">完成</view>
 </view>
