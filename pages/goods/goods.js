@@ -17,7 +17,8 @@ Page({
       good_info: {},
       array: [],
       array1: [],
-      comments: null
+      comments: null,
+      urls: []
   },
 
   /**
@@ -38,6 +39,9 @@ Page({
         for(let i=0;i<this.data.good_info.PictureNumber;i++) {
           this.setData({
             array: [...this.data.array,1]
+          })
+          this.setData({
+            [`urls[${i}]`]: 'https://7961-yangqu-2gonq20w81d87cfb-1312512244.tcb.qcloud.la/assert/image/product/' + this.data.id + '/carousel' + i + '.png',
           })
         }
         for(let i=0;i<this.data.good_info.DetailPictureNumber;i++) {
@@ -176,6 +180,14 @@ Page({
   goto_cart() {
     wx.switchTab({
       url: '/pages/cart/cart',
+    })
+  },
+
+  click_lunbo(e) {
+    console.log(e)
+    wx.previewImage({
+      current: 'https://7961-yangqu-2gonq20w81d87cfb-1312512244.tcb.qcloud.la/assert/image/product/' + this.data.id + '/carousel' + e.currentTarget.dataset.value + '.png',
+      urls: this.data.urls
     })
   },
 

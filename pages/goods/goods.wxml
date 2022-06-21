@@ -4,7 +4,7 @@
 <!-- 轮播图 --> 
 <view>
 <swiper class="lunbo" indicator-dots autoplay="true" interval="3000" circular="true"  style="height: 750rpx;" >
-    <swiper-item wx:for="{{array}}">
+    <swiper-item data-value="{{ index }}" bindtap="click_lunbo" wx:for="{{array}}">
       <image style="width: 100%" mode="widthFix" src="{{'https://7961-yangqu-2gonq20w81d87cfb-1312512244.tcb.qcloud.la/assert/image/product/' + id + '/carousel' + index + '.png'}}"></image>
     </swiper-item>
   </swiper>

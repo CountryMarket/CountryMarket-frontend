@@ -75,6 +75,10 @@ change_currentTab(e) {
       })
       getApp().globalData.goto_tab=e.currentTarget.dataset.value
       this.gettabProducts()
+      wx.pageScrollTo({
+        scrollTop: 0,
+        duration: 0
+      })
     },
     
   changeModel() {
