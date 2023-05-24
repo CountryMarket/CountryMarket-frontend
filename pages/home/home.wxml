@@ -9,13 +9,13 @@
   <!-- 滑动广告栏 -->
   <swiper class="lunbo" indicator-dots autoplay="true" interval="4000" circular="true"  style="height: 370rpx;">
     <swiper-item> 
-      <image class="swiper-picture-item" src="https://7961-yangqu-2gonq20w81d87cfb-1312512244.tcb.qcloud.la/assert/image/homeBar/ppt1.png" bindtap="goto_ljyx"></image>
+      <image class="swiper-picture-item" src="https://country-market-1312128486.cos.ap-shanghai.myqcloud.com/assert/image/homeBar/ppt1.png" bindtap="goto_ljyx"></image>
     </swiper-item>
     <swiper-item>
-      <image class="swiper-picture-item" src="https://7961-yangqu-2gonq20w81d87cfb-1312512244.tcb.qcloud.la/assert/image/homeBar/ppt2.png" bindtap="goto_hnzcpj"></image>
+      <image class="swiper-picture-item" src="https://country-market-1312128486.cos.ap-shanghai.myqcloud.com/assert/image/homeBar/ppt2.png" bindtap="goto_hnzcpj"></image>
     </swiper-item>
     <swiper-item>
-      <image class="swiper-picture-item" src="https://7961-yangqu-2gonq20w81d87cfb-1312512244.tcb.qcloud.la/assert/image/homeBar/ppt3.png" bindtap="goto_kxzh"></image>
+      <image class="swiper-picture-item" src="https://country-market-1312128486.cos.ap-shanghai.myqcloud.com/assert/image/homeBar/ppt3.png" bindtap="goto_kxzh"></image>
     </swiper-item>
   </swiper>
 
@@ -88,7 +88,7 @@
     <view class="box-left">
       <view wx:for="{{ productsLeft }}" wx:key="index" data-value="{{productsLeft[index].Id}}" bindtap="goto_goods" class="item-container">
         <view class="item">
-          <image src="{{'https://7961-yangqu-2gonq20w81d87cfb-1312512244.tcb.qcloud.la/assert/image/product/'+item.Id+'/view.png'}}" style="height: 330rpx;"></image>
+          <image src="{{'https://country-market-1312128486.cos.ap-shanghai.myqcloud.com/assert/image/product/'+item.Id+'/view.png'}}" style="height: 330rpx;"></image>
           <view class="title">{{ stringUtils.subString(item.Title,0,23) }}</view>
           <view class="description">{{ stringUtils.subString(item.Description,0,48) }}</view>
           <view class="price-container">
@@ -102,7 +102,7 @@
     <view class="box-right">
       <view wx:for="{{ productsRight }}" wx:key="index" data-value="{{productsRight[index].Id}}"bindtap="goto_goods" class="item-container">
         <view class="item">
-          <image src="{{'https://7961-yangqu-2gonq20w81d87cfb-1312512244.tcb.qcloud.la/assert/image/product/'+item.Id+'/view.png'}}" style="height: 330rpx;"></image>
+          <image src="{{'https://country-market-1312128486.cos.ap-shanghai.myqcloud.com/assert/image/product/'+item.Id+'/view.png'}}" style="height: 330rpx;"></image>
           <view class="title">{{ stringUtils.subString(item.Title,0,23) }}</view>
           <view class="description">{{ stringUtils.subString(item.Description,0,32) }}</view>
           <view class="price-container">
