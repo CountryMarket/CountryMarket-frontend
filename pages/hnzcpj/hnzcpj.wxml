@@ -1,5 +1,5 @@
 <view style="margin: 10rpx; padding: 20rpx; border-radius: 30rpx; background-color: white; margin-bottom: 20rpx; padding-bottom: 30rpx;">
-    <image src="https://7961-yangqu-2gonq20w81d87cfb-1312512244.tcb.qcloud.la/assert/image/picture/20220531-1.jpg" mode="widthFix" style="width: 100%; border-radius: 20rpx; margin-bottom: 15rpx;"></image>
+    <image src="https://country-market-1312128486.cos.ap-shanghai.myqcloud.com/assert/image/picture/20220531-1.jpg" mode="widthFix" style="width: 100%; border-radius: 20rpx; margin-bottom: 15rpx;"></image>
 
 <text decode="{{true}}"><text style="font-size: 40rpx; font-weight: 600; color: #33cc99;">一、种粮补贴\n</text>
 &nbsp;&nbsp;&nbsp;1、耕地地力保护补贴。这项惠农政策是老政策的延续，全国各地补贴标准不尽相同，安徽省亳州市2021年为68.58元/亩。\n

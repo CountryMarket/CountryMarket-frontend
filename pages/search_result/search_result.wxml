@@ -15,7 +15,7 @@
 <view wx:else>
     <view wx:for="{{products}}" bindtap="goto_goods" data-value="{{index}}">
             <view style="display: flex; margin-top: 20rpx; margin-bottom: 20rpx;">
-                <image src="{{'https://7961-yangqu-2gonq20w81d87cfb-1312512244.tcb.qcloud.la/assert/image/product/'+item.Id+'/view.png'}}" style="height: 200rpx; width: 200rpx; border-radius: 30rpx;"></image>
+                <image src="{{'https://country-market-1312128486.cos.ap-shanghai.myqcloud.com/assert/image/product/'+item.Id+'/view.png'}}" style="height: 200rpx; width: 200rpx; border-radius: 30rpx;"></image>
               <view style="width: 480rpx; margin-left: 10rpx; margin-right: 10rpx; margin-top: 5rpx; margin-bottom: 5rpx;">
                 <view style="font-weight: 600; font-size: 30rpx; color: black;">{{stringUtils.subString(item.Title,0,16)}}</view>
                 <view style="font-size: 25rpx; font-weight: 600; color: #a3a3a3; height: 100rpx;">{{stringUtils.subString(item.Description,0,38)}}</view>

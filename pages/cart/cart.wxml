@@ -78,7 +78,7 @@
       </view>
 
       <view class="shop-image">
-          <image src="{{'https://7961-yangqu-2gonq20w81d87cfb-1312512244.tcb.qcloud.la/assert/image/product/'+item.Id+'/view.png'}}"></image>
+          <image src="{{'https://country-market-1312128486.cos.ap-shanghai.myqcloud.com/assert/image/product/'+item.Id+'/view.png'}}"></image>
       </view>
       <view style="display:grid">
           <view wx:if="{{item.Count<=item.Stock}}">

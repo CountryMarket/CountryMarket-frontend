@@ -41,7 +41,7 @@ Page({
             array: [...this.data.array,1]
           })
           this.setData({
-            [`urls[${i}]`]: 'https://7961-yangqu-2gonq20w81d87cfb-1312512244.tcb.qcloud.la/assert/image/product/' + this.data.id + '/carousel' + i + '.png',
+            [`urls[${i}]`]: 'https://country-market-1312128486.cos.ap-shanghai.myqcloud.com/assert/image/product/' + this.data.id + '/carousel' + i + '.png',
           })
         }
         for(let i=0;i<this.data.good_info.DetailPictureNumber;i++) {
@@ -186,7 +186,7 @@ Page({
   click_lunbo(e) {
     console.log(e)
     wx.previewImage({
-      current: 'https://7961-yangqu-2gonq20w81d87cfb-1312512244.tcb.qcloud.la/assert/image/product/' + this.data.id + '/carousel' + e.currentTarget.dataset.value + '.png',
+      current: 'https://country-market-1312128486.cos.ap-shanghai.myqcloud.com/assert/image/product/' + this.data.id + '/carousel' + e.currentTarget.dataset.value + '.png',
       urls: this.data.urls
     })
   },
